@@ -18,12 +18,17 @@ if ($conn->connect_error) {
 }
 
 
-// getVerse(1, 1, 1);
+// getVerse(1, 1, 4);
+// getVerse(1, 14, 5);
 // exit;
 
-$bookId = 41;
+$bookId = 1;
+$chapterId = 1;
+$verseId = 1;
+
+$bookId = 4;
 $chapterId = 7;
-$verseId = 4;
+$verseId = 52;
 
 while (true) { 
     // if ($bookId > 2 && $chapterId > 2) {
@@ -99,11 +104,13 @@ function parseVerse($str) {
     $tokens = [];
     // echo $str;
     $str = preg_replace('/<p>.*?<\/p>/s', '', $str);
-    $str = preg_replace('/<span class="strong strong2">.*?<\/span>/s', '', $str);
     $str = preg_replace('/<a href="#" class="strong strong2" onclick="return chMR.*?<\/a>/s', '', $str);
+    preg_match_all('/<span class="strong strong2">(.*?)<\/span>/s', $str, $matches);
+    $verseStrongNumbers = $matches[1];
+    $str = preg_replace('/<span class="strong strong2">.*?<\/span>/s', '', $str);
     $str = str_replace('</a>', '&&&&&', $str);
     
-    $sourceLang = str_contains($str, "chLXX") || str_contains($str, "chSTR") ? "greek" : "hebrew";
+    $sourceLang = str_contains($str, "chSTR") ? "hebrew" : "greek";
     // $str = preg_replace('/<span class=\"strong strong2\">.*?<\/span>/s', '', $str);
     $str = str_replace('<a href="#" class="strong" onclick="return chSTR(this,\'', '&&&&&', $str);
     $str = str_replace('<a href="#" class="strong" onclick="return chSTR(this, \'', '&&&&&', $str);
@@ -115,21 +122,47 @@ function parseVerse($str) {
     $str = trim(strip_tags($str));
 
     $data = explode('&&&&&', $str);
+
+    $strongIndex = 0;
     
     foreach ($data as $word) {
         if ($word === "") {
             continue;
         }
-        $words = explode('~~~~~', $word);
-        if (count($words) > 1) {
-            $tokens[] = [
-                // "tn" => "|" . trim($words[1]) . "|",
-                "tn" => $words[1],
-                "sn" => $words[0]
-            ];
+        $parts = explode('~~~~~', $word);
+        if (count($parts) > 1) {
+            // $a1 = $verseStrongNumbers[$strongIndex];
+            // $a2 = $parts[0];
+            // if (!($verseStrongNumbers[$strongIndex + 1] ?? false)) {
+            if (count($verseStrongNumbers) <= $strongIndex) {
+                $tokens[] = [
+                    "tn" => $parts[1],
+                    "sn" => $parts[0]
+                ];
+                continue;
+            }
+            if ($verseStrongNumbers[$strongIndex] === $parts[0]) {
+                $tokens[] = [
+                    // "tn" => "|" . trim($parts[1]) . "|",
+                    "tn" => $parts[1],
+                    "sn" => $parts[0]
+                ];
+                $strongIndex++;
+            } else if (($verseStrongNumbers[$strongIndex + 1] ?? false) && $verseStrongNumbers[$strongIndex + 1] !== $parts[0]) {
+                $tokens[] = [
+                    "tn" => $parts[1],
+                    "sn" => $parts[0]
+                ];
+            } else {   
+                $tokens[] = [
+                    "tn" => "",
+                    "sn" => $verseStrongNumbers[$strongIndex]
+                ];
+                $strongIndex+=2;
+            }
         } else {
             $tokens[] = [
-                "tn" => str_replace('  ', ' ', str_replace('  ', ' ', $words[0]))
+                "tn" => str_replace('  ', ' ', str_replace('  ', ' ', $parts[0]))
             ];
 
         }

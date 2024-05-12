@@ -21,7 +21,7 @@ if ($conn->connect_error) {
 // getVerse(1, 1, 1);
 // exit;
 
-$strongNumber = 3;
+$strongNumber = 1527;
 // $strongNumber = 2316;
 
 $type = "g";
@@ -29,14 +29,14 @@ $type = "g";
 $url = $type === "h" ? "https://bible-teka.com/i/php/strong.php?heb=" : "https://bible-teka.com/i/php/strong.php?greek=";
 $max = $type === "h" ? 8675 : 5625;
 
-for ($i=1; $i < $max; $i++) {
-    echo $i . "\n";
-    getConcordance($i);
-}
+// for ($i=1; $i < $max; $i++) {
+//     echo $i . "\n";
+//     getConcordance($i);
+// }
 
-// echo $strongNumber . "\n";
-// getConcordance($strongNumber);
-// $strongNumber++;
+echo $strongNumber . "\n";
+getConcordance($strongNumber);
+$strongNumber++;
 
 // Close the connection
 $conn->close();
@@ -83,6 +83,9 @@ function parseGreek($strongNumber, $html) {
     $data["pos"] = trim(substr($html->find('div', 2)->innertext, 46));
     $data["e"] = trim(substr($html->find('div', 3)->innertext, 48));
     $data["desc"] = trim(substr($html->find('div', 4)->innertext, 44));
+    if (!mb_check_encoding($data["desc"], 'UTF-8')) {
+        return;
+    }
     $data["ota"] = $html->find('div', 5)->innertext;
     
     $ss = $html->find('div', 1)->innertext;
