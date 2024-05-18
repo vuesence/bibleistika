@@ -14,7 +14,6 @@ let metaDataCallback = () => {};
 const responseInterceptors = [];
 
 const jsonrpc = {
-
   addResponseInterceptor(interceptor) {
     responseInterceptors.push(interceptor);
   },
@@ -24,7 +23,6 @@ const jsonrpc = {
   setMetaDataCallback(_metaDataCallback) {
     metaDataCallback = _metaDataCallback;
   },
-
 };
 
 /**
@@ -36,7 +34,7 @@ const jsonrpc = {
  */
 async function jsonRpc(
   payload: JsonRpcPayload | Array<JsonRpcPayload>,
-  options?: JsonRpcPayloadOptions,
+  options?: JsonRpcPayloadOptions
 ) {
   let data: JsonRpcRequestMessage | Array<JsonRpcRequestMessage>;
   // const auth = useAuth();
@@ -86,7 +84,7 @@ async function jsonRpc(
  */
 function buildRequestMessage(
   payload: JsonRpcPayload,
-  options?: JsonRpcPayloadOptions,
+  options?: JsonRpcPayloadOptions
 ): JsonRpcRequestMessage {
   const message: JsonRpcRequestMessage = {
     jsonrpc: "2.0",
@@ -115,15 +113,13 @@ function buildRequestMessage(
  */
 function buildUri(
   payload: JsonRpcPayload | Array<JsonRpcPayload>,
-  options?: JsonRpcPayloadOptions,
+  options?: JsonRpcPayloadOptions
 ) {
   if (options?.uri) {
     return options?.uri;
   }
   if (Array.isArray(payload)) {
-    return (
-      `batch[${payload.map((p: JsonRpcPayload) => p.method).join("+")}]`
-    );
+    return `batch[${payload.map((p: JsonRpcPayload) => p.method).join("+")}]`;
   } else {
     return payload.method.replace(".", "/");
   }

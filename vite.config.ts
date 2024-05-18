@@ -7,15 +7,12 @@ import { htmlInjectionConfig } from "./src/utils/injections/injection-config";
 // import { URL, fileURLToPath } from "node:url";
 // https://vitejs.dev/config/
 export default defineConfig({
-    // base: "/strongs-bible/",
+  // base: "/strongs-bible/",
   // base: "/vue-webapp/",
   build: {
     target: "esnext",
   },
-  plugins: [
-    vue(),
-    htmlInjectionPlugin(htmlInjectionConfig),
-  ],
+  plugins: [vue(), htmlInjectionPlugin(htmlInjectionConfig)],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

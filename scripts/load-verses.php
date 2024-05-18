@@ -19,15 +19,15 @@ if ($conn->connect_error) {
 
 
 // getVerse(1, 1, 4);
-// getVerse(1, 14, 5);
+// getVerse(66, 22, 21);
 // exit;
 
 $bookId = 1;
 $chapterId = 1;
 $verseId = 1;
 
-$bookId = 4;
-$chapterId = 7;
+$bookId = 11;
+$chapterId = 8;
 $verseId = 52;
 
 while (true) { 
@@ -82,9 +82,11 @@ function getVerse($bookId, $chapterId, $verseId) {
         }
         $translations[] = [
             "title" => $title,
-            "sourceLang" => $verse["sourceLang"],
+            "sourceLang" => $bookId < 40 && ($title !== "Септуагинта") ? "H" : "G",
             "text" => $verse["text"],
-            "tokens" => $verse["tokens"],
+            "strongNumbers" => $verse["strongNumbers"],
+            "tokens" => $verse["tokens2"],
+            // "tokens" => $verse["tokens"],
         ];
     }
 
@@ -93,7 +95,7 @@ function getVerse($bookId, $chapterId, $verseId) {
     // break;
     saveVerse($bookId, $chapterId, $verseId, 
         json_encode($translations, JSON_UNESCAPED_UNICODE), 
-        // "aa 7", 
+        $translations[0]["text"], 
         $rawData
     );
     return true;
@@ -102,6 +104,7 @@ function getVerse($bookId, $chapterId, $verseId) {
 
 function parseVerse($str) {
     $tokens = [];
+    $tokens2 = [];
     // echo $str;
     $str = preg_replace('/<p>.*?<\/p>/s', '', $str);
     $str = preg_replace('/<a href="#" class="strong strong2" onclick="return chMR.*?<\/a>/s', '', $str);
@@ -110,7 +113,7 @@ function parseVerse($str) {
     $str = preg_replace('/<span class="strong strong2">.*?<\/span>/s', '', $str);
     $str = str_replace('</a>', '&&&&&', $str);
     
-    $sourceLang = str_contains($str, "chSTR") ? "hebrew" : "greek";
+    // $sourceLang = str_contains($str, "str-greek") ? "greek" : "hebrew";
     // $str = preg_replace('/<span class=\"strong strong2\">.*?<\/span>/s', '', $str);
     $str = str_replace('<a href="#" class="strong" onclick="return chSTR(this,\'', '&&&&&', $str);
     $str = str_replace('<a href="#" class="strong" onclick="return chSTR(this, \'', '&&&&&', $str);
@@ -125,45 +128,57 @@ function parseVerse($str) {
 
     $strongIndex = 0;
     
+    $delimiter = "₋";
     foreach ($data as $word) {
         if ($word === "") {
             continue;
         }
         $parts = explode('~~~~~', $word);
+        // echo $word . "\n";
         if (count($parts) > 1) {
             // $a1 = $verseStrongNumbers[$strongIndex];
             // $a2 = $parts[0];
             // if (!($verseStrongNumbers[$strongIndex + 1] ?? false)) {
+                // echo $parts[1] . " - " . $parts[0] . "\n";
             if (count($verseStrongNumbers) <= $strongIndex) {
                 $tokens[] = [
                     "tn" => $parts[1],
                     "sn" => $parts[0]
                 ];
+                $tokens2[] = $parts[1] . $delimiter . $parts[0];
                 continue;
             }
+            // echo $verseStrongNumbers[$strongIndex] . " ---- " . $parts[0] . "\n";
             if ($verseStrongNumbers[$strongIndex] === $parts[0]) {
                 $tokens[] = [
                     // "tn" => "|" . trim($parts[1]) . "|",
                     "tn" => $parts[1],
                     "sn" => $parts[0]
                 ];
+                $tokens2[] = $parts[1] . $delimiter . $parts[0];
                 $strongIndex++;
             } else if (($verseStrongNumbers[$strongIndex + 1] ?? false) && $verseStrongNumbers[$strongIndex + 1] !== $parts[0]) {
                 $tokens[] = [
                     "tn" => $parts[1],
                     "sn" => $parts[0]
                 ];
+                $tokens2[] = $parts[1] . $delimiter . $parts[0];
             } else {   
                 $tokens[] = [
                     "tn" => "",
                     "sn" => $verseStrongNumbers[$strongIndex]
                 ];
+                $tokens2[] = $delimiter . $verseStrongNumbers[$strongIndex];
+                $tokens2[] = " ";
+                $tokens2[] = $parts[1] . $delimiter . $parts[0];
+                // $tokens2[] = $delimiter . $verseStrongNumbers[$strongIndex];
                 $strongIndex+=2;
             }
         } else {
             $tokens[] = [
                 "tn" => str_replace('  ', ' ', str_replace('  ', ' ', $parts[0]))
             ];
+            $tokens2[] = preg_replace('/\s+/', ' ', $parts[0]);
 
         }
     }
@@ -174,26 +189,30 @@ function parseVerse($str) {
         return $carry . $item["tn"];
     });
     $verse["tokens"] = $tokens;
-    $verse["sourceLang"] = $sourceLang;
+    $verse["strongNumbers"] = $verseStrongNumbers;
+    $verse["tokens2"] = implode("🞍", $tokens2);
+    // $verse["sourceLang"] = $sourceLang;
     // $verse["string"] = $str;
     return $verse;
 }
 
-function saveVerse($bookId, $chapterId, $verseId, $translations, $rawLoadedData) {
+function saveVerse($bookId, $chapterId, $verseId, $translations, $text, $rawLoadedData) {
     global $conn;
     // Escape the values
     $bookId = mysqli_real_escape_string($conn, $bookId);
     $chapterId = mysqli_real_escape_string($conn, $chapterId);
     $verseId = mysqli_real_escape_string($conn, $verseId);
     $translations = mysqli_real_escape_string($conn, $translations);
+    $text = mysqli_real_escape_string($conn, $text);
     $rawLoadedData = mysqli_real_escape_string($conn, $rawLoadedData);
 
     // Insert statement
+    $vid = implode(':', [$bookId, $chapterId, $verseId]);
     $sql = "INSERT 
-        INTO verses (bookId, chapterId, verseId, translations, rawLoadedData) 
-        VALUES ('$bookId', '$chapterId', '$verseId', '$translations', '$rawLoadedData')
+        INTO verses (vid, bookId, chapterId, verseId, translations, text, rawLoadedData) 
+        VALUES ('$vid', '$bookId', '$chapterId', '$verseId', '$translations', '$text', '$rawLoadedData')
         ON DUPLICATE KEY UPDATE    
-            translations='$translations', rawLoadedData='$rawLoadedData'";
+            translations='$translations', text='$text', rawLoadedData='$rawLoadedData'";
 
     // Execute the statement
     if ($conn->query($sql) === TRUE) {

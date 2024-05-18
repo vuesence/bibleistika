@@ -10,15 +10,14 @@ import { router } from "./router";
 import { loadIcons } from "@/utils/icons";
 import { initAppearance } from "@/composables/useAppConfig";
 import { api } from "@/services/api";
-import { loadStrongsConcordance } from "@/strongs-concordance/dict";
+import { loadStrongsConcordance } from "@/bible/strongs-concordance";
 
 const app = createApp(App);
 app.use(router);
 loadIcons();
 initAppearance();
 api.init();
-loadStrongsConcordance();
 
-await Promise.all([router.isReady()]);
+await Promise.all([router.isReady(), loadStrongsConcordance()]);
 
 app.mount("#app");

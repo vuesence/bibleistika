@@ -1,22 +1,10 @@
-import http from "./http";
-// import { jsonRpc } from "./jsonrpc";
+import http from "./http/http";
 
 const strongsConcordance = {
-  async loadHebrew() {
+  async load() {
     const response = await http.get("/strongs-dictionary.txt", true);
-    const data = await response.text();
-    return data;
+    return await response.text();
   },
-
-  // async testJsonRpc() {
-  //   return jsonRpc(
-  //     {
-  //       method: "getBestBlockHash",
-  //       params: {},
-  //     },
-  //     { uri: "https://seed-1.testnet.networks.dash.org:1443/" }
-  //   );
-  // },
 };
 
 export default strongsConcordance;

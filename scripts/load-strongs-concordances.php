@@ -60,7 +60,7 @@ function parseHebrew($strongNumber, $html) {
     $data["tr"] = trim(substr($lines[1], 55));
     $data["pr"] = trim(substr($lines[2], 51 ,-6));
     $data["desc"] = $html->find('div', 2)->innertext;
-    $data["f"] = trim($html->find('div', 1)->find("strong", -1)->innertext);
+    $data["f"] = +trim($html->find('div', 1)->find("strong", -1)->innertext);
     
     // exit;
     print_r($data);

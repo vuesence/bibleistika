@@ -1,15 +1,17 @@
 // import auth from "./auth";
-import utils from "./utils";
-import { authInterceptor, notificationInterceptor } from "./interceptors";
-import jsonrpc from "./jsonrpc";
-import http from "./http";
+// import utils from "./http/utils";
+import verses from "./verses";
+import { notificationInterceptor } from "./http/interceptors";
+import jsonrpc from "./http/jsonrpc";
+import http from "./http/http";
 
 // import { useAuth } from "@/user-account/composables/useAuth";
 
 // const auth: any = null;
 
 const api = {
-  utils,
+  // utils,
+  verses,
   http,
   init() {
     http.setOptions({

@@ -1,0 +1,42 @@
+[
+    {
+        "type": "File",
+        "name": "/home/altay/src/vuesence/strong-bible/src/views/VerseView.vue",
+        "parent_id": null,
+        "workspaceRoot": "/home/altay/src/vuesence/strong-bible",
+        "workspacePath": "src/views/VerseView.vue",
+        "id": "GnLpBQD6vbS3q14w"
+    },
+    {
+        "type": "File",
+        "name": "/home/altay/src/vuesence/strong-bible/src/components/WordDescription.vue",
+        "parent_id": null,
+        "workspaceRoot": "/home/altay/src/vuesence/strong-bible",
+        "workspacePath": "src/components/WordDescription.vue",
+        "id": "AfFOzqRtsvjgpK1D"
+    },
+    {
+        "type": "File",
+        "name": "/home/altay/src/vuesence/strong-bible/src/components/VerseToken.vue",
+        "parent_id": null,
+        "workspaceRoot": "/home/altay/src/vuesence/strong-bible",
+        "workspacePath": "src/components/VerseToken.vue",
+        "id": "bQfmi53NxSnBykcd"
+    },
+    {
+        "type": "File",
+        "name": "/home/altay/src/vuesence/strong-bible/src/index.d.ts",
+        "parent_id": null,
+        "workspaceRoot": "/home/altay/src/vuesence/strong-bible",
+        "workspacePath": "src/index.d.ts",
+        "id": "L6BERPzNAInKM5dj"
+    },
+    {
+        "type": "File",
+        "name": "/home/altay/src/vuesence/strong-bible/src/router/routes.ts",
+        "parent_id": null,
+        "workspaceRoot": "/home/altay/src/vuesence/strong-bible",
+        "workspacePath": "src/router/routes.ts",
+        "id": "norlVhQixeuf6m30"
+    }
+]

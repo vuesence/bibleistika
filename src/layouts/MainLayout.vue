@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import AppContentPane from "@/components/AppContentPane.vue";
 
-import AppNavigationDrawer from "@/components/TouchSlideoutDrawer.vue";
-import AppSidebar from "@/components/AppNavbar.vue";
+// import AppNavigationDrawer from "@/components/TouchSlideoutDrawer.vue";
+// import AppSidebar from "@/components/AppNavbar.vue";
 import AppHeader from "@/components/AppHeader.vue";
 import AppFooter from "@/components/AppFooter.vue";
-import { useAppConfig } from "@/composables/useAppConfig";
+// import { useAppConfig } from "@/composables/useAppConfig";
 
-const { isDrawerOpen } = useAppConfig();
+// const { isDrawerOpen } = useAppConfig();
 </script>
 
 <template>
@@ -15,9 +15,9 @@ const { isDrawerOpen } = useAppConfig();
     <AppHeader />
 
     <div class="main-pane">
-      <AppNavigationDrawer v-model="isDrawerOpen">
+      <!-- <AppNavigationDrawer v-model="isDrawerOpen">
         <AppSidebar />
-      </AppNavigationDrawer>
+      </AppNavigationDrawer> -->
 
       <AppContentPane />
     </div>

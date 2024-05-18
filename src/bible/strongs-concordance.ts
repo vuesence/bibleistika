@@ -1,13 +1,13 @@
 import strongsConcordance from "../services/api/strongs-concordance";
 
-const dict: Map<string, object> = new Map();
+const dict: Map<string, StrongsConcordance> = new Map();
 
-export function get(key: string) {
+export function getStrongsConcordance(key: string) {
   return dict.get(key);
 }
 
 export async function loadStrongsConcordance() {
-  const data = await strongsConcordance.loadHebrew();
+  const data = await strongsConcordance.load();
   const lines = data.split("\n");
   for (const line of lines) {
     const cols = line.split("¡");
@@ -16,6 +16,7 @@ export async function loadStrongsConcordance() {
       tr: cols[2],
       pr: cols[3],
       desc: cols[4],
+      // desc: cols[4]?.replaceAll("<br>", "\n"),
       f: cols[5],
     });
   }
