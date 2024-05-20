@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, ref } from "vue";
+import { computed } from "vue";
 import BaseToggle from "./BaseToggle.vue";
 import BaseIcon from "@/components/ui/BaseIcon.vue";
 import { useAppConfig } from "@/composables/useAppConfig";

@@ -12,7 +12,7 @@ const utils = {
         method: "getBestBlockHash",
         params: {},
       },
-      { uri: "https://seed-1.testnet.networks.dash.org:1443/" }
+      { uri: "https://seed-1.testnet.networks.dash.org:1443/" },
     );
   },
 };

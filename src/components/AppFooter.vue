@@ -2,7 +2,7 @@
 import BaseIcon from "@/components/ui/BaseIcon.vue";
 
 const links = [
-  { title: "Contact", route: { name: "contacts" } },
+  // { title: "Contact", route: { name: "contacts" } },
   { title: "Privacy", route: { name: "about" } },
   { title: "Blog", route: { name: "about" } },
   { title: "Store", route: { name: "about" } },

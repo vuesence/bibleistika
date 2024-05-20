@@ -1,12 +1,6 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
-import { getStrongsConcordance } from "../bible/strongs-concordance";
-// import type { Token } from "@/index.d";
-
-// interface Token {
-//   tn: string;
-//   sn?: string;
-// }
+import SCDict from "../models/StrongsConcordanceDict";
 
 const props = defineProps({
   sn: {
@@ -14,15 +8,11 @@ const props = defineProps({
     default: null,
   },
 });
-
 </script>
 
 <template>
-  <div class="word-desc" v-if="props.sn">
-    <!-- <div class="token">
-      hello wd - {{ props.sn }}
-    </div> -->
-    <p class="desc" v-html="getStrongsConcordance(props.sn).desc">
+  <div v-if="props.sn" class="word-desc">
+    <p class="desc" v-html="SCDict.get(props.sn).desc">
     </p>
   </div>
 </template>

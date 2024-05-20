@@ -1,9 +1,9 @@
 import type { RouteRecordRaw } from "vue-router";
-// import HomeView from "@/views/HomeView.vue";
 import VerseView from "@/views/VerseView.vue";
-import WordDescription from "@/components/WordDescription.vue";
+import WordView from "@/views/WordView.vue";
+// import WordDescription from "@/components/WordDescription.vue";
 import AboutView from "@/views/AboutView.vue";
-import ContactsView from "@/views/ContactsView.vue";
+// import ContactsView from "@/views/ContactsView.vue";
 
 const routes: RouteRecordRaw[] = [
   {
@@ -13,21 +13,22 @@ const routes: RouteRecordRaw[] = [
     // component: HomeView,
   },
   {
-    path: "/verse/:id",
+    path: "/verse/:vid",
     props: true,
     name: "verse",
     component: VerseView,
   },
   {
-    path: "/verse/:id/:sn",
+    path: "/verse/:vid/:sn",
     props: true,
     name: "verse-word",
     component: VerseView,
   },
   {
-    path: "/contacts",
-    name: "contacts",
-    component: ContactsView,
+    path: "/word/:sn",
+    props: true,
+    name: "word",
+    component: WordView,
   },
   {
     path: "/about",

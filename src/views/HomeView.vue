@@ -1,37 +1,22 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
-import { api } from "@/services/api";
+import { onMounted } from "vue";
+// import { api } from "@/services/api";
 
+// interface IOption {
+//   name: string
+//   value: string
+// }
 
-interface IOption {
-  name: string
-  value: string
-}
-
-const apiData = ref();
+// const apiData = ref();
 
 onMounted(async () => {
-  apiData.value = await api.utils.testRest();
+  // apiData.value = await api.utils.testRest();
 });
-
-const options: IOption[] = [{ name: "Project name", value: "strongs-bible" }, { name: "Splash screen", value: "true" }, { name: "PWA", value: "true" }, { name: "Open graph meta tags", value: "true" }, { name: "Google Analytics", value: "false" }, { name: "Github Actions Workflow", value: "true" }, { name: "App Layout", value: "MainLayout" }, { name: "Navigation drawer", value: "TouchSlideoutDrawer" }, { name: "Navbar", value: "MantineSimpleNavbar" }, { name: "Header", value: "MantineSimpleHeader" }, { name: "Footer", value: "MantineSimpleFooter" }, { name: "undefined", value: "false" }, { name: "REST API adapter", value: "true" }, { name: "JSON-RPC", value: "false" }];
 </script>
 
 <template>
   <div>
     <h2>Congratulations with scaffolding your vue webapp!</h2>
-    <h3 v-if="options.length">
-      Selected options:
-    </h3>
-    <ul>
-      <li v-for="option in options" :key="option.name" :class="{ dimmed: option.value === 'false' }">
-        <span class="name">{{ option.name }}</span>
-        <span class="value">{{ option.value }}</span>
-      </li>
-    </ul>
-    <hr />
-    <h3>API data:</h3>
-    <p>{{ apiData }}</p>
   </div>
 </template>
 

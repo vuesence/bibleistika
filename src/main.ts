@@ -10,7 +10,9 @@ import { router } from "./router";
 import { loadIcons } from "@/utils/icons";
 import { initAppearance } from "@/composables/useAppConfig";
 import { api } from "@/services/api";
-import { loadStrongsConcordance } from "@/bible/strongs-concordance";
+import SCDict from "@/models/StrongsConcordanceDict";
+
+await SCDict.load();
 
 const app = createApp(App);
 app.use(router);
@@ -18,6 +20,7 @@ loadIcons();
 initAppearance();
 api.init();
 
-await Promise.all([router.isReady(), loadStrongsConcordance()]);
+await Promise.all([router.isReady()]);
+// await Promise.all([router.isReady(), loadStrongsConcordance()]);
 
 app.mount("#app");

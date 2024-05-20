@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { PropType } from 'vue'
+// import type { PropType } from 'vue'
 import { defineProps } from "vue";
-// import type { Token } from "@/index.d";
+import { VerseToken } from "@/models/VerseToken";
 
 // interface Token {
 //   tn: string;
@@ -10,23 +10,22 @@ import { defineProps } from "vue";
 
 const props = defineProps({
   token: {
-    type: Object as PropType<Token>,
+    type: VerseToken,
     required: true,
   },
 });
-
 </script>
 
 <template>
   <div class="token">
     <span class="text">
-      {{ props.token.tn ?? 'nbsp' }}
+      {{ props.token.tr ?? 'nbsp' }}
     </span>
     <span v-if="props.token.sn" class="strongs-number">
       {{ props.token.sn }}
     </span>
     <span class="original-text">
-      {{ props.token.originalWord }}
+      {{ props.token.ow }}
     </span>
   </div>
 </template>

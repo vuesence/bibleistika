@@ -3,10 +3,10 @@
 // import HttpRequest from "./xhr";
 
 interface IOptions {
-  baseUrl: string;
-  headers?: Record<string, string>;
-  token?: Function;
-  logout?: Function;
+  baseUrl: string
+  headers?: Record<string, string>
+  token?: Function
+  logout?: Function
 }
 
 let options: IOptions = { baseUrl: "/" };
@@ -31,7 +31,7 @@ const http = {
       if (raw) {
         return fetch(url);
       } else {
-        return fetch(url).then((response) => response.json());
+        return fetch(url).then(response => response.json());
       }
     } catch (error) {
       console.log(error);
@@ -46,7 +46,7 @@ async function postFetch(data: any, uri: string) {
     headers: options.headers,
     // credentials: "include",
     body: JSON.stringify(data),
-  }).then((response) => response.json());
+  }).then(response => response.json());
 }
 
 // Uncomment, if you are using `XMLHttpRequest`

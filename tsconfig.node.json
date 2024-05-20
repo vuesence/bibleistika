@@ -1,15 +1,15 @@
 {
   "compilerOptions": {
     "composite": true,
-    "skipLibCheck": true,
     "module": "ESNext",
     "moduleResolution": "bundler",
+    "strict": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true
+    "skipLibCheck": true
   },
   // "include": ["vite.config.ts"]
   "include": [
     "vite.config.ts",
     "./src/utils/injections/injection-config.ts"
-  ],
+  ]
 }

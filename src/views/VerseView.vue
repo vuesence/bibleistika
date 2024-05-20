@@ -1,60 +1,68 @@
 <script setup lang="ts">
-import WordDescription from '../components/WordDescription.vue'
-import VerseToken from '../components/VerseToken.vue'
-import { ref, onMounted } from "vue";
-import { getVerse } from "@/bible/verses";
-import { router } from '@/router';
-import { parseVerseId } from "@/utils/verses";
-import { books } from "@/bible/books";
+import { onMounted, ref, watch } from "vue";
+import WordOccurrence from "../components/WordOccurrence.vue";
+import VerseHeader from "../components/VerseHeader.vue";
+import WordDescription from "../components/WordDescription.vue";
+import VerseToken from "../components/VerseToken.vue";
+import type { Verse } from "@/models/Verse";
+import { getVerse } from "@/models/VerseLibrary";
+import { router } from "@/router";
 // import verses from "@/services/api/verses";
 
 const props = defineProps({
-  id: {
+  vid: {
     type: String,
-    default: "1-1-1"
+    default: "1:1:1",
   },
+  // showVerse: {
+  //   type: Boolean,
+  //   default: true
+  // },
   sn: {
     type: String,
-    // default: "1-1-1"
+    // default: "1:1:1",
   },
 });
+console.debug("VerseView props:", props);
 
-
-
-// const text = ref("");
+// const verse = ref();
 const verse = ref<Verse>();
+watch(
+  () => props.vid,
+  async (newVid) => {
+    verse.value = await getVerse(newVid);
+  },
+  { immediate: true },
+);
 
 function displayWord(sn: string) {
-  router.push({ name: 'verse-word', params: { id: props.id, sn } })
+  router.push({ name: "verse-word", params: { vid: props.vid, sn } });
 }
 
-onMounted(async () => {
-  verse.value = await getVerse(props.id);
-  console.log(props);
-
-  // text.value = await verses.get([props.bookId, props.chapterId, props.verseId].join("-"));
-})
+// onMounted(async () => {
+// });
 </script>
+
 <template>
   <div>
-    <h2>Синодальный текст / {{ books[parseVerseId(props.id).bookId] }} 1: 1 </h2>
-    <!-- <p>
-      {{ verse.tokens }}
-    </p> -->
+    <VerseHeader :vid="props.vid" />
 
-    <div class="verse" v-if="verse">
-      <VerseToken v-for="(token, index) in verse.tokens" :key="index" :token="token" @click="displayWord(token.sn)" />
+    <div v-if="verse" class="verse">
+      <VerseToken
+        v-for="(token, index) in verse.tokens"
+        :key="index"
+        :token="token" @click="displayWord(token.sn)"
+      />
     </div>
 
     <Transition mode="out-in">
-      <WordDescription :sn="props.sn" class="word-desc" :key="props.sn" />
+      <WordDescription v-if="props.sn" :key="props.sn" :sn="props.sn" class="word-desc" />
     </Transition>
 
     <Transition mode="out-in">
-      <WordOccurrence :sn="props.sn" class="word-desc" :key="props.sn" />
+      <WordOccurrence v-if="props.sn" :key="props.sn" :sn="props.sn" class="occurrence" />
     </Transition>
     <!-- <router-view /> -->
-
   </div>
 </template>
 

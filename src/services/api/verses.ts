@@ -2,12 +2,13 @@ import http from "./http/http";
 // import { jsonRpc } from "./jsonrpc";
 
 const verses = {
-  async getVerse(id: string) {
-    const [bookId, chapterId, verseId] = id.split("-");
+  async load(vid: string) {
+    const [bookId, chapterId, verseId] = vid.split(":");
     const data = await http.get(
-      `http://192.168.1.101/api/verse/?bookId=${bookId}&chapterId=${chapterId}&verseId=${verseId}`
+      `http://192.168.1.101/api/verse/?
+        bookId=${bookId}&chapterId=${chapterId}&verseId=${verseId}`
     );
-    console.log(data);
+    console.debug("loaded verse:", data);
 
     // const data = await response.text();
     return data;

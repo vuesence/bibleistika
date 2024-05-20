@@ -6,7 +6,7 @@ const form = ref({ name: "", email: "", message: "", check: "" });
 
 async function submitForm() {
   submit.value.setAttribute("disabled", true);
-  alert("This form does not work. Please use GitHub Issues and Feature requests instead.");
+  alert("This form does not work..");
   //   if (form.value.check === "vue") {
   //     // const res = await sendMessage(form);
   //     // if (res) {

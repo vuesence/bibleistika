@@ -2,11 +2,11 @@ import strongsConcordance from "../services/api/strongs-concordance";
 
 const dict: Map<string, StrongsConcordance> = new Map();
 
-export function getStrongsConcordance(key: string) {
+export function get(key: string) {
   return dict.get(key);
 }
 
-export async function loadStrongsConcordance() {
+export async function load() {
   const data = await strongsConcordance.load();
   const lines = data.split("\n");
   for (const line of lines) {
@@ -25,3 +25,5 @@ export async function loadStrongsConcordance() {
   //   dict.get(key);
   // }
 }
+
+export default { get, load };
