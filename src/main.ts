@@ -10,9 +10,9 @@ import { router } from "./router";
 import { loadIcons } from "@/utils/icons";
 import { initAppearance } from "@/composables/useAppConfig";
 import { api } from "@/services/api";
-import SCDict from "@/models/StrongsConcordanceDict";
+import { useStrongsConcordance } from "@/composables/useStrongsConcordance";
 
-await SCDict.load();
+useStrongsConcordance().load();
 
 const app = createApp(App);
 app.use(router);

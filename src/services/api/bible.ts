@@ -1,8 +1,8 @@
 import http from "./http/http";
 // import { jsonRpc } from "./jsonrpc";
 
-const verses = {
-  async load(vid: string) {
+const bible = {
+  async loadVerse(vid: string) {
     const [bookId, chapterId, verseId] = vid.split(":");
     const data = await http.get(
       `http://192.168.1.101/api/verse/?
@@ -13,6 +13,13 @@ const verses = {
     // const data = await response.text();
     return data;
   },
+
+  async loadStrongsConcordance() {
+    const response = await http.get("/strongs-dictionary.txt", true);
+    return await response.text();
+  },
+  
 };
 
-export default verses;
+
+export default bible;

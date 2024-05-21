@@ -19,16 +19,16 @@ if ($conn->connect_error) {
 
 
 // getVerse(1, 1, 4);
-// getVerse(66, 22, 21);
+// getVerse(3, 1, 15);
 // exit;
 
 $bookId = 1;
 $chapterId = 1;
 $verseId = 1;
 
-$bookId = 11;
-$chapterId = 8;
-$verseId = 52;
+$bookId = 20;
+$chapterId = 30;
+$verseId = 19;
 
 while (true) { 
     // if ($bookId > 2 && $chapterId > 2) {
@@ -58,6 +58,11 @@ function getVerse($bookId, $chapterId, $verseId) {
     
     // $html = file_get_html('http://www.google.com/');
     $html = file_get_html("https://bible-teka.com/strong/" . $bookId . "/" . $chapterId . "/" . $verseId);
+
+    if (!$html) {
+        sleep(10);
+        $html = file_get_html("https://bible-teka.com/strong/" . $bookId . "/" . $chapterId . "/" . $verseId);
+    }
 
     if (str_contains($html->outertext, "Мы не нашли")) {
         return false;

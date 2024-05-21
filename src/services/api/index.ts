@@ -1,6 +1,6 @@
 // import auth from "./auth";
 // import utils from "./http/utils";
-import verses from "./verses";
+import bible from "./bible";
 import { notificationInterceptor } from "./http/interceptors";
 import jsonrpc from "./http/jsonrpc";
 import http from "./http/http";
@@ -11,7 +11,7 @@ import http from "./http/http";
 
 const api = {
   // utils,
-  verses,
+  bible,
   http,
   init() {
     http.setOptions({

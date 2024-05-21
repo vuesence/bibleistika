@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
-import SCDict from "../models/StrongsConcordanceDict";
+// import { StrongsConcordance } from "../models/StrongsConcordance";
 
 const props = defineProps({
-  sn: {
-    type: String,
+  sc: {
+    type: Object as () => StrongsConcordance,
     default: null,
   },
 });
@@ -12,8 +12,8 @@ const props = defineProps({
 
 <template>
   <div class="wrapper">
-    <div class="word-desc">
-      <p class="desc" v-html="SCDict.get(props.sn).desc">
+    <div v-if="sc" class="word-desc">
+      <p class="desc" v-html="sc.desc">
       </p>
     </div>
   </div>

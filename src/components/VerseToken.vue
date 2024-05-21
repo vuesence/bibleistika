@@ -1,16 +1,11 @@
 <script setup lang="ts">
 // import type { PropType } from 'vue'
 import { defineProps } from "vue";
-import { VerseToken } from "@/models/VerseToken";
-
-// interface Token {
-//   tn: string;
-//   sn?: string;
-// }
+// import { VerseToken } from "@/models/VerseToken";
 
 const props = defineProps({
   token: {
-    type: VerseToken,
+    type: Object as () => VerseToken,
     required: true,
   },
 });

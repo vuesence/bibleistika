@@ -1,19 +1,23 @@
-// interface Token {
-//   tn: string;
-//   sn?: string;
-//   originalWord?: string;
-// }
+interface VerseToken {
+  tr: string
+  sn?: string
+  ow?: string
+}
 
-// interface Verse1 {
-//   tokens: Token[];
-//   text: string;
-//   sourceLang: string;
-// }
+interface Verse {
+  data: string
+  vid: string
+  tokens: Token[]
+  text: string
+  sourceLang: string
+  translationTitle: string
+}
 
 interface StrongsConcordance {
+  sn: string
   word: string
   tr: string
   pr: string
   desc: string
-  f: string
+  f: number
 }

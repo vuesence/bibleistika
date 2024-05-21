@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
-import SCDict from "../models/StrongsConcordanceDict";
+import { getSC } from "@/composables/useStrongsConcordance";
 
 const props = defineProps({
   sn: {
@@ -12,7 +12,7 @@ const props = defineProps({
 
 <template>
   <div v-if="props.sn" class="word-desc">
-    <p class="desc" v-html="SCDict.get(props.sn).desc">
+    <p class="desc" v-html="getSC(props.sn).desc">
     </p>
   </div>
 </template>
