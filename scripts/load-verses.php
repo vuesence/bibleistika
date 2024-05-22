@@ -19,8 +19,8 @@ if ($conn->connect_error) {
 
 
 // getVerse(1, 1, 4);
-// getVerse(3, 1, 15);
-// exit;
+getVerse(44,19,21);
+exit;
 
 $bookId = 1;
 $chapterId = 1;

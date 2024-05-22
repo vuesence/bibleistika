@@ -2,7 +2,7 @@
 import { defineProps } from "vue";
 // import { StrongsConcordance } from "../models/StrongsConcordance";
 
-const props = defineProps({
+defineProps({
   sc: {
     type: Object as () => StrongsConcordance,
     default: null,

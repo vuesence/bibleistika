@@ -10,9 +10,9 @@ import { router } from "./router";
 import { loadIcons } from "@/utils/icons";
 import { initAppearance } from "@/composables/useAppConfig";
 import { api } from "@/services/api";
-import { useStrongsConcordance } from "@/composables/useStrongsConcordance";
+import { loadStrongsConcordance } from "@/composables/useStrongsConcordance";
 
-useStrongsConcordance().load();
+loadStrongsConcordance();
 
 const app = createApp(App);
 app.use(router);

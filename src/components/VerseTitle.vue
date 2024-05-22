@@ -1,8 +1,8 @@
 <script setup lang="ts">
 // import { computed } from "vue";
-import { chapterAndVerseId, parseVerseId } from "@/models/bible-helpers";
+import { chapterAndVerseId, getBookName, nextVerseId, prevVerseId }
+  from "@/models/bible-helpers";
 import { router } from "@/router";
-import { getBookName, nextVerseId, prevVerseId } from "@/models/bible-helpers";
 
 const props = defineProps({
   vid: {
@@ -11,20 +11,12 @@ const props = defineProps({
   },
 });
 
-// const chapterAndVerseId
-// = computed(() => props.vid ? props.vid.split(":").slice(1).join(":") : null);
-
 function go(direction: string) {
   if (direction === "next") {
     router.push({ name: "verse", params: { vid: nextVerseId(props.vid) } });
   } else {
     router.push({ name: "verse", params: { vid: prevVerseId(props.vid) } });
   }
-  // const verseId = parseVerseId(props.vid);
-  // const newVerseId
-  //   = `${verseId.bookId}:${verseId.chapterId}:
-  //     ${+verseId.verseId + (direction === "next" ? 1 : -1)}`;
-  // router.push({ name: "verse", params: { vid: newVerseId } });
 }
 </script>
 

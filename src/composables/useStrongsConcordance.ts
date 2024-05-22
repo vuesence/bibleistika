@@ -27,19 +27,7 @@ export function useStrongsConcordance(props) {
     return loaded.value ? getSC(props.sn) : null;
   });
 
-  async function load() {
-    setTimeout(async () => {
-      const data = await api.bible.loadStrongsConcordance();
-      data.split("\n").forEach((line: string) => {
-        rawDict.set(line.substring(0, 5), line.substring(6));
-      });
-      loaded.value = true;
-      // sc.value = getSC(props.vid);
-      rebuildVerse();
-    }, 3000);
-  }
-
-  return { sc, getSC, load, loaded };
+  return { sc, getSC, loaded };
 }
 
 function buildSC(_sn: string, data: string) {
@@ -52,4 +40,16 @@ function buildSC(_sn: string, data: string) {
     desc: cols[3],
     f: +cols[4],
   };
+}
+
+export async function loadStrongsConcordance() {
+  setTimeout(async () => {
+    const data = await api.bible.loadStrongsConcordance();
+    data.split("\n").forEach((line: string) => {
+      rawDict.set(line.substring(0, 5), line.substring(6));
+    });
+    loaded.value = true;
+    // sc.value = getSC(props.vid);
+    rebuildVerse();
+  }, 3000);
 }

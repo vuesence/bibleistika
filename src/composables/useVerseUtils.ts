@@ -34,9 +34,20 @@ export function useVerseUtils(props) {
   return { verse, loadVerse };
 }
 
-function buildVerse(data: any): Verse {
+export async function loadWordOccurrences(sn: string): Promise<Verse[]> {
+  const data = await api.bible.loadWordOccurrences(sn);
+  const verses = [];
+  data.forEach((d) => {
+    const v = buildVerse(d);
+    verseCache.set(v.vid, v);
+    verses.push(v);
+  });
+  return verses;
+}
+
+export function buildVerse(data: any): Verse {
   // const t: string = data.translations[0].tokens;
-  const v: Verse = {};
+  const v: Verse = {} as Verse;
   v.tokens = [];
   data.translations[0].tokens.split("🞍").forEach((token) => {
     const parts = token.split("₋");

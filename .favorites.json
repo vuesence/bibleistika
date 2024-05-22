@@ -41,10 +41,10 @@
     },
     {
         "type": "File",
-        "name": "/home/altay/src/vuesence/strong-bible/src/components/VerseHeader.vue",
+        "name": "/home/altay/src/vuesence/strong-bible/src/components/VerseTitle.vue",
         "parent_id": null,
         "workspaceRoot": "/home/altay/src/vuesence/strong-bible",
-        "workspacePath": "src/components/VerseHeader.vue",
+        "workspacePath": "src/components/VerseTitle.vue",
         "id": "W5MQBIlRosgnjif7"
     }
 ]

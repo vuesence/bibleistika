@@ -1,11 +1,10 @@
 <script setup lang="ts">
-// import { computed, onMounted, ref, watch } from "vue";
-// import WordOccurrence from "../components/WordOccurrence.vue";
-import VerseHeader from "../components/VerseHeader.vue";
+import { computed, onMounted, ref, watch } from "vue";
+import WordOccurrence from "../components/WordOccurrence.vue";
+import VerseTitle from "../components/VerseTitle.vue";
+import VerseText from "../components/VerseText.vue";
 import WordDescription from "../components/WordDescription.vue";
-import VerseToken from "../components/VerseToken.vue";
 import { useVerseUtils } from "../composables/useVerseUtils";
-import { router } from "@/router";
 import { useStrongsConcordance } from "@/composables/useStrongsConcordance";
 
 const props = defineProps({
@@ -21,41 +20,34 @@ const props = defineProps({
 
 const { verse } = useVerseUtils(props);
 const { sc } = useStrongsConcordance(props);
-
-function displayWord(sn: string) {
-  router.push({ name: "verse-word", params: { vid: props.vid, sn } });
-}
+const showOccurrences = ref(false);
 </script>
 
 <template>
   <div>
-    <VerseHeader :vid="props.vid" />
-
-    <div v-if="verse" class="verse">
-      <VerseToken
-        v-for="(token, index) in verse.tokens"
-        :key="index"
-        :token="token" @click="displayWord(token.sn)"
-      />
-    </div>
+    <VerseTitle :vid="props.vid" />
+    <VerseText :vid="props.vid" :verse="verse" />
 
     <Transition mode="out-in">
       <WordDescription v-if="props.sn" :key="props.sn" :sc="sc" class="word-desc" />
     </Transition>
 
-    <!-- <Transition mode="out-in">
-      <WordOccurrence v-if="props.sn" :key="props.sn" :sn="props.sn" class="occurrence" />
-    </Transition> -->
+    <div class="verse">
+      <button
+        class="show-occurrences"
+        @click="showOccurrences = !showOccurrences"
+      >
+        Show Occurrences
+      </button>
+    </div>
+
+    <Transition mode="out-in">
+      <WordOccurrence v-if="showOccurrences" :sn="props.sn" class="occurrence" />
+    </Transition>
   </div>
 </template>
 
 <style scoped>
-.verse {
-  display: flex;
-  flex-wrap: wrap;
-  row-gap: 2em;
-}
-
 .word-desc {
   margin-top: 2em;
 }

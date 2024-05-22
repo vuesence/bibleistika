@@ -8,6 +8,14 @@ const props = defineProps({
     type: Object as () => VerseToken,
     required: true,
   },
+  hideOW: {
+    type: Boolean,
+    default: false,
+  },
+  hideSN: {
+    type: Boolean,
+    default: false,
+  },
 });
 </script>
 
@@ -16,10 +24,10 @@ const props = defineProps({
     <span class="text">
       {{ props.token.tr ?? 'nbsp' }}
     </span>
-    <span v-if="props.token.sn" class="strongs-number">
+    <span v-if="props.token.sn && !hideSN" class="strongs-number">
       {{ props.token.sn }}
     </span>
-    <span class="original-text">
+    <span v-if="!hideOW" class="original-text">
       {{ props.token.ow }}
     </span>
   </div>

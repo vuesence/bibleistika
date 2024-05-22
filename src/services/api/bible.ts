@@ -6,7 +6,7 @@ const bible = {
     const [bookId, chapterId, verseId] = vid.split(":");
     const data = await http.get(
       `http://192.168.1.101/api/verse/?
-        bookId=${bookId}&chapterId=${chapterId}&verseId=${verseId}`
+        bookId=${bookId}&chapterId=${chapterId}&verseId=${verseId}`,
     );
     console.debug("loaded verse:", data);
 
@@ -18,8 +18,11 @@ const bible = {
     const response = await http.get("/strongs-dictionary.txt", true);
     return await response.text();
   },
-  
-};
 
+  async loadWordOccurrences(sn: string) {
+    return await http.get(`http://192.168.1.101/api/verse/word-occurences.php?sn=${sn}`);
+  },
+
+};
 
 export default bible;
