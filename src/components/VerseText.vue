@@ -7,6 +7,10 @@ const props = defineProps({
     type: Object,
     default: null,
   },
+  highlighted: {
+    type: String,
+    default: null,
+  },
   hideOW: {
     type: Boolean,
     default: false,
@@ -26,10 +30,10 @@ function displayWord(sn: string) {
   <div v-if="verse" class="verse">
     <VerseToken
       v-for="(token, index) in verse.tokens"
-      :key="index"
-      :token="token"
+      :key="index" :token="token"
       :hide-o-w="hideOW"
       :hide-s-n="hideSN"
+      :class="{ highlighted: props.highlighted === token.sn }"
       @click="displayWord(token.sn)"
     />
   </div>
@@ -40,6 +44,9 @@ function displayWord(sn: string) {
   display: flex;
   flex-wrap: wrap;
   row-gap: 2em;
+  margin-bottom: 7px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid #f5f5f5;
   .word-occurrences & {
     row-gap: 0;
   }

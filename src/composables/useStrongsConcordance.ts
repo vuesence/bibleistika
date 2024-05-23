@@ -43,13 +43,13 @@ function buildSC(_sn: string, data: string) {
 }
 
 export async function loadStrongsConcordance() {
-  setTimeout(async () => {
-    const data = await api.bible.loadStrongsConcordance();
-    data.split("\n").forEach((line: string) => {
-      rawDict.set(line.substring(0, 5), line.substring(6));
-    });
-    loaded.value = true;
-    // sc.value = getSC(props.vid);
-    rebuildVerse();
-  }, 3000);
+  // setTimeout(async () => {
+  const data = await api.bible.loadStrongsConcordance();
+  data.split("\n").forEach((line: string) => {
+    rawDict.set(line.substring(0, 5), line.substring(6));
+  });
+  loaded.value = true;
+  // sc.value = getSC(props.vid);
+  rebuildVerse();
+  // }, 3000);
 }

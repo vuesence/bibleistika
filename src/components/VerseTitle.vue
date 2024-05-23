@@ -1,5 +1,6 @@
 <script setup lang="ts">
-// import { computed } from "vue";
+import { ref } from "vue";
+import VerseSelectionDialog from "./verse-selection-dialog/VerseSelectionDialog.vue";
 import { chapterAndVerseId, getBookName, nextVerseId, prevVerseId }
   from "@/models/bible-helpers";
 import { router } from "@/router";
@@ -10,6 +11,8 @@ const props = defineProps({
     default: null,
   },
 });
+
+const dialog = ref<HTMLDialogElement>(null!);
 
 function go(direction: string) {
   if (direction === "next") {
@@ -22,7 +25,11 @@ function go(direction: string) {
 
 <template>
   <div class="verse-header">
-    <h2>{{ getBookName(props.vid) }} {{ chapterAndVerseId(props.vid) }} </h2>
+    <button class="open-verse-selection" @click="dialog.showModal()">
+      <h2>{{ getBookName(props.vid) }} {{ chapterAndVerseId(props.vid) }} </h2>
+    </button>
+    <VerseSelectionDialog ref="dialog" />
+
     <button class="prev nav-button" @click="go('prev')">
       Prev
     </button>
@@ -36,6 +43,10 @@ function go(direction: string) {
 .verse-header {
   display: flex;
   align-items: center;
+  .open-verse-selection {
+    border: 0;
+    cursor: pointer;
+  }
 }
 
 .nav-button {

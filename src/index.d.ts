@@ -1,5 +1,6 @@
 interface VerseToken {
   tr: string
+  sc?: StrongsConcordance
   sn?: string
   ow?: string
 }

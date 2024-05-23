@@ -23,4 +23,9 @@ export default antfu({
     "style/quotes": ["error", "double"],
     "style/brace-style": ["error", "1tbs", { allowSingleLine: true }],
   },
+}, {
+  files: ["**/*.json", "**/*.md"],
+  rules: {
+    "style/max-len": ["error", { code: 600, tabWidth: 2 }],
+  },
 });

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from "vue";
+import { useRoute } from "vue-router";
 import WordOccurrence from "../components/WordOccurrence.vue";
 import VerseTitle from "../components/VerseTitle.vue";
 import VerseText from "../components/VerseText.vue";
@@ -21,6 +22,12 @@ const props = defineProps({
 const { verse } = useVerseUtils(props);
 const { sc } = useStrongsConcordance(props);
 const showOccurrences = ref(false);
+
+const route = useRoute();
+
+watch(() => route.name, () => {
+  showOccurrences.value = false;
+});
 </script>
 
 <template>
@@ -32,17 +39,18 @@ const showOccurrences = ref(false);
       <WordDescription v-if="props.sn" :key="props.sn" :sc="sc" class="word-desc" />
     </Transition>
 
-    <div class="verse">
-      <button
-        class="show-occurrences"
-        @click="showOccurrences = !showOccurrences"
-      >
-        Show Occurrences
-      </button>
-    </div>
+    <!-- <div class="show-occurrences-button"> -->
+    <button
+      v-if="props.sn"
+      class="show-occurrences"
+      @click="showOccurrences = !showOccurrences"
+    >
+      Show occurrences
+    </button>
+    <!-- </div> -->
 
     <Transition mode="out-in">
-      <WordOccurrence v-if="showOccurrences" :sn="props.sn" class="occurrence" />
+      <WordOccurrence v-if="showOccurrences" :sn="props.sn" />
     </Transition>
   </div>
 </template>
@@ -50,6 +58,15 @@ const showOccurrences = ref(false);
 <style scoped>
 .word-desc {
   margin-top: 2em;
+}
+
+.show-occurrences {
+  border: 0;
+  color: var(--vwa-c-text-2);
+  transition: all 0.3s ease;
+  &:hover {
+    color: var(--vwa-c-text-1);
+  }
 }
 
 .v-enter-active,

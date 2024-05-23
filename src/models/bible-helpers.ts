@@ -6,6 +6,8 @@ import { books } from "./bible-structure.json";
 //   chapters: number[];
 // }
 
+export { books };
+
 export function parseVerseId(vid: string): {
   bookId: number
   chapterId: number
