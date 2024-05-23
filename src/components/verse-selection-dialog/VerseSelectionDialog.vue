@@ -3,9 +3,10 @@ import { ref } from "vue";
 // import { chapterAndVerseId, getBookName, nextVerseId, prevVerseId }
 //   from "@/models/bible-helpers";
 import VerseSelectionDialogBook from "./VerseSelectionDialogBook.vue";
-import VerseSelectionDialogChapter from "./VerseSelectionDialogChapter.vue";
-import VerseSelectionDialogVerse from "./VerseSelectionDialogVerse.vue";
+// import VerseSelectionDialogChapter from "./VerseSelectionDialogChapter.vue";
+import VerseSelectionDialogList from "./VerseSelectionDialogList.vue";
 import { router } from "@/router";
+import { books } from "@/models/bible-helpers";
 
 defineProps({
   vid: {
@@ -24,26 +25,31 @@ function showModal() {
   dialog.value.showModal();
 }
 
+// let book = 1;
 const book = ref(1);
 const chapter = ref(1);
 
 const steps = [
   {
     comp: VerseSelectionDialogBook,
+    size: () => 0,
     next: (ev: number) => {
       book.value = ev;
+      chapter.value = 0;
       step.value = 1;
     },
   },
   {
-    comp: VerseSelectionDialogChapter,
+    comp: VerseSelectionDialogList,
+    size: () => books[+book.value - 1].chapters.length,
     next: (ev: number) => {
       chapter.value = ev;
       step.value = 2;
     },
   },
   {
-    comp: VerseSelectionDialogVerse,
+    comp: VerseSelectionDialogList,
+    size: () => books[+book.value - 1].chapters[chapter.value - 1],
     next: (ev: number) => {
       router.push(
         { name: "verse", params: { vid: `${book.value}:${chapter.value}:${ev}` } },
@@ -60,12 +66,17 @@ const steps = [
     <Transition mode="out-in">
       <component
         :is="steps[step].comp"
+        :size="steps[step].size()"
         :book="book"
         :chapter="chapter"
         @next="steps[step].next($event)"
       />
     </Transition>
-    <button type="submit" aria-label="close" class="close-button" @click="dialog.close()">
+    <button
+      aria-label="close"
+      class="close-button"
+      @click="step = 0; dialog.close()"
+    >
       ✖
     </button>
   </dialog>
@@ -82,8 +93,12 @@ const steps = [
     right: 0.8em;
     top: 0.8em;
     font-size: 1.5em;
-    color: var(--vwa-c-text-3);
     border: 0;
+    color: var(--vwa-c-text-3);
+    transition: color 0.3s ease;
+    &:hover {
+      color: var(--vwa-c-text-2);
+    }
   }
 }
 

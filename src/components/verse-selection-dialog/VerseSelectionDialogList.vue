@@ -2,6 +2,10 @@
 import { books } from "@/models/bible-helpers";
 
 defineProps({
+  size: {
+    type: Number,
+    default: null,
+  },
   book: {
     type: Number,
     default: null,
@@ -18,12 +22,14 @@ const emit = defineEmits(["next"]);
 <template>
   <div>
     <h2>{{ books[+book - 1].name }}</h2>
-    <h3>Глава {{ chapter }}</h3>
-    <h4>Выберите стих</h4>
-    <ul class="chapters">
-      <li v-for="i in books[+book - 1].chapters[chapter - 1]" :key="i">
+    <h3 v-if="chapter !== 0">
+      Глава {{ chapter }}
+    </h3>
+    <h4>Выберите {{ chapter !== 0 ? 'стих' : 'главу' }}</h4>
+    <ul class="list">
+      <li v-for="i in $props.size" :key="i">
         <button
-          class="chapter"
+          class="item"
           @click="emit('next', i)"
         >
           {{ i }}
@@ -43,18 +49,26 @@ h3 {
 h4 {
   margin-top: 0.3em;
 }
-.chapters {
+.list {
   display: flex;
   flex-wrap: wrap;
   row-gap: 1em;
   column-gap: 1em;
   list-style: none;
   justify-content: center;
-  .chapter {
+  max-width: 600px;
+  .item {
     /* border: 0; */
     width: 3rem;
     padding: 3px 7px;
     cursor: pointer;
+    border-radius: 2px;
+    color: var(--vwa-c-text-2);
+    transition: all 0.3s ease;
+    &:hover {
+      color: var(--vwa-c-text-1);
+      background-color: var(--vwa-c-bg-soft);
+    }
   }
 }
 </style>
