@@ -27,31 +27,42 @@ function showModal() {
 const book = ref(1);
 const chapter = ref(1);
 
-function goToVerse(verse) {
-  router.push(
-    { name: "verse", params: { vid: `${book.value}:${chapter.value}:${verse}` } },
-  );
-  dialog.value.close();
-}
+const steps = [
+  {
+    comp: VerseSelectionDialogBook,
+    next: (ev: number) => {
+      book.value = ev;
+      step.value = 1;
+    },
+  },
+  {
+    comp: VerseSelectionDialogChapter,
+    next: (ev: number) => {
+      chapter.value = ev;
+      step.value = 2;
+    },
+  },
+  {
+    comp: VerseSelectionDialogVerse,
+    next: (ev: number) => {
+      router.push(
+        { name: "verse", params: { vid: `${book.value}:${chapter.value}:${ev}` } },
+      );
+      dialog.value.close();
+      step.value = 0;
+    },
+  },
+];
 </script>
 
 <template>
   <dialog ref="dialog" class="verse-selection">
     <Transition mode="out-in">
-      <VerseSelectionDialogBook
-        v-if="step === 0"
-        @next="book = $event; step = 1"
-      />
-      <VerseSelectionDialogChapter
-        v-else-if="step === 1"
-        :book="book"
-        @next="chapter = $event; step = 2"
-      />
-      <VerseSelectionDialogVerse
-        v-else-if="step === 2"
+      <component
+        :is="steps[step].comp"
         :book="book"
         :chapter="chapter"
-        @next="goToVerse($event)"
+        @next="steps[step].next($event)"
       />
     </Transition>
     <button type="submit" aria-label="close" class="close-button" @click="dialog.close()">
@@ -64,6 +75,7 @@ function goToVerse(verse) {
 .verse-selection[open] {
   display: flex;
   flex-direction: column;
+  border-color: var(--vwa-c-text-3);
 
   .close-button {
     position: absolute;

@@ -14,7 +14,7 @@ const emit = defineEmits(["next"]);
 <template>
   <div>
     <h2>{{ books[+book - 1].name }}</h2>
-    <h3>Выберите главу</h3>
+    <h4>Выберите главу</h4>
     <ul class="chapters">
       <li v-for="i in books[+book - 1].chapters.length" :key="i">
         <button
@@ -29,6 +29,12 @@ const emit = defineEmits(["next"]);
 </template>
 
 <style scoped>
+h2 {
+  margin: 0 auto;
+}
+h4 {
+  margin-top: 0.3em;
+}
 .chapters {
   display: flex;
   flex-wrap: wrap;
