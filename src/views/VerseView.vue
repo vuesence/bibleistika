@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from "vue";
 import { useRoute } from "vue-router";
-import WordOccurrence from "../components/WordOccurrence.vue";
+import LemmaOccurrences from "../components/LemmaOccurrences.vue";
 import VerseTitle from "../components/VerseTitle.vue";
 import VerseText from "../components/VerseText.vue";
-import WordDescription from "../components/WordDescription.vue";
+import LemmaDescription from "../components/LemmaDescription.vue";
 import { useVerseUtils } from "../composables/useVerseUtils";
 import { useStrongsConcordance } from "@/composables/useStrongsConcordance";
 
@@ -42,7 +42,7 @@ watch(() => route.name, () => {
     </div>
 
     <Transition mode="out-in">
-      <WordDescription
+      <LemmaDescription
         v-if="props.sn"
         :key="props.sn"
         :sc="sc"
@@ -61,7 +61,7 @@ watch(() => route.name, () => {
     <!-- </div> -->
 
     <Transition mode="out-in">
-      <WordOccurrence
+      <LemmaOccurrences
         v-if="props.mode === '1'"
         v-bind="props"
         class="word-occurrences"

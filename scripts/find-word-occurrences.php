@@ -42,21 +42,21 @@ $versesRows = array_filter($versesRows, function($row) {
 $sql = "SELECT `id`, `number`, `data`, `type` FROM `strongs_сoncordance` WHERE `type` = 'g'";
 $result = $conn->query($sql);
 
-$words = $result->fetch_all(MYSQLI_ASSOC);
+$lemmas = $result->fetch_all(MYSQLI_ASSOC);
 $data = "";
-foreach ($words as $word) {
-    $t = $word['type'] === "h" ? "H" : "G";
-    $res = findOccurrences($word['number'], $t);
+foreach ($lemmas as $lemma) {
+    $t = $lemma['type'] === "h" ? "H" : "G";
+    $res = findOccurrences($lemma['number'], $t);
 
-    if ($word['number'] % 100 == 0) {        
-        echo $word['number'] . " - " . $res["count"] . "\n";
+    if ($lemma['number'] % 100 == 0) {        
+        echo $lemma['number'] . " - " . $res["count"] . "\n";
     }
 
-    $d = json_decode($word['data'], true);
+    $d = json_decode($lemma['data'], true);
     $d["o"] = +$res["count"];
     
     $sql = "UPDATE `strongs_сoncordance` SET `occurrences` = '".json_encode($res["verses"])."', 
-        `data` = '".mysqli_real_escape_string($conn, json_encode($d, JSON_UNESCAPED_UNICODE))."' WHERE `id` = ".$word['id'];
+        `data` = '".mysqli_real_escape_string($conn, json_encode($d, JSON_UNESCAPED_UNICODE))."' WHERE `id` = ".$lemma['id'];
     $conn->query($sql);
     // exit;
     

@@ -10,7 +10,7 @@ export const settings = reactive<Settings>(
     darkMode: false,
     fontSize: "16px",
     showStrongsNumber: true,
-    showStrongsOriginalWord: true,
+    showStrongsLemma: true,
     highlightSearch: true,
   },
 );

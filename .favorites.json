@@ -9,10 +9,10 @@
     },
     {
         "type": "File",
-        "name": "/home/altay/src/vuesence/strong-bible/src/components/WordDescription.vue",
+        "name": "/home/altay/src/vuesence/strong-bible/src/components/LemmaDescription.vue",
         "parent_id": null,
         "workspaceRoot": "/home/altay/src/vuesence/strong-bible",
-        "workspacePath": "src/components/WordDescription.vue",
+        "workspacePath": "src/components/LemmaDescription.vue",
         "id": "AfFOzqRtsvjgpK1D"
     },
     {

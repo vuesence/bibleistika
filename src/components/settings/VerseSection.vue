@@ -20,7 +20,7 @@ import { settings } from "@/composables/useAppSettings";
         Показывать слово в оригинале:
       </div>
       <div class="value">
-        <BaseSwitch v-model="settings.showStrongsOriginalWord" />
+        <BaseSwitch v-model="settings.showStrongsLemma" />
       </div>
     </div>
     <div class="row">

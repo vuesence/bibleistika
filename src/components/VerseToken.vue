@@ -48,10 +48,10 @@ function displayTooltip() {
         {{ props.token.sn }}
       </span>
       <span
-        v-if="props.token.sc && settings.showStrongsOriginalWord"
+        v-if="props.token.sc && settings.showStrongsLemma"
         class="original-word"
       >
-        {{ props.token.sc.word }}
+        {{ props.token.sc.lemma }}
       </span>
     </div>
     <VerseTokenPreview v-if="showTooltip" ref="popover" :token="props.token" />

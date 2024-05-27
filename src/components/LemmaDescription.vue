@@ -33,12 +33,16 @@ function buildDesc(str: string) {
   }
   return str;
 }
+
+function playAudio() {
+  document.querySelector("audio")?.play();
+}
 </script>
 
 <template>
   <div class="wrapper">
     <div v-if="sc" class="word-desc">
-      <h2>{{ sc.word }}</h2>
+      <h2>{{ sc.lemma }}</h2>
       <h4>{{ sc.sn }}</h4>
       <p class="desc" v-html="buildDesc(sc.desc)" />
       <button class="show-occurrences-btn" @click="showOccurrences()">
@@ -46,15 +50,15 @@ function buildDesc(str: string) {
       </button>
 
       <div class="stats">
-        <div title="Произношение">
+        <div class="pron" title="Произношение" @click="playAudio()">
           <BaseIcon name="speaker" size="18" />
           {{ sc.pr }}
         </div>
-        <div title="Транкрипция">
-          <BaseIcon name="transcript" size="18" />
+        <div class="tr" title="Транслитерация">
+          <BaseIcon name="xlit" size="18" />
           {{ sc.tr }}
         </div>
-        <div title="Сколько раз встречается в Библии">
+        <div class="wc" title="Сколько раз встречается в Библии">
           <BaseIcon name="word-count" size="18" />
           {{ sc.f }}
         </div>
@@ -90,12 +94,23 @@ function buildDesc(str: string) {
       align-items: center;
       margin: 5px 0;
       color: var(--vwa-c-text-3);
+      transition: all 0.3s ease;
+      &.pr {
+        cursor: pointer;
+        &:hover {
+          color: var(--vwa-c-brand-2);
+        }
+        .base-icon {
+          color: var(--vwa-c-brand-1);
+        }
+      }
       .base-icon {
         margin-right: 1em;
       }
     }
   }
   audio {
+    display: none;
     opacity: 0.4;
     margin-top: 1em;
     max-width: 90%;

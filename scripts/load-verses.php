@@ -134,12 +134,12 @@ function parseVerse($str) {
     $strongIndex = 0;
     
     $delimiter = "₋";
-    foreach ($data as $word) {
-        if ($word === "") {
+    foreach ($data as $lemma) {
+        if ($lemma === "") {
             continue;
         }
-        $parts = explode('~~~~~', $word);
-        // echo $word . "\n";
+        $parts = explode('~~~~~', $lemma);
+        // echo $lemma . "\n";
         if (count($parts) > 1) {
             // $a1 = $verseStrongNumbers[$strongIndex];
             // $a2 = $parts[0];

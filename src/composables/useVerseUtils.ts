@@ -34,8 +34,8 @@ export function useVerseUtils(props) {
   return { verse, loadVerse };
 }
 
-export async function loadWordOccurrences(sn: string): Promise<Verse[]> {
-  const data = await api.bible.loadWordOccurrences(sn);
+export async function loadLemmaOccurrencess(sn: string): Promise<Verse[]> {
+  const data = await api.bible.loadLemmaOccurrencess(sn);
   const verses: Verse[] = [];
   data.forEach((d) => {
     const v = buildVerse(d);

@@ -16,7 +16,7 @@ interface Verse {
 
 interface StrongsConcordance {
   sn: string
-  word: string
+  lemma: string
   tr: string
   pr: string
   desc: string
@@ -27,6 +27,6 @@ interface Settings {
   fontSize: string
   darkMode: boolean
   showStrongsNumber: boolean
-  showStrongsOriginalWord: boolean
+  showStrongsLemma: boolean
   highlightSearch: boolean
 }

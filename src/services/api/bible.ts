@@ -19,7 +19,7 @@ const bible = {
     return await response.text();
   },
 
-  async loadWordOccurrences(sn: string) {
+  async loadLemmaOccurrencess(sn: string) {
     return await http.get(`http://192.168.1.101/api/verse/word-occurences.php?sn=${sn}`);
   },
 

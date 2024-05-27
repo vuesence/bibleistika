@@ -6,6 +6,7 @@ export default antfu({
     ".vscode/settings.json/**",
     "src/assets/locales/*.json",
     "src/assets/locales/*.json/**",
+    "public/*.json",
   ],
   rules: {
     "ts/semi": "off",
@@ -25,6 +26,9 @@ export default antfu({
   },
 }, {
   files: ["**/*.json", "**/*.md"],
+  ignores: [
+    "public/*.json",
+  ],
   rules: {
     "style/max-len": ["error", { code: 600, tabWidth: 2 }],
   },

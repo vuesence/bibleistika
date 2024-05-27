@@ -1,7 +1,7 @@
 import type { RouteRecordRaw } from "vue-router";
 import VerseView from "@/views/VerseView.vue";
 import WordView from "@/views/WordView.vue";
-// import WordDescription from "@/components/WordDescription.vue";
+// import LemmaDescription from "@/components/LemmaDescription.vue";
 import AboutView from "@/views/AboutView.vue";
 // import ContactsView from "@/views/ContactsView.vue";
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import { PaginationBar } from "../components/ui/pagination";
-import { loadWordOccurrences } from "../composables/useVerseUtils";
+import { loadLemmaOccurrencess } from "../composables/useVerseUtils";
+import { PaginationBar } from "./ui/pagination";
 import BaseIcon from "./ui/BaseIcon.vue";
 import VerseText from "./VerseText.vue";
 
@@ -25,7 +25,7 @@ function changePagination(data) {
 }
 
 onMounted(async () => {
-  verses.value = await loadWordOccurrences(props.sn);
+  verses.value = await loadLemmaOccurrencess(props.sn);
 });
 </script>
 

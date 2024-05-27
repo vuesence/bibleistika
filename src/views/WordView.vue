@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// import WordDescription from '../components/WordDescription.vue'
+// import LemmaDescription from '../components/LemmaDescription.vue'
 // import VerseToken from '../components/VerseToken.vue'
 // import { ref, onMounted } from "vue";
 // import { getVerse } from "@/models/VerseLibrary";
@@ -21,11 +21,11 @@ const props = defineProps({
 <template>
   <div>
     <Transition mode="out-in">
-      <WordDescription :key="props.sn" :sn="props.sn" class="word-desc" />
+      <LemmaDescription :key="props.sn" :sn="props.sn" class="word-desc" />
     </Transition>
 
     <!-- <Transition mode="out-in">
-      <WordOccurrence :sn="props.sn" class="word-desc" :key="props.sn" />
+      <LemmaOccurrences :sn="props.sn" class="word-desc" :key="props.sn" />
     </Transition> -->
     <!-- <router-view /> -->
   </div>
