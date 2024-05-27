@@ -1,0 +1,30 @@
+section {
+  width: 100%;
+  margin-bottom: 1em;
+  padding: 1em;
+  border: 1px solid var(--vwa-c-border);
+  position: relative;
+  /* border: 2px solid cornflowerblue; */
+  margin-top: 20px;
+  padding: 20px 10px 10px;
+  .section-title {
+    color: var(--vwa-c-border);
+    line-height: 20px;
+    padding: 0 5px;
+    position: absolute;
+    background-color: var(--vwa-c-bg);
+    /* Adjust these values to posiytion the title or label */
+    top: -10px;
+    left: 10px;
+  }
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+    .value {
+      display: flex;
+      margin-left: 2rem;
+    }
+  }
+}

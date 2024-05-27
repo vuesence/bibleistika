@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { arrow, computePosition, flip, offset, shift } from "@floating-ui/dom";
+import {
+  arrow,
+  computePosition,
+  flip,
+  offset,
+  shift,
+} from "@floating-ui/dom";
 import { getSC } from "@/composables/useStrongsConcordance";
 
 const props = defineProps({
@@ -22,13 +28,12 @@ function showTooltip() {
     computePosition(popover.value.parentElement, popover.value, {
       placement: "bottom",
       // middleware: [flip(), shift({ padding: 5 }), offset(6)],
-      middleware:
-        [
-          flip(),
-          shift({ padding: 5 }),
-          offset(10),
-          // arrow({ element: arrowEl, padding: 5 }),
-        ],
+      middleware: [
+        flip(),
+        shift({ padding: 5 }),
+        offset(10),
+        // arrow({ element: arrowEl, padding: 5 }),
+      ],
     }).then(({ x, y }) => {
       // console.log(middlewareData.arrow);
 
@@ -55,7 +60,14 @@ function hideTooltip() {
 </script>
 
 <template>
-  <div v-if="props.token.sc" :id="`popover-${props.token.sn}`" ref="popover" class="popover" popover role="tooltip">
+  <div
+    v-if="props.token.sc"
+    :id="`popover-${props.token.sn}`"
+    ref="popover"
+    class="popover"
+    popover
+    role="tooltip"
+  >
     <div class="title">
       <span class="word">{{ props.token.sc.word }}</span>
       <span class="strongs-number">({{ props.token.sc.sn }})</span>
@@ -66,36 +78,36 @@ function hideTooltip() {
 </template>
 
 <style scoped>
-.popover {
-  position: absolute;
-  width: max-content;
-  top: 0;
-  left: 0;
-  margin: 0;
-  padding: 1em;
-  border: 1px solid var(--vwa-c-border);
-  border-radius: 5px;
-  background: var(--vwa-c-bg-alt);
-  color: var(--vwa-c-text-1);
-  max-width: 400px;
-  box-shadow: var(--vwa-shadow-3);
-  /* max-height: 170px; */
+  .popover {
+    position: absolute;
+    width: max-content;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 1em;
+    border: 1px solid var(--vwa-c-border);
+    border-radius: 5px;
+    background: var(--vwa-c-bg-alt);
+    color: var(--vwa-c-text-1);
+    max-width: 400px;
+    box-shadow: var(--vwa-shadow-3);
+    /* max-height: 170px; */
 
-  .title {
-    margin-bottom: 5px;
+    .title {
+      margin-bottom: 5px;
 
-    .word {
-      font-weight: 600;
+      .word {
+        font-weight: 600;
+      }
+
+      .strongs-number {
+        color: var(--vwa-c-text-1);
+        margin-left: 1em;
+        font-size: 0.8em;
+      }
     }
 
-    .strongs-number {
-      color: var(--vwa-c-text-1);
-      margin-left: 1em;
-      font-size: 0.8em;
-    }
-  }
-
-  /* // #arrow {
+    /* // #arrow {
   //   position: absolute;
   //   width: 20px;
   //   height: 20px;
@@ -104,10 +116,5 @@ function hideTooltip() {
   //   pointer-events: none;
   //   transform: rotate(45deg);
   // } */
-}
-
-.highlighted .text {
-  font-weight: 800;
-  color: red;
-}
+  }
 </style>

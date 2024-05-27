@@ -5,7 +5,15 @@ import { setCssVar } from "@/utils/css-utils";
 const ls = useLocalStorage();
 
 let settingsDialog: HTMLDialogElement;
-export const settings = reactive<Settings>({});
+export const settings = reactive<Settings>(
+  {
+    darkMode: false,
+    fontSize: "16px",
+    showStrongsNumber: true,
+    showStrongsOriginalWord: true,
+    highlightSearch: true,
+  },
+);
 
 function toggleTheme() {
   settings.darkMode = !settings.darkMode;

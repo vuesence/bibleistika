@@ -16,39 +16,37 @@ function updateFontSize(change: number) {
 
 <template>
   <section class="typography">
-    <div class="title">
-      Размер шрифта:
-    </div>
-    <div class="font-size-widget">
-      <BaseButton class="smaller" @click="updateFontSize(-2)">
-        a
-      </BaseButton>
-      <BaseButton class="bigger" @click="updateFontSize(2)">
-        A
-      </BaseButton>
+    <span class="section-title">Типографика</span>
+    <div class="row">
+      <div class="title">
+        Размер шрифта:
+      </div>
+      <div class="value">
+        <BaseButton class="smaller" @click="updateFontSize(-2)">
+          a
+        </BaseButton>
+        <BaseButton class="bigger" @click="updateFontSize(2)">
+          A
+        </BaseButton>
+      </div>
     </div>
   </section>
 </template>
 
 <style scoped>
-.typography {
-  display: flex;
-  /* width: 100%; */
-  /* border: 1px solid green; */
-  justify-content: space-between;
-  align-items: center;
-  .font-size-widget {
-    display: flex;
-    margin-left: 2rem;
-    /* width: 100%; */
+@import "./settings.css";
 
-    .smaller {
-      margin-right: 1rem;
-      font-size: 12px;
-    }
-    .bigger {
-      font-size: 22px;
-    }
+.typography {
+  button {
+    height: 1rem;
+  }
+  .smaller {
+    margin-right: 1rem;
+    font-size: 12px;
+    height: 1rem;
+  }
+  .bigger {
+    font-size: 22px;
   }
 }
 </style>

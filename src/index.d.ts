@@ -24,6 +24,9 @@ interface StrongsConcordance {
 }
 
 interface Settings {
-  fontSize?: string
-  darkMode?: boolean
+  fontSize: string
+  darkMode: boolean
+  showStrongsNumber: boolean
+  showStrongsOriginalWord: boolean
+  highlightSearch: boolean
 }

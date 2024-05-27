@@ -98,7 +98,7 @@ onMounted(async () => {
     }
 
     :deep(.token .strongs-number),
-    :deep(.token .original-text) {
+    :deep(.token .original-word) {
       display: none;
     }
   }

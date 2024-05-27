@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import BaseButton from "../ui/BaseButton.vue";
+import VerseSection from "./VerseSection.vue";
 import TypographySection from "./TypographySection.vue";
 // import ThemeToggle from "@/components/ui/ThemeToggle.vue";
 import { useAppSettings } from "@/composables/useAppSettings";
@@ -48,6 +49,7 @@ function onClick($event) {
       </header>
 
       <TypographySection />
+      <VerseSection />
 
       <!-- <ThemeToggle /> -->
     </div>

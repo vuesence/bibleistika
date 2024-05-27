@@ -2,6 +2,7 @@
 import type { PropType } from "vue";
 import VerseToken from "./VerseToken.vue";
 import { router } from "@/router";
+import { settings } from "@/composables/useAppSettings";
 
 const props = defineProps({
   verse: {
@@ -24,7 +25,7 @@ function displayWord(sn: string) {
     <VerseToken
       v-for="(token, index) in verse.tokens"
       :key="index" :token="token"
-      :class="{ highlighted: props.highlighted === token.sn }"
+      :class="{ highlighted: settings.highlightSearch && props.highlighted === token.sn }"
       @click="displayWord(token.sn)"
     />
   </div>

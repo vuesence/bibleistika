@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { nextTick, ref } from "vue";
 import VerseTokenTooltip from "./VerseTokenTooltip.vue";
+import { settings } from "@/composables/useAppSettings";
 
 const props = defineProps({
   token: {
@@ -40,10 +41,16 @@ function displayTooltip() {
       <span class="text">
         {{ props.token.tr ?? 'nbsp' }}
       </span>
-      <span v-if="props.token.sn" class="strongs-number">
+      <span
+        v-if="props.token.sn && settings.showStrongsNumber"
+        class="strongs-number"
+      >
         {{ props.token.sn }}
       </span>
-      <span v-if="props.token.sc" class="original-text">
+      <span
+        v-if="props.token.sc && settings.showStrongsOriginalWord"
+        class="original-word"
+      >
         {{ props.token.sc.word }}
       </span>
     </div>
@@ -92,7 +99,7 @@ function displayTooltip() {
     font-size: 0.5em;
   }
 
-  .original-text {
+  .original-word {
     min-width: 0.7em;
     display: block;
   }

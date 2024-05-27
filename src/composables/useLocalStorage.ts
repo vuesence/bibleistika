@@ -1,4 +1,4 @@
-import { reactive, watch } from "vue";
+import { isReactive, reactive, watch } from "vue";
 
 /**
  * Custom `useLocalStorage` implementation
@@ -40,12 +40,7 @@ function init() {
 function readFromStorage() {
   const lsData = JSON.parse(localStorage.getItem(LS_KEY) || "{}");
   for (const [key, value] of Object.entries(lsData)) {
-    // console.log("key", key, "value", value);
-    // console.log(data[key]);
-    // console.log("readFromStorage");
-    // if (data[key]) {
     data[key] = data[key] instanceof Set ? new Set(value as []) : value;
-    // }
   }
 }
 
@@ -59,26 +54,17 @@ watch(data, () => {
   localStorage.setItem(LS_KEY, JSON.stringify(decomposedData));
 });
 
-function isProxy(obj) {
-  try {
-    // Attempt to use the target object
-    // as a key in a Map, which should throw an error for Proxies
-    new Map([[obj, 1]]);
-    return false;
-  } catch (e) {
-    return true;
-  }
-}
-
 export function useLocalStorage() {
   function observe(key: string, observable: any) {
     // setting initial value to reactive observable from localStorage
-    // if (isProxy(observable)) {
-    Object.assign(observable, data[key]);
-    // } else {
-    //   observable.value
-    //       = observable.value instanceof Set ? new Set(data[key]) : data[key];
-    // }
+    // СЕЙЧАС в data[key] ЛЕЖИТ ДЕСЕРИАЛИЗОВАННЫЙ ИЗ ЛС ОБЪЕКТ
+    if (isReactive(observable)) {
+      Object.assign(observable, data[key]);
+    } else {
+      // REF - SET OR PRIMITIVES
+      observable.value
+          = observable.value instanceof Set ? new Set(data[key]) : data[key];
+    }
     data[key] = observable;
   }
 
