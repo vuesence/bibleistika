@@ -32,7 +32,7 @@ onMounted(() => {
   </div>
 </template>
 
-<style lang="scss">
+<style>
 .app {
   display: flex;
   flex-direction: column;
@@ -41,7 +41,6 @@ onMounted(() => {
 
   .main-pane {
     flex-grow: 1;
-    // display: flex;
     max-width: 1200px;
     z-index: 2;
   }
