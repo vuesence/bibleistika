@@ -17,6 +17,10 @@ const props = defineProps({
     type: String,
     // default: "1:1:1",
   },
+  mode: {
+    type: String,
+    default: "",
+  },
 });
 
 const { verse } = useVerseUtils(props);
@@ -31,42 +35,67 @@ watch(() => route.name, () => {
 </script>
 
 <template>
-  <div>
-    <VerseTitle :vid="props.vid" />
-    <VerseText :vid="props.vid" :verse="verse" />
+  <div class="layout">
+    <div class="verse-container">
+      <VerseTitle :vid="props.vid" />
+      <VerseText :vid="props.vid" :verse="verse" />
+    </div>
 
     <Transition mode="out-in">
-      <WordDescription v-if="props.sn" :key="props.sn" :sc="sc" class="word-desc" />
+      <WordDescription
+        v-if="props.sn"
+        :key="props.sn"
+        :sc="sc"
+        class="word-desc"
+      />
     </Transition>
 
     <!-- <div class="show-occurrences-button"> -->
-    <button
+    <!-- <button
       v-if="props.sn"
-      class="show-occurrences"
+      class="show-occurrences-link"
       @click="showOccurrences = !showOccurrences"
     >
       Show occurrences
-    </button>
+    </button> -->
     <!-- </div> -->
 
     <Transition mode="out-in">
-      <WordOccurrence v-if="showOccurrences" :sn="props.sn" />
+      <WordOccurrence
+        v-if="props.mode === '1'"
+        v-bind="props"
+        class="word-occurrences"
+      />
     </Transition>
   </div>
 </template>
 
 <style scoped>
-.word-desc {
-  margin-top: 2em;
+.layout {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  /* grid-template-rows: repeat(6, 1fr); */
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
 }
 
-.show-occurrences {
-  border: 0;
-  color: var(--vwa-c-text-2);
-  transition: all 0.3s ease;
-  &:hover {
-    color: var(--vwa-c-text-1);
-  }
+.verse-container {
+  grid-column: 1 / 5;
+  grid-row: 1;
+  border: 1px solid gray;
+}
+
+.word-desc {
+  /* margin-top: 2em; */
+  grid-column: 5 / 7;
+  grid-row: 1 / 3;
+  border: 1px solid gray;
+}
+
+.word-occurrences {
+  grid-column: 1 / 5;
+  grid-row: 2;
+  border: 1px solid gray;
 }
 
 .v-enter-active,

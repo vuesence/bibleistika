@@ -25,34 +25,35 @@ function showModal() {
   dialog.value.showModal();
 }
 
-// let book = 1;
-const book = ref(1);
-const chapter = ref(1);
+let book = 1;
+// const book = ref(1);
+let chapter = 1;
+// const chapter = ref(1);
 
 const steps = [
   {
     comp: VerseSelectionDialogBook,
     size: () => 0,
     next: (ev: number) => {
-      book.value = ev;
-      chapter.value = 0;
+      book = ev;
+      chapter = 0;
       step.value = 1;
     },
   },
   {
     comp: VerseSelectionDialogList,
-    size: () => books[+book.value - 1].chapters.length,
+    size: () => books[+book - 1].chapters.length,
     next: (ev: number) => {
-      chapter.value = ev;
+      chapter = ev;
       step.value = 2;
     },
   },
   {
     comp: VerseSelectionDialogList,
-    size: () => books[+book.value - 1].chapters[chapter.value - 1],
+    size: () => books[+book - 1].chapters[chapter - 1],
     next: (ev: number) => {
       router.push(
-        { name: "verse", params: { vid: `${book.value}:${chapter.value}:${ev}` } },
+        { name: "verse", params: { vid: `${book}:${chapter}:${ev}` } },
       );
       dialog.value.close();
       step.value = 0;

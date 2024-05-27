@@ -1,23 +1,16 @@
 <script setup lang="ts">
+import type { PropType } from "vue";
 import VerseToken from "./VerseToken.vue";
 import { router } from "@/router";
 
 const props = defineProps({
   verse: {
-    type: Object,
+    type: Object as PropType<Verse>,
     default: null,
   },
   highlighted: {
     type: String,
     default: null,
-  },
-  hideOW: {
-    type: Boolean,
-    default: false,
-  },
-  hideSN: {
-    type: Boolean,
-    default: false,
   },
 });
 
@@ -31,8 +24,6 @@ function displayWord(sn: string) {
     <VerseToken
       v-for="(token, index) in verse.tokens"
       :key="index" :token="token"
-      :hide-o-w="hideOW"
-      :hide-s-n="hideSN"
       :class="{ highlighted: props.highlighted === token.sn }"
       @click="displayWord(token.sn)"
     />
@@ -46,7 +37,7 @@ function displayWord(sn: string) {
   row-gap: 2em;
   margin-bottom: 7px;
   padding-bottom: 7px;
-  border-bottom: 1px solid #f5f5f5;
+  border-bottom: 1px solid var(--vwa-c-divider);
   .word-occurrences & {
     row-gap: 0;
   }

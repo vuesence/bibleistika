@@ -1,20 +1,28 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
+import { PaginationBar } from "../components/ui/pagination";
 import { loadWordOccurrences } from "../composables/useVerseUtils";
+import BaseIcon from "./ui/BaseIcon.vue";
 import VerseText from "./VerseText.vue";
-// import { getSC } from "@/composables/useStrongsConcordance";
 
 const props = defineProps({
   sn: {
     type: String,
     default: null,
   },
+  // mode: {
+  //   type: String,
+  //   default: "",
+  // },
 });
 
 const verses = ref([]);
-
 const page = ref(1);
-const perPage = ref(5);
+const pageSize = ref(5);
+
+function changePagination(data) {
+  pageSize.value = data.pageSize;
+}
 
 onMounted(async () => {
   verses.value = await loadWordOccurrences(props.sn);
@@ -23,56 +31,86 @@ onMounted(async () => {
 
 <template>
   <div v-if="props.sn" class="word-occurrences">
-    <div class="word-occurrences">
-      <div class="pagination">
-        <button :disabled="page === 1" @click="page = page - 1">
-          Prev
-        </button>
-        <span class="current-page"> Page {{ page }} </span>
-        <!-- <span
-          v-for="i in Math.ceil(verses.length / perPage)"
-          :key="`page-${i}`"
-          class="page-number"
-          :class="{ active: page === i }"
-          @click="page = i"
-        >
-          {{ i }}
-        </span> -->
+    <PaginationBar
+      v-model="page"
+      :total-row="verses.length"
+      :page-size-menu="[5, 10, 20, 50]"
+      align="center"
+      language="ru"
+      class="pagination"
+      @change="changePagination"
+    />
+    <!-- <div class="word-occurrences"> -->
+    <!-- <div class="pagination">
+      <button :disabled="page === 1" @click="page = page - 1">
+        Prev
+      </button>
+      <span class="current-page"> Page {{ page }} </span>
+      <button
+        :disabled="page >= Math.ceil(verses.length / pageSize)"
+        @click="page = page + 1"
+      >
+        Next
+      </button>
+    </div> -->
 
-        <button
-          :disabled="page >= Math.ceil(verses.length / perPage)"
-          @click="page = page + 1"
-        >
-          Next
-        </button>
-      </div>
-
-      <div class="verses">
+    <div class="verses">
+      <div
+        v-for="verse in verses.slice(
+          (page - 1) * pageSize,
+          page * pageSize,
+        )"
+        :key="verse.vid"
+        class="verse-wrapper"
+      >
         <VerseText
-          v-for="verse in verses.slice(
-            (page - 1) * perPage,
-            page * perPage,
-          )"
-          :key="verse.vid"
           :verse="verse"
-          :hide-s-n="true"
-          :hide-o-w="true"
+          mode="short"
           :highlighted="props.sn"
         />
+        <router-link
+          :to="{ name: 'verse', params: { vid: verse.vid } } "
+          class="shortcut"
+        >
+          <BaseIcon size="16" name="arrow-out" />
+        </router-link>
       </div>
     </div>
   </div>
+  <!-- </div> -->
 </template>
 
 <style lang="scss" scoped>
   .word-occurrences {
     margin-top: 1em;
-  }
-  .desc {
-    // white-space: pre;
+    // container-type: inline-size;
+    .verse-wrapper {
+      display: flex;
+      align-items: flex-start;
+    }
+    .shortcut {
+      margin-left: 0.5em;
+      margin-top: 3px;
+      color: var(--vwa-c-text-3);
+      transition: color 0.3s ease;
+      &:hover {
+        color: var(--vwa-c-text-1);
+      }
+    }
+    .pagination {
+      margin: 1em auto;
+    }
+    :deep(.token .strongs-number), :deep(.token .original-text) {
+      display: none;
+    }
   }
 
-  .pagination {
+  // @container (min-width: 700px) {
+  // .pagination {
+  //   font-size: 2em;
+  // }
+
+  .pagination1 {
     display: flex;
     justify-content: space-between;
     align-items: center;

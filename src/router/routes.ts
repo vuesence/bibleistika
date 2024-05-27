@@ -9,7 +9,8 @@ const routes: RouteRecordRaw[] = [
   {
     path: "/",
     name: "home",
-    component: VerseView,
+    // component: VerseView,
+    redirect: "/verse/1:1:1",
     // component: HomeView,
   },
   {
@@ -22,6 +23,12 @@ const routes: RouteRecordRaw[] = [
     path: "/verse/:vid/:sn",
     props: true,
     name: "verse-word",
+    component: VerseView,
+  },
+  {
+    path: "/verse/:vid/:sn/:mode",
+    props: true,
+    name: "verse-word-occurrences",
     component: VerseView,
   },
   {

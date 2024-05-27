@@ -1,0 +1,102 @@
+.v-pagination {
+  display: flex;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+.v-pagination--right {
+  justify-content: flex-end;
+}
+.v-pagination--center {
+  justify-content: center;
+}
+.v-pagination.v-pagination--disabled a,
+.v-pagination.v-pagination--disabled select {
+  color: #999 !important;
+}
+.v-pagination.v-pagination--disabled.v-pagination--border a,
+.v-pagination.v-pagination--disabled.v-pagination--border a:hover {
+  background-color: #fafafa;
+}
+.v-pagination ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.v-pagination ul li {
+  list-style: none;
+  display: flex;
+}
+.v-pagination ul li.v-pagination__info a,
+.v-pagination ul li.v-pagination__list a {
+  cursor: default;
+  color: #333;
+}
+.v-pagination ul li a {
+  padding: 0.3rem 0.6rem;
+  text-decoration: none;
+  line-height: 1.3;
+  font-size: 14px;
+  margin: 0;
+  outline: 0;
+  color: #333;
+  border-radius: 0.25rem;
+  display: inline-flex;
+  align-items: center;
+}
+.v-pagination
+  ul
+  li:not(.active):not(.disabled):not(.v-pagination__list):not(
+    .v-pagination__info
+  ):not(.v-pagination__slot)
+  a:hover {
+  background-color: #fafafa;
+}
+.v-pagination ul li.active a {
+  background-color: #eee;
+  color: #aaa;
+}
+.v-pagination ul li.disabled a {
+  color: #999 !important;
+  cursor: default;
+}
+.v-pagination ul li select {
+  width: auto !important;
+  font-size: 12px;
+  padding: 1px 5px;
+  outline: 0;
+  text-align: center;
+  margin: 0 0 0 5px;
+  border: 1px solid #ccc;
+  color: #333;
+  border-radius: 0.3rem;
+}
+.v-pagination.v-pagination--border ul {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 0.25rem;
+}
+.v-pagination.v-pagination--border ul li:not(:first-child) a {
+  margin-left: -1px;
+}
+.v-pagination.v-pagination--border ul li a {
+  border: 1px solid #dee2e6;
+  border-radius: 0;
+}
+.v-pagination.v-pagination--border ul li:first-child > a {
+  border-bottom-left-radius: 0.25rem;
+  border-top-left-radius: 0.25rem;
+}
+.v-pagination.v-pagination--border ul li:last-child > a {
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+.v-pagination.v-pagination--border ul li.active a {
+  color: #999;
+  background-color: #eee;
+}
+
+.v-pagination {
+  align-items: center;
+  @media (max-width: 1000px) {
+    flex-direction: column;
+  }
+}

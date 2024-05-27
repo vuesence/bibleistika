@@ -34,8 +34,9 @@ import AppFooter from "@/components/AppFooter.vue";
   min-height: 100svh;
 
   .main-pane {
-    flex-grow: 1;
-    display: flex;
+    // flex-grow: 1;
+    // display: flex;
+    max-width: 1200px;
     z-index: 2;
   }
 }
