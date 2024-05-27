@@ -18,12 +18,12 @@ const title = ref("");
 
 watch(() => props.dict, async () => {
   if (props.dict === "bdb") {
-    data.value = await api.bible.loadBdbDict(props.sn);
+    // data.value = await api.bible.loadDict(props.sn, props.dict);
     title.value = "Brown–Driver–Briggs a Hebrew and English Lexicon";
   } else if (props.dict === "gesenius") {
-    data.value = await api.bible.loadGeseniusDict(props.sn);
     title.value = "Hebrew and Chaldee Gesenius Lexicon";
   }
+  data.value = await api.bible.loadDict(props.sn, props.dict);
 }, { immediate: true });
 
 // onMounted(async () => {

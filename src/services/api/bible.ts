@@ -8,9 +8,13 @@ const bible = {
       `http://192.168.1.101/api/verse/?
         bookId=${bookId}&chapterId=${chapterId}&verseId=${verseId}`,
     );
-    // console.debug("loaded verse:", data);
+    return data;
+  },
 
-    // const data = await response.text();
+  async loadChapter(vid: string) {
+    const [bookId, chapterId] = vid.split(":");
+    const data
+      = await (await http.get(`/bible/${bookId}/${chapterId}.syn.txt`, true)).text();
     return data;
   },
 
@@ -22,16 +26,9 @@ const bible = {
   async loadLemmaOccurrences(sn: string) {
     return await http.get(`http://192.168.1.101/api/verse/lemma-occurences.php?sn=${sn}`);
   },
-  async loadBdbDict(sn: string) {
+  async loadDict(sn: string, type: string) {
     return await (await http.get(
-      `http://192.168.1.101/api/verse/bdb-dict.php?sn=${sn}`,
-      // `https://studybible.ru/i/php/brown-driver-briggs.php?n=${sn.substring(1)}`,
-      true,
-    )).text();
-  },
-  async loadGeseniusDict(sn: string) {
-    return await (await http.get(
-      `http://192.168.1.101/api/verse/gesenius-dict.php?sn=${sn}`,
+      `http://192.168.1.101/api/verse/dict.php?sn=${sn}&dict=${type}`,
       true,
     )).text();
   },
