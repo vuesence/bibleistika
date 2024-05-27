@@ -8,7 +8,7 @@ const bible = {
       `http://192.168.1.101/api/verse/?
         bookId=${bookId}&chapterId=${chapterId}&verseId=${verseId}`,
     );
-    console.debug("loaded verse:", data);
+    // console.debug("loaded verse:", data);
 
     // const data = await response.text();
     return data;

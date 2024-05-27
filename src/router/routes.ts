@@ -4,7 +4,7 @@ import LemmaView from "@/views/LemmaView.vue";
 // import LemmaDescription from "@/components/LemmaDescription.vue";
 import AboutView from "@/views/AboutView.vue";
 import LemmaOccurrences from "@/components/LemmaOccurrences.vue";
-import DictionaryArticle from "@/components/DictionaryArticle.vue";
+import LemmaDictionaryArticle from "@/components/LemmaDictionaryArticle.vue";
 // import ContactsView from "@/views/ContactsView.vue";
 
 const routes: RouteRecordRaw[] = [
@@ -36,15 +36,15 @@ const routes: RouteRecordRaw[] = [
       {
         name: "lemma-bdb-dict",
         path: "bdb",
-        props: route => ({ sn: route.params.sn, dict: "bdb" }),
-        component: DictionaryArticle,
+        props: (route) => ({ sn: route.params.sn, dict: "bdb" }),
+        component: LemmaDictionaryArticle,
       },
       {
         name: "lemma-gesenius-dict",
         path: "gesenius",
         // props: true,
-        props: route => ({ sn: route.params.sn, dict: "gesenius" }),
-        component: DictionaryArticle,
+        props: (route) => ({ sn: route.params.sn, dict: "gesenius" }),
+        component: LemmaDictionaryArticle,
       },
     ],
   },

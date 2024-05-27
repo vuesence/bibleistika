@@ -32,12 +32,14 @@ watch(() => props.dict, async () => {
 </script>
 
 <template>
-  <div>
+  <article>
     <h2>{{ title }}</h2>
-    <article v-if="props.sn" class="dict" v-html="data" />
-  </div>
+    <div v-if="props.sn" class="dict" v-html="data" />
+  </article>
 </template>
 
 <style scoped>
-
+article {
+  color: var(--vwa-c-text-2);
+}
 </style>

@@ -102,7 +102,7 @@ function playAudio() {
       margin: 5px 0;
       color: var(--vwa-c-text-3);
       transition: all 0.3s ease;
-      &.pr {
+      &.pron {
         cursor: pointer;
         &:hover {
           color: var(--vwa-c-brand-2);
