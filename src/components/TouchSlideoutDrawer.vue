@@ -2,9 +2,9 @@
 import { computed, onMounted, onUnmounted, ref, watch } from "vue";
 import { useTouchSwipe } from "@/composables/useTouchSwipe";
 
-// import { useAppConfig } from "@/composables/useAppConfig";
+// import { useAppSettings } from "@/composables/useAppSettings";
 
-// const { isDrawerOpen } = useAppConfig();
+// const { isDrawerOpen } = useAppSettings();
 
 const isDrawerOpen = defineModel<boolean>();
 

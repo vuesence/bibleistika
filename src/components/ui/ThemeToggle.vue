@@ -2,16 +2,12 @@
 import { computed } from "vue";
 import BaseToggle from "./BaseToggle.vue";
 import BaseIcon from "@/components/ui/BaseIcon.vue";
-import { useAppConfig } from "@/composables/useAppConfig";
+import { useAppSettings } from "@/composables/useAppSettings";
 
-const { isDarkTheme } = useAppConfig();
-
-function toggleAppearance() {
-  isDarkTheme.value = !isDarkTheme.value;
-}
+const { settings, toggleTheme } = useAppSettings();
 
 const switchTitle = computed(() => {
-  return isDarkTheme.value ? "Switch to light theme" : "Switch to dark theme";
+  return settings.darkMode ? "Switch to light theme" : "Switch to dark theme";
 });
 </script>
 
@@ -19,8 +15,8 @@ const switchTitle = computed(() => {
   <BaseToggle
     :title="switchTitle"
     class="toggle"
-    :aria-checked="isDarkTheme"
-    @click="toggleAppearance"
+    :aria-checked="settings.darkMode"
+    @click="toggleTheme"
   >
     <BaseIcon size="10" name="sun" class="sun" fill="white" />
     <BaseIcon size="10" name="moon" class="moon" />

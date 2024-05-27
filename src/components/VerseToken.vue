@@ -51,9 +51,8 @@ function displayTooltip() {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .token {
-  // display: inline;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -72,8 +71,6 @@ function displayTooltip() {
     &:hover {
       opacity: 0.8;
       background: var(--vwa-c-soft);
-      // border-right-color: #eee;
-      // border-left-color: #eee;
     }
   }
 

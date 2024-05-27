@@ -56,7 +56,7 @@ async function submitForm() {
   <!-- </div> -->
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .form-container {
   border-radius: 5px;
   // background-color: #f2f2f2;

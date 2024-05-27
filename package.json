@@ -38,7 +38,6 @@
     "@types/node": "^20.12.12",
     "@vitejs/plugin-vue": "^5.0.4",
     "eslint": "^8.57.0",
-    "sass": "^1.77.2",
     "typescript": "^5.4.5",
     "vite": "^5.2.11",
     "vite-plugin-html-injection": "^1.4.2",

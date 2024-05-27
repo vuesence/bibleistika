@@ -8,7 +8,7 @@ import "./assets/styles/custom.scss";
 import App from "./App.vue";
 import { router } from "./router";
 import { loadIcons } from "@/utils/icons";
-import { initAppearance } from "@/composables/useAppConfig";
+import { initSettings } from "@/composables/useAppSettings";
 import { api } from "@/services/api";
 import { loadStrongsConcordance } from "@/composables/useStrongsConcordance";
 
@@ -17,7 +17,7 @@ loadStrongsConcordance();
 const app = createApp(App);
 app.use(router);
 loadIcons();
-initAppearance();
+initSettings();
 api.init();
 
 await Promise.all([router.isReady()]);

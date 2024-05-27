@@ -1,17 +1,11 @@
 <script setup lang="ts">
 import BaseIcon from "@/components/ui/BaseIcon.vue";
-import HamburgerIcon from "@/components/ui/HamburgerIcon.vue";
+// import HamburgerIcon from "@/components/ui/HamburgerIcon.vue";
 import ThemeToggle from "@/components/ui/ThemeToggle.vue";
-import { useAppConfig } from "@/composables/useAppConfig";
+import { useAppSettings } from "@/composables/useAppSettings";
 
-const { isDrawerOpen } = useAppConfig();
+const { openSettingsDialog } = useAppSettings();
 
-const links = [
-  // { title: "Features", route: { name: "contacts" } },
-  // { title: "Pricing", route: { name: "about" } },
-  { title: "Learn", route: { name: "about" } },
-  // { title: "Community", route: { name: "about" } },
-];
 </script>
 
 <template>
@@ -24,17 +18,22 @@ const links = [
         </div>
       </div>
     </RouterLink>
-    <div class="links">
+    <!-- <div class="links">
       <RouterLink v-for="link in links" :key="link.title" class="link" :to="link.route">
         {{ link.title }}
       </RouterLink>
+    </div> -->
+    <div class="right-pane">
+      <button class="settings-btn" @click="openSettingsDialog">
+        <BaseIcon name="settings" />
+      </button>
       <ThemeToggle />
     </div>
-    <HamburgerIcon v-model="isDrawerOpen" class="drawer-toggle" />
+    <!-- <HamburgerIcon v-model="isDrawerOpen" class="drawer-toggle" /> -->
   </header>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .header {
   position: sticky;
   display: flex;
@@ -47,10 +46,7 @@ const links = [
   justify-content: space-between;
   border-bottom: 1px solid var(--vwa-c-divider);
 
-  // margin-bottom: 1em;
   .logo {
-    // height: 1.75rem;
-    // color: rgb(0, 0, 0);
     max-width: 200px;
     display: flex;
     align-items: center;
@@ -63,38 +59,15 @@ const links = [
     }
   }
 
-  .drawer-toggle {
-
-    .notebook &,
-    .desktop & {
-      display: none;
-    }
-  }
-
-  .links {
-
-    .mobile &,
-    .tablet & {
-      display: none;
-    }
-
+  .right-pane {
     display: flex;
+    gap: 1em;
     align-items: center;
 
-    .link {
-      font-size: 0.9em;
-      font-weight: 500;
-      display: block;
-      line-height: 1;
-      padding: 8px 12px;
-      border-radius: 4px;
-      text-decoration: none;
-      color: var(--vwa-c-text-2);
-
-      &:hover {
-        background-color: var(--vwa-c-bg-soft);
-      }
+    .settings-btn {
+      border: 0;
     }
   }
+
 }
 </style>

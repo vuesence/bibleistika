@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import BaseIcon from "@/components/ui/BaseIcon.vue";
-import { useAppConfig } from "@/composables/useAppConfig";
+import { useAppSettings } from "@/composables/useAppSettings";
 
-const { closeDrawer } = useAppConfig();
+const { closeDrawer } = useAppSettings();
 
 function onLinkClick(event: Event, navigate) {
   closeDrawer();
@@ -55,7 +55,7 @@ const footerLinks = [
   </nav>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .navbar {
   min-width: 220px;
   padding: 1em;

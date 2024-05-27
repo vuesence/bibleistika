@@ -65,20 +65,20 @@ const height = computed(() => {
       minWidth: width,
       minHeight: height,
     }"
-  >
+  />
 </template>
 
-<style lang="scss" scoped>
-:deep(svg) {
-  width: 100%;
-  height: 100%;
+<style scoped>
+  :deep(svg) {
+    width: 100%;
+    height: 100%;
 
-  path {
-    // fill: currentColor;
-    stroke: currentColor;
-    stroke-width: 1.5;
-    fill: v-bind('props.fill');
-    // fill: v-bind('props.fill ?? "currentColor"');
+    path {
+      /* fill: currentColor; */
+      stroke: currentColor;
+      stroke-width: 1.5;
+      fill: v-bind("props.fill");
+      /* fill: v-bind('props.fill ?? "currentColor"'); */
+    }
   }
-}
 </style>

@@ -35,7 +35,7 @@
 
 html {
   line-height: 1.4;
-  font-size: 16px;
+  // font-size: var(--vwa-font-size);
   -webkit-text-size-adjust: 100%;
 }
 
@@ -56,7 +56,7 @@ body {
   min-height: 100vh;
   line-height: 24px;
   font-family: var(--vwa-font-family-base);
-  font-size: 16px;
+  font-size: var(--vwa-font-size);
   font-weight: 400;
   color: var(--vwa-c-text-1);
   background-color: var(--vwa-c-bg);

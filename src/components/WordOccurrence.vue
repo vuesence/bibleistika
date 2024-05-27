@@ -56,20 +56,13 @@ onMounted(async () => {
 
     <div class="verses">
       <div
-        v-for="verse in verses.slice(
-          (page - 1) * pageSize,
-          page * pageSize,
-        )"
+        v-for="verse in verses.slice((page - 1) * pageSize, page * pageSize)"
         :key="verse.vid"
         class="verse-wrapper"
       >
-        <VerseText
-          :verse="verse"
-          mode="short"
-          :highlighted="props.sn"
-        />
+        <VerseText :verse="verse" mode="short" :highlighted="props.sn" />
         <router-link
-          :to="{ name: 'verse', params: { vid: verse.vid } } "
+          :to="{ name: 'verse', params: { vid: verse.vid } }"
           class="shortcut"
         >
           <BaseIcon size="16" name="arrow-out" />
@@ -80,35 +73,35 @@ onMounted(async () => {
   <!-- </div> -->
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
   .word-occurrences {
     margin-top: 1em;
-    // container-type: inline-size;
+
     .verse-wrapper {
       display: flex;
       align-items: flex-start;
     }
+
     .shortcut {
       margin-left: 0.5em;
       margin-top: 3px;
       color: var(--vwa-c-text-3);
       transition: color 0.3s ease;
+
       &:hover {
         color: var(--vwa-c-text-1);
       }
     }
+
     .pagination {
       margin: 1em auto;
     }
-    :deep(.token .strongs-number), :deep(.token .original-text) {
+
+    :deep(.token .strongs-number),
+    :deep(.token .original-text) {
       display: none;
     }
   }
-
-  // @container (min-width: 700px) {
-  // .pagination {
-  //   font-size: 2em;
-  // }
 
   .pagination1 {
     display: flex;

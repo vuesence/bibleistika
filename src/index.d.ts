@@ -22,3 +22,8 @@ interface StrongsConcordance {
   desc: string
   f: number
 }
+
+interface Settings {
+  fontSize?: string
+  darkMode?: boolean
+}

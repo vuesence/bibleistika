@@ -55,14 +55,7 @@ function hideTooltip() {
 </script>
 
 <template>
-  <div
-    v-if="props.token.sc"
-    :id="`popover-${props.token.sn}`"
-    ref="popover"
-    class="popover"
-    popover
-    role="tooltip"
-  >
+  <div v-if="props.token.sc" :id="`popover-${props.token.sn}`" ref="popover" class="popover" popover role="tooltip">
     <div class="title">
       <span class="word">{{ props.token.sc.word }}</span>
       <span class="strongs-number">({{ props.token.sc.sn }})</span>
@@ -72,7 +65,7 @@ function hideTooltip() {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .popover {
   position: absolute;
   width: max-content;
@@ -86,7 +79,7 @@ function hideTooltip() {
   color: var(--vwa-c-text-1);
   max-width: 400px;
   box-shadow: var(--vwa-shadow-3);
-  // max-height: 170px;
+  /* max-height: 170px; */
 
   .title {
     margin-bottom: 5px;
@@ -101,7 +94,8 @@ function hideTooltip() {
       font-size: 0.8em;
     }
   }
-  // #arrow {
+
+  /* // #arrow {
   //   position: absolute;
   //   width: 20px;
   //   height: 20px;
@@ -109,7 +103,7 @@ function hideTooltip() {
   //   z-index: -1;
   //   pointer-events: none;
   //   transform: rotate(45deg);
-  // }
+  // } */
 }
 
 .highlighted .text {

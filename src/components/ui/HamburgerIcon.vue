@@ -8,7 +8,7 @@ const modelValue = defineModel();
   </button>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 button {
   width: 2rem;
   height: 2rem;

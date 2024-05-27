@@ -8,6 +8,8 @@
   --vwa-font-family-base: 'Roboto', sans-serif;
   --vwa-font-family-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco,
     Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+  --vwa-font-size: 16px;    
 }
 
 
