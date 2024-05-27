@@ -60,13 +60,21 @@ watch(() => route.name, () => {
     </button> -->
     <!-- </div> -->
 
-    <Transition mode="out-in">
+    <!-- <Transition mode="out-in">
       <LemmaOccurrences
         v-if="props.mode === '1'"
         v-bind="props"
         class="lemma-occurrences"
       />
-    </Transition>
+    </Transition> -->
+
+    <router-view v-slot="{ Component }" mode="out-in">
+      <Transition name="fade">
+        <component :is="Component" class="lemma-occurrences" />
+      </Transition>
+    </router-view>
+
+    <!-- <router-view /> -->
   </div>
 </template>
 
@@ -100,7 +108,7 @@ watch(() => route.name, () => {
 
 .v-enter-active,
 .v-leave-active {
-  transition: opacity 0.1s ease;
+  transition: opacity 0.2s ease;
 }
 
 .v-enter-from,

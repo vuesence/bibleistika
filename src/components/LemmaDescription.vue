@@ -16,13 +16,13 @@ const audioUrl = computed(() => `https://4bbl.ru/data/strong/${props.sc.sn.start
   ? "hebrew"
   : "greek"}/${props.sc.sn.substring(1)}.mp3`);
 
-function showOccurrences() {
+function go(to) {
   router.push({
-    name: "verse-lemma-occurrences",
+    name: to,
     params: {
       vid: router.currentRoute.value.query.vid,
       sn: router.currentRoute.value.query.sn,
-      mode: 1,
+      // mode: 1,
     },
   });
 }
@@ -45,8 +45,15 @@ function playAudio() {
       <h2>{{ sc.lemma }}</h2>
       <h4>{{ sc.sn }}</h4>
       <p class="desc" v-html="buildDesc(sc.desc)" />
-      <button class="show-occurrences-btn" @click="showOccurrences()">
+      <button class="show-occurrences-btn" @click="go('verse-lemma-occurrences')">
         Показать вхождения
+      </button>
+
+      <button class="show--btn" @click="go('lemma-bdb-dict')">
+        BDB
+      </button>
+      <button class="show--btn" @click="go('lemma-gesenius-dict')">
+        Gesenius
       </button>
 
       <div class="stats">

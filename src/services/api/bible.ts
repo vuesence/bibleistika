@@ -19,8 +19,21 @@ const bible = {
     return await response.text();
   },
 
-  async loadLemmaOccurrencess(sn: string) {
+  async loadLemmaOccurrences(sn: string) {
     return await http.get(`http://192.168.1.101/api/verse/lemma-occurences.php?sn=${sn}`);
+  },
+  async loadBdbDict(sn: string) {
+    return await (await http.get(
+      `http://192.168.1.101/api/verse/bdb-dict.php?sn=${sn}`,
+      // `https://studybible.ru/i/php/brown-driver-briggs.php?n=${sn.substring(1)}`,
+      true,
+    )).text();
+  },
+  async loadGeseniusDict(sn: string) {
+    return await (await http.get(
+      `http://192.168.1.101/api/verse/gesenius-dict.php?sn=${sn}`,
+      true,
+    )).text();
   },
 
 };
