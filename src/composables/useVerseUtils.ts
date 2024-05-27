@@ -77,7 +77,7 @@ function buildVerseToken(_tn: string, _sn?: string): VerseToken {
   if (_sn) {
     vt.sn = _sn;
     vt.sc = getSC(_sn) ?? null;
-    // vt.ow = getSC(_sn)?.word ?? "";
+    // vt.ow = getSC(_sn)?.lemma ?? "";
   }
   return vt;
 }

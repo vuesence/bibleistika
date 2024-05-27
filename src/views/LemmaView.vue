@@ -21,18 +21,18 @@ const props = defineProps({
 <template>
   <div>
     <Transition mode="out-in">
-      <LemmaDescription :key="props.sn" :sn="props.sn" class="word-desc" />
+      <LemmaDescription :key="props.sn" :sn="props.sn" class="lemma-desc" />
     </Transition>
 
     <!-- <Transition mode="out-in">
-      <LemmaOccurrences :sn="props.sn" class="word-desc" :key="props.sn" />
+      <LemmaOccurrences :sn="props.sn" class="lemma-desc" :key="props.sn" />
     </Transition> -->
     <!-- <router-view /> -->
   </div>
 </template>
 
 <style scoped>
-.word-desc {
+.lemma-desc {
   margin-top: 2em;
 }
 

@@ -42,7 +42,7 @@
 
 //   if (_sn) {
 //     vt.sn = _sn;
-//     vt.ow = getSC(_sn)?.word ?? "";
+//     vt.ow = getSC(_sn)?.lemma ?? "";
 //   }
 //   return vt;
 // }

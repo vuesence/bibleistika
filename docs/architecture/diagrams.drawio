@@ -19,7 +19,7 @@
                 <mxCell id="3" value="View a verse" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="230" y="20" width="140" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="5" value="View a word" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="5" value="View a lemma" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="230" y="130" width="140" height="70" as="geometry"/>
                 </mxCell>
                 <mxCell id="11" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="6" target="9" edge="1">
@@ -31,10 +31,10 @@
                 <mxCell id="15" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="6" target="14" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="6" value="Search by word/phrase&lt;br&gt;(ru/he/gr/SN)" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="6" value="Search by lemma/phrase&lt;br&gt;(ru/he/gr/SN)" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="230" y="270" width="140" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="9" value="Find word occurences&lt;br&gt;(by SN)" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="9" value="Find lemma occurences&lt;br&gt;(by SN)" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="440" y="160" width="140" height="70" as="geometry"/>
                 </mxCell>
                 <mxCell id="12" value="Morphological search" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -57,10 +57,10 @@
                 <mxCell id="-RCpaw0ltIvLPZMFU4SO-2" value="«entity»&lt;br style=&quot;font-size: 11px;&quot;&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;Book&lt;/span&gt;" style="html=1;fillColor=#00308F;strokeColor=#001DBC;fontColor=#ffffff;fillStyle=auto;fontSize=11;fontStyle=0;textOpacity=90;" vertex="1" parent="1">
                     <mxGeometry x="-570" y="60" width="110" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="-RCpaw0ltIvLPZMFU4SO-3" value="«entity»&lt;br style=&quot;font-size: 11px;&quot;&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;Word&lt;/span&gt;" style="html=1;fillColor=#00308F;strokeColor=#001DBC;fontColor=#ffffff;fillStyle=auto;fontSize=11;fontStyle=0;textOpacity=90;" vertex="1" parent="1">
+                <mxCell id="-RCpaw0ltIvLPZMFU4SO-3" value="«entity»&lt;br style=&quot;font-size: 11px;&quot;&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;Lemma&lt;/span&gt;" style="html=1;fillColor=#00308F;strokeColor=#001DBC;fontColor=#ffffff;fillStyle=auto;fontSize=11;fontStyle=0;textOpacity=90;" vertex="1" parent="1">
                     <mxGeometry x="-425" y="60" width="110" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="-RCpaw0ltIvLPZMFU4SO-4" value="«agregate»&lt;br style=&quot;font-size: 11px;&quot;&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;Word occurrences&lt;/span&gt;" style="html=1;fillColor=#6d8764;strokeColor=#3A5431;fontColor=#ffffff;fontSize=11;fontStyle=0;textOpacity=90;" vertex="1" parent="1">
+                <mxCell id="-RCpaw0ltIvLPZMFU4SO-4" value="«agregate»&lt;br style=&quot;font-size: 11px;&quot;&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;Lemma occurrences&lt;/span&gt;" style="html=1;fillColor=#6d8764;strokeColor=#3A5431;fontColor=#ffffff;fontSize=11;fontStyle=0;textOpacity=90;" vertex="1" parent="1">
                     <mxGeometry x="-450" y="290" width="110" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="-RCpaw0ltIvLPZMFU4SO-5" value="«value»&lt;br style=&quot;font-size: 11px;&quot;&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;Translation&lt;/span&gt;" style="html=1;fillColor=#f0a30a;fontColor=#000000;strokeColor=#BD7000;fontSize=11;fontStyle=0;textOpacity=90;" vertex="1" parent="1">
@@ -94,10 +94,10 @@
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="rLBDVf4rwQWYYK0VnS61-8" value="«service»&lt;br style=&quot;font-size: 11px;&quot;&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;Search word/phrase&lt;/span&gt;" style="html=1;fillColor=#630017;fontColor=#ffffff;strokeColor=#6F0000;fontSize=11;fontStyle=0;textOpacity=90;" vertex="1" parent="1">
+                <mxCell id="rLBDVf4rwQWYYK0VnS61-8" value="«service»&lt;br style=&quot;font-size: 11px;&quot;&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;Search lemma/phrase&lt;/span&gt;" style="html=1;fillColor=#630017;fontColor=#ffffff;strokeColor=#6F0000;fontSize=11;fontStyle=0;textOpacity=90;" vertex="1" parent="1">
                     <mxGeometry x="-250" y="210" width="130" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="zfCzD6GKsW6x_YvxyzGJ-1" value="«service»&lt;br style=&quot;font-size: 11px;&quot;&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;Display verse/word&lt;/span&gt;" style="html=1;fillColor=#630017;fontColor=#ffffff;strokeColor=#6F0000;fontSize=11;fontStyle=0;textOpacity=90;" vertex="1" parent="1">
+                <mxCell id="zfCzD6GKsW6x_YvxyzGJ-1" value="«service»&lt;br style=&quot;font-size: 11px;&quot;&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;Display verse/lemma&lt;/span&gt;" style="html=1;fillColor=#630017;fontColor=#ffffff;strokeColor=#6F0000;fontSize=11;fontStyle=0;textOpacity=90;" vertex="1" parent="1">
                     <mxGeometry x="-250" y="280" width="130" height="50" as="geometry"/>
                 </mxCell>
             </root>
@@ -108,7 +108,7 @@
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="tM6bh320cj1tyoPSk62d-1" value="Word" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillStyle=auto;fontSize=11;fontColor=#C2C2C2;fillColor=#630017;gradientColor=none;opacity=30;" vertex="1" parent="1">
+                <mxCell id="tM6bh320cj1tyoPSk62d-1" value="Lemma" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillStyle=auto;fontSize=11;fontColor=#C2C2C2;fillColor=#630017;gradientColor=none;opacity=30;" vertex="1" parent="1">
                     <mxGeometry x="100" y="100" width="160" height="86" as="geometry"/>
                 </mxCell>
                 <mxCell id="tM6bh320cj1tyoPSk62d-2" value="+ id: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fillStyle=auto;fontSize=11;fontColor=#C2C2C2;opacity=30;" vertex="1" parent="tM6bh320cj1tyoPSk62d-1">

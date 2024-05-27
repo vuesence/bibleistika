@@ -81,7 +81,7 @@ function buildPreview(desc) {
     role="tooltip"
   >
     <div class="title">
-      <span class="word">{{ props.token.sc.lemma }}</span>
+      <span class="lemma">{{ props.token.sc.lemma }}</span>
       <span class="strongs-number">({{ props.token.sc.sn }})</span>
     </div>
     <div class="desc" v-html="buildPreview(getSC(props.token.sn).desc)" />
@@ -108,7 +108,7 @@ function buildPreview(desc) {
     .title {
       margin-bottom: 5px;
 
-      .word {
+      .lemma {
         font-weight: 600;
       }
 

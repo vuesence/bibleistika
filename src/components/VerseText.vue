@@ -16,7 +16,7 @@ const props = defineProps({
 });
 
 function displayWord(sn: string) {
-  router.push({ name: "verse-word", params: { vid: props.verse.vid, sn } });
+  router.push({ name: "verse-lemma", params: { vid: props.verse.vid, sn } });
 }
 </script>
 
@@ -39,7 +39,7 @@ function displayWord(sn: string) {
   margin-bottom: 7px;
   padding-bottom: 7px;
   border-bottom: 1px solid var(--vwa-c-divider);
-  .word-occurrences & {
+  .lemma-occurrences & {
     row-gap: 0;
   }
 }

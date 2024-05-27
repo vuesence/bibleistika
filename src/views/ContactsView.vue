@@ -46,7 +46,7 @@ async function submitForm() {
       <label for="subject">Message</label>
       <textarea id="subject" v-model="form.message" name="subject" placeholder="" />
 
-      <label for="check">Enter word "vue"</label>
+      <label for="check">Enter lemma "vue"</label>
       <input id="check" v-model="form.check" type="text" name="check" placeholder="">
 
       <input ref="submit" type="submit" value="Submit" @click="submitForm">

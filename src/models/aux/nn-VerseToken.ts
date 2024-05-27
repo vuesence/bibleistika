@@ -11,7 +11,7 @@
 
 //     if (_sn) {
 //       this.sn = _sn;
-//       this.ow = getSC(_sn)?.word ?? "";
+//       this.ow = getSC(_sn)?.lemma ?? "";
 //     }
 //   }
 // }

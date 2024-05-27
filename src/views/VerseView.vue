@@ -46,7 +46,7 @@ watch(() => route.name, () => {
         v-if="props.sn"
         :key="props.sn"
         :sc="sc"
-        class="word-desc"
+        class="lemma-desc"
       />
     </Transition>
 
@@ -64,7 +64,7 @@ watch(() => route.name, () => {
       <LemmaOccurrences
         v-if="props.mode === '1'"
         v-bind="props"
-        class="word-occurrences"
+        class="lemma-occurrences"
       />
     </Transition>
   </div>
@@ -85,14 +85,14 @@ watch(() => route.name, () => {
   /* border: 1px solid gray; */
 }
 
-.word-desc {
+.lemma-desc {
   /* margin-top: 2em; */
   grid-column: 5 / 7;
   grid-row: 1 / 3;
   /* border: 1px solid gray; */
 }
 
-.word-occurrences {
+.lemma-occurrences {
   grid-column: 1 / 5;
   grid-row: 2;
   /* border: 1px solid gray; */

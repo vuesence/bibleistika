@@ -30,7 +30,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div v-if="props.sn" class="word-occurrences">
+  <div v-if="props.sn" class="lemma-occurrences">
     <PaginationBar
       v-model="page"
       :total-row="verses.length"
@@ -40,7 +40,7 @@ onMounted(async () => {
       class="pagination"
       @change="changePagination"
     />
-    <!-- <div class="word-occurrences"> -->
+    <!-- <div class="lemma-occurrences"> -->
     <!-- <div class="pagination">
       <button :disabled="page === 1" @click="page = page - 1">
         Prev
@@ -74,7 +74,7 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-  .word-occurrences {
+  .lemma-occurrences {
     margin-top: 1em;
 
     .verse-wrapper {
@@ -98,7 +98,7 @@ onMounted(async () => {
     }
 
     :deep(.token .strongs-number),
-    :deep(.token .original-word) {
+    :deep(.token .original-lemma) {
       display: none;
     }
   }

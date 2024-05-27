@@ -18,7 +18,7 @@ const audioUrl = computed(() => `https://4bbl.ru/data/strong/${props.sc.sn.start
 
 function showOccurrences() {
   router.push({
-    name: "verse-word-occurrences",
+    name: "verse-lemma-occurrences",
     params: {
       vid: router.currentRoute.value.query.vid,
       sn: router.currentRoute.value.query.sn,
@@ -41,7 +41,7 @@ function playAudio() {
 
 <template>
   <div class="wrapper">
-    <div v-if="sc" class="word-desc">
+    <div v-if="sc" class="lemma-desc">
       <h2>{{ sc.lemma }}</h2>
       <h4>{{ sc.sn }}</h4>
       <p class="desc" v-html="buildDesc(sc.desc)" />
@@ -59,7 +59,7 @@ function playAudio() {
           {{ sc.tr }}
         </div>
         <div class="wc" title="Сколько раз встречается в Библии">
-          <BaseIcon name="word-count" size="18" />
+          <BaseIcon name="lemma-count" size="18" />
           {{ sc.f }}
         </div>
       </div>
@@ -71,7 +71,7 @@ function playAudio() {
 </template>
 
 <style scoped>
-.word-desc {
+.lemma-desc {
   margin-left: 1em;
 
   .show-occurrences-btn {

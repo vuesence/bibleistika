@@ -49,7 +49,7 @@ function displayTooltip() {
       </span>
       <span
         v-if="props.token.sc && settings.showStrongsLemma"
-        class="original-word"
+        class="original-lemma"
       >
         {{ props.token.sc.lemma }}
       </span>
@@ -81,7 +81,7 @@ function displayTooltip() {
     }
   }
 
-  .word-occurrences & {
+  .lemma-occurrences & {
     border: 0;
     .text {
       min-width: unset;
@@ -99,7 +99,7 @@ function displayTooltip() {
     font-size: 0.5em;
   }
 
-  .original-word {
+  .original-lemma {
     min-width: 0.7em;
     display: block;
   }

@@ -20,7 +20,7 @@ const bible = {
   },
 
   async loadLemmaOccurrencess(sn: string) {
-    return await http.get(`http://192.168.1.101/api/verse/word-occurences.php?sn=${sn}`);
+    return await http.get(`http://192.168.1.101/api/verse/lemma-occurences.php?sn=${sn}`);
   },
 
 };

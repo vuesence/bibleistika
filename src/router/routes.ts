@@ -1,6 +1,6 @@
 import type { RouteRecordRaw } from "vue-router";
 import VerseView from "@/views/VerseView.vue";
-import WordView from "@/views/WordView.vue";
+import LemmaView from "@/views/LemmaView.vue";
 // import LemmaDescription from "@/components/LemmaDescription.vue";
 import AboutView from "@/views/AboutView.vue";
 // import ContactsView from "@/views/ContactsView.vue";
@@ -22,20 +22,20 @@ const routes: RouteRecordRaw[] = [
   {
     path: "/verse/:vid/:sn",
     props: true,
-    name: "verse-word",
+    name: "verse-lemma",
     component: VerseView,
   },
   {
     path: "/verse/:vid/:sn/:mode",
     props: true,
-    name: "verse-word-occurrences",
+    name: "verse-lemma-occurrences",
     component: VerseView,
   },
   {
-    path: "/word/:sn",
+    path: "/lemma/:sn",
     props: true,
-    name: "word",
-    component: WordView,
+    name: "lemma",
+    component: LemmaView,
   },
   {
     path: "/about",

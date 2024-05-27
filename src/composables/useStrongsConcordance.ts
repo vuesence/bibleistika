@@ -34,7 +34,7 @@ function buildSC(_sn: string, data: string) {
   const cols = data.split("¡");
   return {
     sn: _sn,
-    word: cols[0],
+    lemma: cols[0],
     tr: cols[1],
     pr: cols[2],
     desc: cols[3],
