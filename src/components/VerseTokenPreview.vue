@@ -57,6 +57,18 @@ function hideTooltip() {
   popover.value.hidePopover();
   clearTimeout(timeout);
 }
+
+function buildPreview(desc) {
+  let str = "";
+  const lines = desc.split(";");
+  // console.log(line[1]);
+  str += lines[0];
+
+  if (lines.length > 1 && lines[1].startsWith("<br>")) {
+    str += lines[1];
+  }
+  return str;
+}
 </script>
 
 <template>
@@ -72,7 +84,7 @@ function hideTooltip() {
       <span class="word">{{ props.token.sc.word }}</span>
       <span class="strongs-number">({{ props.token.sc.sn }})</span>
     </div>
-    <div class="desc" v-html="getSC(props.token.sn).desc" />
+    <div class="desc" v-html="buildPreview(getSC(props.token.sn).desc)" />
     <!-- <div id="arrow"></div> -->
   </div>
 </template>

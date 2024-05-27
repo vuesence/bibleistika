@@ -39,6 +39,7 @@ function updateFontSize(change: number) {
 .typography {
   button {
     height: 1rem;
+    user-select: none;
   }
   .smaller {
     margin-right: 1rem;

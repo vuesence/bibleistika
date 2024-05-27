@@ -82,20 +82,20 @@ watch(() => route.name, () => {
 .verse-container {
   grid-column: 1 / 5;
   grid-row: 1;
-  border: 1px solid gray;
+  /* border: 1px solid gray; */
 }
 
 .word-desc {
   /* margin-top: 2em; */
   grid-column: 5 / 7;
   grid-row: 1 / 3;
-  border: 1px solid gray;
+  /* border: 1px solid gray; */
 }
 
 .word-occurrences {
   grid-column: 1 / 5;
   grid-row: 2;
-  border: 1px solid gray;
+  /* border: 1px solid gray; */
 }
 
 .v-enter-active,

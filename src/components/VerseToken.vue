@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { nextTick, ref } from "vue";
-import VerseTokenTooltip from "./VerseTokenTooltip.vue";
+import VerseTokenPreview from "./VerseTokenPreview.vue";
 import { settings } from "@/composables/useAppSettings";
 
 const props = defineProps({
@@ -54,7 +54,7 @@ function displayTooltip() {
         {{ props.token.sc.word }}
       </span>
     </div>
-    <VerseTokenTooltip v-if="showTooltip" ref="popover" :token="props.token" />
+    <VerseTokenPreview v-if="showTooltip" ref="popover" :token="props.token" />
   </div>
 </template>
 

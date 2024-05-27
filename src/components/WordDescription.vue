@@ -1,14 +1,20 @@
 <script setup lang="ts">
 // import { defineProps } from "vue";
 // import { StrongsConcordance } from "../models/StrongsConcordance";
+import { computed } from "vue";
+import BaseIcon from "./ui/BaseIcon.vue";
 import { router } from "@/router";
 
-defineProps({
+const props = defineProps({
   sc: {
     type: Object as () => StrongsConcordance,
     default: null,
   },
 });
+
+const audioUrl = computed(() => `https://4bbl.ru/data/strong/${props.sc.sn.startsWith("H")
+  ? "hebrew"
+  : "greek"}/${props.sc.sn.substring(1)}.mp3`);
 
 function showOccurrences() {
   router.push({
@@ -20,35 +26,80 @@ function showOccurrences() {
     },
   });
 }
+
+function buildDesc(str: string) {
+  if (str.includes(" син.")) {
+    str = str.replace(" син.", " <br><br>син.");
+  }
+  return str;
+}
 </script>
 
 <template>
   <div class="wrapper">
     <div v-if="sc" class="word-desc">
-      <p class="desc" v-html="sc.desc">
-      </p>
-      <button class="show-occurrences-link" @click="showOccurrences()">
-        Show occurrences
+      <h2>{{ sc.word }}</h2>
+      <h4>{{ sc.sn }}</h4>
+      <p class="desc" v-html="buildDesc(sc.desc)" />
+      <button class="show-occurrences-btn" @click="showOccurrences()">
+        Показать вхождения
       </button>
+
+      <div class="stats">
+        <div title="Произношение">
+          <BaseIcon name="speaker" size="18" />
+          {{ sc.pr }}
+        </div>
+        <div title="Транкрипция">
+          <BaseIcon name="transcript" size="18" />
+          {{ sc.tr }}
+        </div>
+        <div title="Сколько раз встречается в Библии">
+          <BaseIcon name="word-count" size="18" />
+          {{ sc.f }}
+        </div>
+      </div>
+      <audio controls>
+        <source :src="audioUrl" />
+      </audio>
     </div>
   </div>
 </template>
 
 <style scoped>
 .word-desc {
-  margin-left: 2em;
+  margin-left: 1em;
 
-  .show-occurrences-link {
-    grid-column: 1 / 5;
-    grid-row: 2;
-    /* border: 1px solid pink; */
-    border: 0;
-    color: var(--vwa-c-text-2);
+  .show-occurrences-btn {
+    border: 1px solid var(--vwa-c-border);
+    padding: 2px 9px;
+    color: var(--vwa-c-brand-2);
     transition: all 0.3s ease;
-
+    margin: 1em;
     &:hover {
       color: var(--vwa-c-text-1);
     }
+  }
+
+  .desc {
+    line-height: 1.5em;
+  }
+  .stats {
+    > div {
+      display: flex;
+      align-items: center;
+      margin: 5px 0;
+      color: var(--vwa-c-text-3);
+      .base-icon {
+        margin-right: 1em;
+      }
+    }
+  }
+  audio {
+    opacity: 0.4;
+    margin-top: 1em;
+    max-width: 90%;
+    height: 2em;
   }
 }
 </style>

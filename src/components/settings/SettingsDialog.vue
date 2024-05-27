@@ -71,9 +71,10 @@ dialog {
       align-items: center;
     }
   }
-  section {
+  /* section {
     width: 100%;
-  }
+    padding-top: 1em;
+  } */
 }
 
 /*   Open state of the dialog  */

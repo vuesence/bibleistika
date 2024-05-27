@@ -1,12 +1,10 @@
 section {
   width: 100%;
   margin-bottom: 1em;
-  padding: 1em;
+  padding: 2em 1em 1em;
   border: 1px solid var(--vwa-c-border);
   position: relative;
-  /* border: 2px solid cornflowerblue; */
   margin-top: 20px;
-  padding: 20px 10px 10px;
   .section-title {
     color: var(--vwa-c-border);
     line-height: 20px;
