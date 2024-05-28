@@ -7,7 +7,7 @@ import { htmlInjectionConfig } from "./src/utils/injections/injection-config";
 // import { URL, fileURLToPath } from "node:url";
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/strong-bible/",
+  // base: "/bibleistika/",
   build: {
     target: "esnext",
   },

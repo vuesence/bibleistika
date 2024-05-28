@@ -17,7 +17,7 @@ import { isReactive, reactive, watch } from "vue";
  *
  */
 
-const LS_KEY = "strongs-bible";
+const LS_KEY = "bibleistika";
 
 // observed reactive data
 const data: Record<string, any> = reactive({});
@@ -25,7 +25,7 @@ const data: Record<string, any> = reactive({});
 /**
  * Initializes the function by adding an event listener
  * to the window for the "storage" event.
- * When the "strongs-bible" key is detected in the event,
+ * When the "bibleistika" key is detected in the event,
  * it parses the new value and updates the data object.
  */
 function init() {

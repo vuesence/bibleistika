@@ -1,49 +1,49 @@
 [
     {
         "type": "File",
-        "name": "/home/altay/src/vuesence/strong-bible/src/views/VerseView.vue",
+        "name": "/home/altay/src/vuesence/bibleistika/src/views/VerseView.vue",
         "parent_id": null,
-        "workspaceRoot": "/home/altay/src/vuesence/strong-bible",
+        "workspaceRoot": "/home/altay/src/vuesence/bibleistika",
         "workspacePath": "src/views/VerseView.vue",
         "id": "GnLpBQD6vbS3q14w"
     },
     {
         "type": "File",
-        "name": "/home/altay/src/vuesence/strong-bible/src/components/LemmaDescription.vue",
+        "name": "/home/altay/src/vuesence/bibleistika/src/components/LemmaDescription.vue",
         "parent_id": null,
-        "workspaceRoot": "/home/altay/src/vuesence/strong-bible",
+        "workspaceRoot": "/home/altay/src/vuesence/bibleistika",
         "workspacePath": "src/components/LemmaDescription.vue",
         "id": "AfFOzqRtsvjgpK1D"
     },
     {
         "type": "File",
-        "name": "/home/altay/src/vuesence/strong-bible/src/components/VerseToken.vue",
+        "name": "/home/altay/src/vuesence/bibleistika/src/components/VerseToken.vue",
         "parent_id": null,
-        "workspaceRoot": "/home/altay/src/vuesence/strong-bible",
+        "workspaceRoot": "/home/altay/src/vuesence/bibleistika",
         "workspacePath": "src/components/VerseToken.vue",
         "id": "bQfmi53NxSnBykcd"
     },
     {
         "type": "File",
-        "name": "/home/altay/src/vuesence/strong-bible/src/index.d.ts",
+        "name": "/home/altay/src/vuesence/bibleistika/src/index.d.ts",
         "parent_id": null,
-        "workspaceRoot": "/home/altay/src/vuesence/strong-bible",
+        "workspaceRoot": "/home/altay/src/vuesence/bibleistika",
         "workspacePath": "src/index.d.ts",
         "id": "L6BERPzNAInKM5dj"
     },
     {
         "type": "File",
-        "name": "/home/altay/src/vuesence/strong-bible/src/router/routes.ts",
+        "name": "/home/altay/src/vuesence/bibleistika/src/router/routes.ts",
         "parent_id": null,
-        "workspaceRoot": "/home/altay/src/vuesence/strong-bible",
+        "workspaceRoot": "/home/altay/src/vuesence/bibleistika",
         "workspacePath": "src/router/routes.ts",
         "id": "norlVhQixeuf6m30"
     },
     {
         "type": "File",
-        "name": "/home/altay/src/vuesence/strong-bible/src/components/VerseTitle.vue",
+        "name": "/home/altay/src/vuesence/bibleistika/src/components/VerseTitle.vue",
         "parent_id": null,
-        "workspaceRoot": "/home/altay/src/vuesence/strong-bible",
+        "workspaceRoot": "/home/altay/src/vuesence/bibleistika",
         "workspacePath": "src/components/VerseTitle.vue",
         "id": "W5MQBIlRosgnjif7"
     }
