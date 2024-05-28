@@ -4,7 +4,7 @@ const VERSION = 1.0;
 
 const nonCached = ["/", "/build.json"];
 
-const CHACHE_LIST = {
+const CACHE_LIST = {
   assets: `assets-v${VERSION}`,
   data: `data-v${VERSION}`,
   images: `images-v${VERSION}`,
@@ -17,8 +17,8 @@ self.addEventListener("install", () => {
 });
 
 self.addEventListener("activate", (event) => {
-  const expectedCacheNames = Object.keys(CHACHE_LIST).map((key) => {
-    return CHACHE_LIST[key];
+  const expectedCacheNames = Object.keys(CACHE_LIST).map((key) => {
+    return CACHE_LIST[key];
   });
 
   // Delete out of date caches
@@ -94,13 +94,13 @@ function getCache(response) {
   const contentType = response.headers.get("content-type");
   if (contentType) {
     if (contentType.includes("image")) {
-      return CHACHE_LIST.images;
+      return CACHE_LIST.images;
     } else if (contentType.includes("font")) {
-      return CHACHE_LIST.fonts;
+      return CACHE_LIST.fonts;
     } else if (contentType.includes("text/plain")) {
-      return CHACHE_LIST.data;
+      return CACHE_LIST.data;
     } else if (["application/javascript", "text/css"].includes(contentType)) {
-      return CHACHE_LIST.assets;
+      return CACHE_LIST.assets;
     }
   }
   return false;

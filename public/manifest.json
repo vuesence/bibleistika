@@ -1,0 +1,40 @@
+{
+  "description": "Bibleistika webapp",
+  "dir": "auto",
+  "display": "standalone",
+  "name": "Bibleistika",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "Bibleistika",
+  "start_url": "/",
+  "categories": [
+    "it",
+    "bibleistika",
+    "theology",
+    "education"
+  ],
+  "icons": [
+    {
+      "src": "/arty-crafty/assets/images/logo-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/arty-crafty/assets/images/logo-48.png",
+      "type": "image/png",
+      "sizes": "48x48",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/arty-crafty/assets/images/logo-128.png",
+      "type": "image/png",
+      "sizes": "128x128",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/arty-crafty/favicon.ico",
+      "type": "image/x-icon"
+    }
+  ]
+}
