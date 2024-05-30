@@ -15,6 +15,18 @@ export const htmlInjectionConfig: IHtmlInjectionConfig = {
       injectTo: "body-prepend",
     },
     {
+      name: "Splash screen / logo.svg",
+      path: "./src/utils/injections/logo.svg",
+      type: "raw",
+      injectTo: "body-prepend",
+    },
+    {
+      name: "Splash screen / title.svg",
+      path: "./src/utils/injections/title.svg",
+      type: "raw",
+      injectTo: "body-prepend",
+    },
+    {
       name: "Service worker",
       path: "./src/utils/injections/sw.js",
       type: "js",

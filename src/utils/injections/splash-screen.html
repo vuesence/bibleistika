@@ -44,9 +44,12 @@
     align-items: center;
   }
 
-  .splash-screen img.ss-logo {
+  .splash-screen .ss-logo {
     /* margin-top: 30px; */
-    max-width: 50vw;
+    /* max-width: 50vw; */
+    width: 8em;
+    height: 16em;
+    display: flex;
   }
 
   .splash-screen img.title {
@@ -141,17 +144,26 @@
     }
   }
   .ss-title {
-    width: 10em;
+    width: 12em;
     font-size: 1.2em;
     margin-top: 2em;
     padding-top: 1em;
+    color: #eee;
     border-top: 1px solid #ccc;
     font-family: Arial, Helvetica, sans-serif;
   }
 </style>
 <div class="splash-screen">
   <div>
-    <img class="ss-logo" src="/logo.png" />
+    <!-- <img class="ss-logo" src="/logo.png" /> -->
+    <div class="ss-logo">
+      <!-- <svg viewBox="0 0 100 100"> -->
+      <svg viewBox="0 0 252.000000 242.000000">
+        <use xlink:href="#logo"></use>
+     </svg>
+      
+
+    </div>
     <!-- <img class="title" src="/assets/images/logo-title-mb.png" /> -->
     <div class="ss-loader">
       <div class="loader-ball loader-ball-1"></div>
@@ -159,5 +171,11 @@
       <div class="loader-ball loader-ball-3"></div>
     </div>
   </div>
-  <div class="ss-title">Bibleistika</div>
+  <div class="ss-title">
+    <svg viewBox="0 0 1194.000000 229.000000">
+      <use xlink:href="#title"></use>
+   </svg>    
+
+  </div>
+  <!-- <div class="ss-title">Bibleistika</div> -->
 </div>

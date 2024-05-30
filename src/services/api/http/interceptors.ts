@@ -9,7 +9,8 @@ export const notificationInterceptor = {
   process(data: JsonRpcResponseMessage) {
     // const message = data.error?.message || data.result?.message;
     if (data.result?.message) {
-      // const msg = data.result.data?.i18n ? t(`messages.${data.result.data?.i18n}`) : data.result.message;
+      // const msg = data.result.data?.i18n
+      //   ? t(`messages.${data.result.data?.i18n}`) : data.result.message;
       const msg = data.result.message;
       // toast.info(msg);
       console.log("JSON-RPC message: ", msg);
