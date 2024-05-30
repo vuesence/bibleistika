@@ -1,8 +1,12 @@
 import antfu from "@antfu/eslint-config";
-import pluginVueA11y from "eslint-plugin-vue-a11y";
+// import a11y from "eslint-plugin-vue-a11y";
+import a11y from "eslint-plugin-vuejs-accessibility";
 
 export default antfu(
   {
+    plugins: {
+      "vuejs-accessibility": a11y,
+    },
     ignores: [
       ".vscode/settings.json",
       ".vscode/settings.json/**",
@@ -10,7 +14,9 @@ export default antfu(
       "src/assets/locales/*.json/**",
       "public/**/*",
     ],
+    // ...pluginVueA11y.configs["flat/recommended"],
     rules: {
+      ...a11y.configs.recommended.rules,
       "ts/semi": "off",
       "curly": ["error", "all"],
       "no-console": "off",
@@ -28,16 +34,14 @@ export default antfu(
     },
   },
   {
-    ignores: [
-      "public/**/*",
-    ],
+    ignores: ["public/**/*", "src/models/bible-structure.json"],
   },
-  {
-    files: ["**/*.ts", "**/*.vue"],
-    ignores: ["**/*.json"],
-    ...pluginVueA11y.configs["flat/recommended"],
-    rules: {},
-  },
+  // {
+  //   files: ["**/*.ts", "**/*.vue"],
+  //   ignores: ["**/*.json"],
+  //   ...pluginVueA11y.configs["flat/recommended"],
+  //   rules: {},
+  // },
   {
     files: ["**/*.json", "**/*.md"],
     ignores: ["public/**/*.json"],

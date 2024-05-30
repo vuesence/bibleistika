@@ -9,7 +9,7 @@ import http from "./http";
 
 let jsonCounter = 0;
 let logout;
-let metaDataCallback = () => {};
+let metaDataCallback = () => { };
 
 const responseInterceptors = [];
 
