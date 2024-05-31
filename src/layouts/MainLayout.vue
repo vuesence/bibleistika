@@ -18,14 +18,14 @@ onMounted(() => {
 <template>
   <div class="app">
     <AppHeader />
-
-    <div class="main-pane">
-      <!-- <AppNavigationDrawer v-model="isDrawerOpen">
+    <!--
+    <div class="main-pane"> -->
+    <!-- <AppNavigationDrawer v-model="isDrawerOpen">
         <AppSidebar />
       </AppNavigationDrawer> -->
 
-      <AppContentPane />
-    </div>
+    <AppContentPane class="main-pane" />
+    <!-- </div> -->
 
     <AppFooter />
     <SettingsDialog ref="settingsDialog" />

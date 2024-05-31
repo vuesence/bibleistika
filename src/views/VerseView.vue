@@ -35,45 +35,25 @@ watch(() => route.name, () => {
 
 <template>
   <div class="layout">
-    <div class="verse-container">
+    <section class="verse-section">
       <VerseHeader :vid="props.vid" />
       <VerseText :vid="props.vid" :verse="verse" />
-    </div>
+    </section>
 
     <Transition mode="out-in">
       <LemmaDescription
         v-if="props.sn"
         :key="props.sn"
         :sc="sc"
-        class="lemma-desc"
+        class="lemma-section"
       />
     </Transition>
 
-    <!-- <div class="show-occurrences-button"> -->
-    <!-- <button
-      v-if="props.sn"
-      class="show-occurrences-link"
-      @click="showOccurrences = !showOccurrences"
-    >
-      Show occurrences
-    </button> -->
-    <!-- </div> -->
-
-    <!-- <Transition mode="out-in">
-      <LemmaOccurrences
-        v-if="props.mode === '1'"
-        v-bind="props"
-        class="lemma-occurrences"
-      />
-    </Transition> -->
-
     <router-view v-slot="{ Component }" mode="out-in">
       <Transition name="fade">
-        <component :is="Component" class="lemma-occurrences" />
+        <component :is="Component" class="details-section" />
       </Transition>
     </router-view>
-
-    <!-- <router-view /> -->
   </div>
 </template>
 
@@ -84,22 +64,26 @@ watch(() => route.name, () => {
   /* grid-template-rows: repeat(6, 1fr); */
   gap: 10px;
   grid-auto-rows: minmax(100px, auto);
+  @media screen and (max-width: 760px) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
-.verse-container {
+.verse-section {
   grid-column: 1 / 5;
   grid-row: 1;
   /* border: 1px solid gray; */
 }
 
-.lemma-desc {
+.lemma-section {
   /* margin-top: 2em; */
   grid-column: 5 / 7;
   grid-row: 1 / 3;
   /* border: 1px solid gray; */
 }
 
-.lemma-occurrences {
+.details-section {
   grid-column: 1 / 5;
   grid-row: 2;
   /* border: 1px solid gray; */

@@ -1,11 +1,10 @@
-import { books } from "./bible-structure.json";
+import { books } from "./bible-structure.js";
 
 // interface IBook {
 //   id: number;
 //   name: string;
 //   chapters: number[];
 // }
-
 export { books };
 
 export function parseVerseId(vid: string): {

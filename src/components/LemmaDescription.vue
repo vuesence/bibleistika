@@ -41,8 +41,8 @@ function playAudio() {
 </script>
 
 <template>
-  <div class="wrapper">
-    <div v-if="sc" class="lemma-desc">
+  <section>
+    <article v-if="sc" class="lemma-desc">
       <h2>{{ sc.lemma }}</h2>
       <h4>{{ sc.sn }}</h4>
       <p class="desc" v-html="buildDesc(sc.desc)" />
@@ -63,7 +63,14 @@ function playAudio() {
       </div>
 
       <div class="stats">
-        <div role="button" tabindex="0" class="pron" title="Произношение" @click="playAudio()" @keydown="playAudio()">
+        <div
+          role="button"
+          tabindex="0"
+          class="pron"
+          title="Произношение"
+          @click="playAudio()"
+          @keydown="playAudio()"
+        >
           <BaseIcon name="speaker" size="18" />
           {{ sc.pr }}
         </div>
@@ -80,8 +87,8 @@ function playAudio() {
         <source :src="audioUrl" />
         <track kind="captions" default />
       </audio>
-    </div>
-  </div>
+    </article>
+  </section>
 </template>
 
 <style scoped>
