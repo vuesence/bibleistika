@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import BaseButton from "../../../../../home/altay/src/vuesence/bibleistika/src/components/ui/BaseButton.vue";
+import BaseIcon from "./ui/BaseIcon.vue";
+import BaseButton from "@/components/ui/BaseButton.vue";
 // import { defineProps } from "vue";
 // import { StrongsConcordance } from "../models/StrongsConcordance";
-import BaseIcon from "./ui/BaseIcon.vue";
 import { router } from "@/router";
 
 const props = defineProps({
