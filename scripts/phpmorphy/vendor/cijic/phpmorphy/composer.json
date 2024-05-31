@@ -1,0 +1,26 @@
+{
+    "name": "cijic/phpmorphy",
+    "description": "phpMorphy - morphological analyzer library for Russian, English, German and Ukrainian languages.",
+    "keywords": [
+        "phpMorphy"
+    ],
+    "homepage": "https://github.com/cijic/phpmorphy",
+    "license": "MIT",
+    "authors": [{
+        "name": "Chiril Teterea",
+        "email": "altcode@ya.ru",
+        "role": "Developer"
+    }],
+    "require": {
+        "php": ">=8.0"
+    },
+    "autoload": {
+        "classmap": [
+            "libs/phpmorphy/src/common.php",
+            "libs/phpmorphy/src/"
+        ],
+        "psr-4": {
+            "cijic\\phpMorphy\\": "src"
+        }
+    }
+}

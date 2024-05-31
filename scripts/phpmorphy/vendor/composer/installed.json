@@ -1,0 +1,58 @@
+{
+    "packages": [
+        {
+            "name": "cijic/phpmorphy",
+            "version": "0.3.4",
+            "version_normalized": "0.3.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cijic/phpmorphy.git",
+                "reference": "f8544db8fc5231f7465ac64a3651fa03125a209b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cijic/phpmorphy/zipball/f8544db8fc5231f7465ac64a3651fa03125a209b",
+                "reference": "f8544db8fc5231f7465ac64a3651fa03125a209b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0"
+            },
+            "time": "2024-03-21T09:47:03+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "cijic\\phpMorphy\\": "src"
+                },
+                "classmap": [
+                    "libs/phpmorphy/src/common.php",
+                    "libs/phpmorphy/src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chiril Teterea",
+                    "email": "altcode@ya.ru",
+                    "role": "Developer"
+                }
+            ],
+            "description": "phpMorphy - morphological analyzer library for Russian, English, German and Ukrainian languages.",
+            "homepage": "https://github.com/cijic/phpmorphy",
+            "keywords": [
+                "phpmorphy"
+            ],
+            "support": {
+                "issues": "https://github.com/cijic/phpmorphy/issues",
+                "source": "https://github.com/cijic/phpmorphy/tree/0.3.4"
+            },
+            "install-path": "../cijic/phpmorphy"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

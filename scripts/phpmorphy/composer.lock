@@ -1,0 +1,68 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "c022671217014cda4b620f48492493a6",
+    "packages": [
+        {
+            "name": "cijic/phpmorphy",
+            "version": "0.3.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cijic/phpmorphy.git",
+                "reference": "f8544db8fc5231f7465ac64a3651fa03125a209b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cijic/phpmorphy/zipball/f8544db8fc5231f7465ac64a3651fa03125a209b",
+                "reference": "f8544db8fc5231f7465ac64a3651fa03125a209b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "cijic\\phpMorphy\\": "src"
+                },
+                "classmap": [
+                    "libs/phpmorphy/src/common.php",
+                    "libs/phpmorphy/src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chiril Teterea",
+                    "email": "altcode@ya.ru",
+                    "role": "Developer"
+                }
+            ],
+            "description": "phpMorphy - morphological analyzer library for Russian, English, German and Ukrainian languages.",
+            "homepage": "https://github.com/cijic/phpmorphy",
+            "keywords": [
+                "phpmorphy"
+            ],
+            "support": {
+                "issues": "https://github.com/cijic/phpmorphy/issues",
+                "source": "https://github.com/cijic/phpmorphy/tree/0.3.4"
+            },
+            "time": "2024-03-21T09:47:03+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
+}
