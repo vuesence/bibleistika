@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import type { PropType } from "vue";
 import VerseToken from "./VerseToken.vue";
+import BaseIcon from "./ui/BaseIcon.vue";
 import { router } from "@/router";
 import { settings } from "@/composables/useAppSettings";
+import { getVerseURI } from "@/utils/bibleUtils";
 
 const props = defineProps({
   verse: {
@@ -28,6 +30,13 @@ function displayWord(sn: string) {
       :class="{ highlighted: settings.highlightSearch && props.highlighted === token.sn }"
       @click="displayWord(token.sn)"
     />
+    <router-link
+      :to="{ name: 'verse', params: { vid: verse.vid } }"
+      class="anchor"
+    >
+      <span class="verse-uri">( {{ getVerseURI(verse.vid) }} )</span>
+      <BaseIcon size="16" class="icon" name="arrow-out" />
+    </router-link>
   </div>
 </template>
 
@@ -41,6 +50,20 @@ function displayWord(sn: string) {
   border-bottom: 1px solid var(--vwa-c-divider);
   .lemma-occurrences & {
     row-gap: 0;
+  }
+  .anchor {
+    display: flex;
+    align-items: center;
+    color: var(--vwa-c-text-3);
+    &:hover {
+      color: var(--vwa-c-text-1);
+    }
+    .verse-uri {
+      /* color: var(--vwa-c-text-3); */
+      margin: 0 0.5em;
+      font-size: 0.7em;
+      font-style: italic;
+    }
   }
 }
 

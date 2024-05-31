@@ -42,8 +42,12 @@ function updateFontSize(change: number) {
   }
   .btn  {
     user-select: none;
-    height: 3rem;
     width: 7rem;
+    height: 3rem;
+    .mobile & {
+      width: 4rem;
+      height: 2rem;
+    }
   }
   .smaller {
     margin-right: 1rem;

@@ -12,9 +12,9 @@ const { openSettingsDialog } = useAppSettings();
     <RouterLink :to="{ name: 'home' }">
       <div class="logo">
         <BaseIcon size="30" name="logo" class="icon" />
-        <div class="title">
-          Strongs Bible
-        </div>
+        <svg class="title" viewBox="0 0 1194.000000 229.000000">
+          <use xlink:href="#title"></use>
+        </svg>
       </div>
     </RouterLink>
     <!-- <div class="links">
@@ -54,7 +54,11 @@ const { openSettingsDialog } = useAppSettings();
       margin-left: 0.6rem;
       font-size: 1.2rem;
       font-weight: 700;
-      color: var(--vwa-c-text-1)
+      width: 8rem;
+      color: var(--vwa-c-text-1);
+      svg {
+        margin-top: 5px;
+      }
     }
   }
 

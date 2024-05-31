@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // import { ref } from "vue";
-import { books } from "@/models/bible-helpers";
+import { books } from "@/utils/bibleUtils";
 
 defineProps({
   vid: {
@@ -32,17 +32,17 @@ const emit = defineEmits(["next"]);
 
 <style scoped>
 .wrapper {
-  columns: 2;
+  columns: 5;
   column-gap: 1em;
 
-  @media (min-width: 700px) {
+  .mobile & {
+    columns: 2;
+  }
+  .tablet & {
     columns: 3;
   }
-  @media (min-width: 900px) {
+  .notebook & {
     columns: 4;
-  }
-  @media (min-width: 1100px) {
-    columns: 5;
   }
 
   button {

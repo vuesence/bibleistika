@@ -2,7 +2,7 @@
 import { onMounted, ref } from "vue";
 import { loadLemmaOccurrences } from "../composables/useVerseUtils";
 import { PaginationBar } from "./ui/pagination";
-import BaseIcon from "./ui/BaseIcon.vue";
+// import BaseIcon from "./ui/BaseIcon.vue";
 import VerseText from "./VerseText.vue";
 
 const props = defineProps({
@@ -31,6 +31,7 @@ onMounted(async () => {
 
 <template>
   <div v-if="props.sn" class="lemma-occurrences">
+    <h2>Все вхождения леммы {{ props.sn }}</h2>
     <PaginationBar
       v-model="page"
       :total-row="verses.length"
@@ -61,12 +62,6 @@ onMounted(async () => {
         class="verse-wrapper"
       >
         <VerseText :verse="verse" mode="short" :highlighted="props.sn" />
-        <router-link
-          :to="{ name: 'verse', params: { vid: verse.vid } }"
-          class="shortcut"
-        >
-          <BaseIcon size="16" name="arrow-out" />
-        </router-link>
       </div>
     </div>
   </div>
@@ -76,6 +71,12 @@ onMounted(async () => {
 <style scoped>
   .lemma-occurrences {
     margin-top: 1em;
+
+    h2 {
+      text-align: center;
+      color: var(--vwa-c-text-2);
+      font-size: 1.3em;
+    }
 
     .verse-wrapper {
       display: flex;

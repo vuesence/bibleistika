@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import { ref } from "vue";
-// import { chapterAndVerseId, getBookName, nextVerseId, prevVerseId }
-//   from "@/models/bible-helpers";
 import VerseSelectionDialogBook from "./VerseSelectionDialogBook.vue";
 // import VerseSelectionDialogChapter from "./VerseSelectionDialogChapter.vue";
 import VerseSelectionDialogList from "./VerseSelectionDialogList.vue";
 import { router } from "@/router";
-import { books } from "@/models/bible-helpers";
+import { books } from "@/utils/bibleUtils";
 
 defineProps({
   vid: {

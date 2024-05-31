@@ -1,4 +1,4 @@
-import { books } from "./bible-structure.js";
+import { books } from "./bibleStructure.js";
 
 // interface IBook {
 //   id: number;
@@ -51,4 +51,9 @@ export function prevVerseId(vid: string) {
 export function getBookName(vid: string) {
   const { bookId } = parseVerseId(vid);
   return books[bookId - 1].name;
+}
+
+export function getVerseURI(vid: string) {
+  const { bookId, chapterId, verseId } = parseVerseId(vid);
+  return `${books[bookId - 1].shortName} ${chapterId}:${verseId}`;
 }

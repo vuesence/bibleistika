@@ -59,6 +59,7 @@ function onClick($event) {
 dialog {
   padding: 0;
   color: var(--vwa-c-text-1);
+  border: 3px solid var(--vwa-c-border);
   > div {
     padding: 0 1em 1em ;
     display: flex;

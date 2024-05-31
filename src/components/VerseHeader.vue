@@ -4,7 +4,7 @@ import BaseIcon from "./ui/BaseIcon.vue";
 import BaseButton from "./ui/BaseButton.vue";
 import VerseSelectionDialog from "./verse-selection-dialog/VerseSelectionDialog.vue";
 import { chapterAndVerseId, getBookName, nextVerseId, prevVerseId }
-  from "@/models/bible-helpers";
+  from "@/utils/bibleUtils";
 import { router } from "@/router";
 
 const props = defineProps({

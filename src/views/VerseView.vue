@@ -64,7 +64,7 @@ watch(() => route.name, () => {
   /* grid-template-rows: repeat(6, 1fr); */
   gap: 10px;
   grid-auto-rows: minmax(100px, auto);
-  @media screen and (max-width: 760px) {
+  .mobile &, .tablet & {
     display: flex;
     flex-direction: column;
   }
@@ -74,7 +74,12 @@ watch(() => route.name, () => {
   grid-column: 1 / 5;
   grid-row: 1;
   /* border: 1px solid gray; */
+  & :deep(.verse .anchor) {
+    display: none;
+  }
+
 }
+/* .verse-section   */
 
 .lemma-section {
   /* margin-top: 2em; */

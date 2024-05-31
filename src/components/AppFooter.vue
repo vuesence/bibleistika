@@ -47,10 +47,12 @@ const socials = [
       </g>
     </svg> -->
     <div class="logo">
-      <BaseIcon size="30" name="logo" class="icon" />
-      <div class="title">
-        Strongs Bible
-      </div>
+      <BaseIcon size="26" name="logo" class="icon" />
+      <!-- <div class="title"> -->
+      <svg class="title" viewBox="0 0 1194.000000 229.000000">
+        <use xlink:href="#title"></use>
+      </svg>
+      <!-- </div> -->
     </div>
     <div class="links">
       <RouterLink v-for="link in links" :key="link.title" class="link" :to="link.route">
@@ -87,6 +89,7 @@ const socials = [
       font-size: 1.2rem;
       font-weight: 700;
       color: var(--vwa-c-text-1);
+      width: 5em;
     }
   }
 

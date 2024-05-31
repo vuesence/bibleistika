@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { books } from "@/models/bible-helpers";
+import { books } from "@/utils/bibleUtils";
 
 defineProps({
   size: {

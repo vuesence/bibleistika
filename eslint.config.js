@@ -36,7 +36,7 @@ export default antfu(
     },
   },
   {
-    ignores: ["public/**/*", "src/models/bible-structure.json"],
+    ignores: ["public/**/*", "src/utils/bibleStructure.js"],
   },
   // {
   //   files: ["**/*.ts", "**/*.vue"],
