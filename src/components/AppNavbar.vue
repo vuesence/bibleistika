@@ -25,11 +25,14 @@ const footerLinks = [
     <div class="main">
       <ul>
         <router-link
-          v-for="link in links" :key="link.label" v-slot="{ href, navigate }" :to="{ name: link.name }"
+          v-for="link in links"
+          :key="link.label"
+          v-slot="{ href, navigate }"
+          :to="{ name: link.name }"
           custom
         >
           <li>
-            <a role="link" :href="href" @click="onLinkClick($event, navigate)">
+            <a :href="href" @click="onLinkClick($event, navigate)">
               <BaseIcon size="24" :name="link.icon" class="icon" fill1="currentColor" />
               <span>{{ link.label }}</span>
             </a>
@@ -40,11 +43,14 @@ const footerLinks = [
     <div class="footer">
       <ul>
         <router-link
-          v-for="link in footerLinks" :key="link.label" v-slot="{ href, navigate }" :to="{ name: link.name }"
+          v-for="link in footerLinks"
+          :key="link.label"
+          v-slot="{ href, navigate }"
+          :to="{ name: link.name }"
           custom
         >
           <li>
-            <a role="link" :href="href" @click="onLinkClick($event, navigate)">
+            <a :href="href" @click="onLinkClick($event, navigate)">
               <BaseIcon size="24" :name="link.icon" class="icon" />
               <span>{{ link.label }}</span>
             </a>

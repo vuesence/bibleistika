@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from "vue";
+import { ref, watch } from "vue";
 import { useRoute } from "vue-router";
-import LemmaOccurrences from "../components/LemmaOccurrences.vue";
-import VerseTitle from "../components/VerseTitle.vue";
+import VerseHeader from "../components/VerseHeader.vue";
 import VerseText from "../components/VerseText.vue";
 import LemmaDescription from "../components/LemmaDescription.vue";
 import { useVerseUtils } from "../composables/useVerseUtils";
@@ -37,7 +36,7 @@ watch(() => route.name, () => {
 <template>
   <div class="layout">
     <div class="verse-container">
-      <VerseTitle :vid="props.vid" />
+      <VerseHeader :vid="props.vid" />
       <VerseText :vid="props.vid" :verse="verse" />
     </div>
 

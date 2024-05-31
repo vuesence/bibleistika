@@ -22,10 +22,10 @@ function updateFontSize(change: number) {
         Размер шрифта:
       </div>
       <div class="value">
-        <BaseButton class="smaller" @click="updateFontSize(-2)">
-          a
+        <BaseButton class="btn smaller" @click="updateFontSize(-2)">
+          A
         </BaseButton>
-        <BaseButton class="bigger" @click="updateFontSize(2)">
+        <BaseButton class="btn bigger" @click="updateFontSize(2)">
           A
         </BaseButton>
       </div>
@@ -37,17 +37,21 @@ function updateFontSize(change: number) {
 @import "./settings.css";
 
 .typography {
-  button {
-    height: 1rem;
+  .value {
+    align-items: center;
+  }
+  .btn  {
     user-select: none;
+    height: 3rem;
+    width: 7rem;
   }
   .smaller {
     margin-right: 1rem;
     font-size: 12px;
-    height: 1rem;
+    /* height: 1rem; */
   }
   .bigger {
-    font-size: 22px;
+    font-size: 24px;
   }
 }
 </style>

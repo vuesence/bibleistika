@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import {
-  arrow,
   computePosition,
   flip,
   offset,
@@ -97,6 +96,7 @@ function buildPreview(desc) {
     left: 0;
     margin: 0;
     padding: 1em;
+    text-align: left;
     border: 1px solid var(--vwa-c-border);
     border-radius: 5px;
     background: var(--vwa-c-bg-alt);

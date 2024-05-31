@@ -4,7 +4,6 @@ import BaseButton from "../ui/BaseButton.vue";
 import VerseSection from "./VerseSection.vue";
 import TypographySection from "./TypographySection.vue";
 // import ThemeToggle from "@/components/ui/ThemeToggle.vue";
-import { useAppSettings } from "@/composables/useAppSettings";
 
 // const props = defineProps({
 //   token: {
@@ -39,11 +38,11 @@ function onClick($event) {
 </script>
 
 <template>
-  <dialog ref="dialog" @click="onClick">
+  <dialog ref="dialog" role="textbox" tabindex="0" @click="onClick" @keydown="() => {}">
     <div>
       <header>
         <h3>Настройки</h3>
-        <BaseButton autofocus class="close-btn">
+        <BaseButton class="close-btn">
           Close
         </BaseButton>
       </header>
@@ -59,6 +58,7 @@ function onClick($event) {
 <style scoped>
 dialog {
   padding: 0;
+  color: var(--vwa-c-text-1);
   > div {
     padding: 0 1em 1em ;
     display: flex;

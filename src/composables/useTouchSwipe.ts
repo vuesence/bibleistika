@@ -4,50 +4,50 @@ import { computed, reactive, ref } from "vue";
 export type ISwipeDirection = "up" | "down" | "left" | "right" | "none";
 
 export interface IPoint {
-  x: number;
-  y: number;
+  x: number
+  y: number
 }
 
 export interface ISwipeOptions {
   /*
    * Specify a custom `window` instance, e.g. working with iframes or in testing environments.
    */
-  window?: Window;
+  window?: Window
 
   /**
    * Register events as passive
    *
    * @default true
    */
-  passive?: boolean;
+  passive?: boolean
 
   /**
    * @default 50
    */
-  threshold?: number;
+  threshold?: number
 
   /**
    * Callback on swipe start
    */
-  onSwipeStart?: (e: TouchEvent) => void;
+  onSwipeStart?: (e: TouchEvent) => void
 
   /**
    * Callback on swipe moves
    */
-  onSwipe?: (e: TouchEvent) => void;
+  onSwipe?: (e: TouchEvent) => void
 
   /**
    * Callback on swipe ends
    */
-  onSwipeEnd?: (e: TouchEvent, direction: ISwipeDirection) => void;
+  onSwipeEnd?: (e: TouchEvent, direction: ISwipeDirection) => void
 }
 
 export interface ISwipeReturn {
-  isSwiping: Ref<boolean>;
-  direction: ComputedRef<ISwipeDirection>;
-  coordsStart: Readonly<IPoint>;
-  coordsEnd: Readonly<IPoint>;
-  stop: () => void;
+  isSwiping: Ref<boolean>
+  direction: ComputedRef<ISwipeDirection>
+  coordsStart: Readonly<IPoint>
+  coordsEnd: Readonly<IPoint>
+  stop: () => void
 }
 
 /**
@@ -59,7 +59,7 @@ export interface ISwipeReturn {
 export function useTouchSwipe(
   // target: MaybeRefOrGetter<EventTarget | null | undefined>,
   target: EventTarget,
-  options: ISwipeOptions = {}
+  options: ISwipeOptions = {},
 ): ISwipeReturn {
   const { threshold = 50, onSwipe, onSwipeEnd, onSwipeStart } = options;
 
@@ -74,8 +74,8 @@ export function useTouchSwipe(
 
   const isThresholdExceeded = computed(
     () =>
-      isThresholdExceeded.value ||
-      max(abs(diffX.value), abs(diffY.value)) >= threshold
+      isThresholdExceeded.value
+      || max(abs(diffX.value), abs(diffY.value)) >= threshold,
   );
 
   const direction = computed((): ISwipeDirection => {
@@ -90,7 +90,7 @@ export function useTouchSwipe(
     }
   });
 
-  const listenerOptions: { passive?: boolean; capture?: boolean } = {
+  const listenerOptions: { passive?: boolean, capture?: boolean } = {
     passive: true,
     capture: false,
   };

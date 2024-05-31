@@ -5,7 +5,6 @@ import ThemeToggle from "@/components/ui/ThemeToggle.vue";
 import { useAppSettings } from "@/composables/useAppSettings";
 
 const { openSettingsDialog } = useAppSettings();
-
 </script>
 
 <template>

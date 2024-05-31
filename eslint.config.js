@@ -31,6 +31,8 @@ export default antfu(
       "style/indent": 2, // 4, or 'tab'
       "style/quotes": ["error", "double"],
       "style/brace-style": ["error", "1tbs", { allowSingleLine: true }],
+      "vuejs-accessibility/label-has-for": ["error", { required: { every: ["nesting"] } }],
+      "vuejs-accessibility/anchor-has-content": "off",
     },
   },
   {

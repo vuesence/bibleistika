@@ -1,3 +1,4 @@
+/* eslint-disable style/max-statements-per-line */
 import { computed, defineComponent, h, onMounted, ref, toRefs, watch } from "vue";
 import "./pb.css";
 import languages, { EN } from "./language";
@@ -120,12 +121,12 @@ export default defineComponent({
         pageSize: Number(pageSize.value),
       });
     }
-    function pageNumberGenerator(classes, num, text) {
+    function pageNumberGenerator(classes1, num, text) {
       const option = {
         href: "javascript:void(0)",
         onClick: () => goPage(num),
       };
-      return h("li", { class: classes }, [h("a", option, text)]);
+      return h("li", { class: classes1 }, [h("a", option, text)]);
     }
 
     onMounted(() => {

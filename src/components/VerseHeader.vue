@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import BaseIcon from "./ui/BaseIcon.vue";
+import BaseButton from "./ui/BaseButton.vue";
 import VerseSelectionDialog from "./verse-selection-dialog/VerseSelectionDialog.vue";
 import { chapterAndVerseId, getBookName, nextVerseId, prevVerseId }
   from "@/models/bible-helpers";
@@ -30,12 +32,12 @@ function go(direction: string) {
     </button>
     <VerseSelectionDialog ref="dialog" />
 
-    <button class="prev nav-button" @click="go('prev')">
-      Prev
-    </button>
-    <button class="next nav-button" @click="go('next')">
-      Next
-    </button>
+    <BaseButton class="prev nav-button" @click="go('prev')">
+      <BaseIcon size="20" name="prev" class="icon" fill1="currentColor" />
+    </BaseButton>
+    <BaseButton class="next nav-button" @click="go('next')">
+      <BaseIcon size="20" name="next" class="icon" fill1="currentColor" />
+    </BaseButton>
   </div>
 </template>
 
@@ -43,15 +45,20 @@ function go(direction: string) {
 .verse-header {
   display: flex;
   align-items: center;
+  margin-bottom: 2em;
   .open-verse-selection {
     border: 0;
     cursor: pointer;
   }
-}
-
-.nav-button {
-  height: 2em;
-  margin-left: 1.5em;
-  padding: 0 1em;
+  .nav-button {
+    height: 1.5em;
+    width: 5em;
+    margin-left: 1.5em;
+    padding: 0 1em;
+    color: var(--vwa-c-text-3);
+    .icon {
+      margin: 0 auto;;
+    }
+  }
 }
 </style>

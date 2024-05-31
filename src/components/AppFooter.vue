@@ -17,6 +17,7 @@ const socials = [
 </script>
 
 <template>
+  <!-- eslint-disable style/max-len -->
   <footer class="footer">
     <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 623 163" class="logo">
       <g fill="none" fill-rule="evenodd" class="style-2">

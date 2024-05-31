@@ -52,7 +52,8 @@ async function postFetch(data: any, uri: string) {
 // Uncomment, if you are using `XMLHttpRequest`
 
 // async function postXhr(data: any, uri: string) {
-//   const xhr = new HttpRequest("POST", `${options.baseUrl}${uri}`, "application/json", options.headers);
+//   const xhr
+//   = new HttpRequest("POST", `${options.baseUrl}${uri}`, "application/json", options.headers);
 //   xhr.xhr.withCredentials = true;
 //   const response = await xhr.send(data);
 //   return response.json;

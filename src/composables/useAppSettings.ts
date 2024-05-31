@@ -1,4 +1,4 @@
-import { reactive, ref, watch } from "vue";
+import { reactive } from "vue";
 import { useLocalStorage } from "@/composables/useLocalStorage";
 import { setCssVar } from "@/utils/css-utils";
 

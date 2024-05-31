@@ -1,3 +1,4 @@
+<!-- eslint-disable vuejs-accessibility/label-has-for -->
 <script setup lang="ts">
 import { ref } from "vue";
 
@@ -37,17 +38,25 @@ async function submitForm() {
     </p>
     <!-- <div class="form-container"> -->
     <div class="form-container" action="action_page.php">
-      <label for="fname">Your name</label>
-      <input id="fname" v-model="form.name" type="text" name="firstname" placeholder="">
+      <label for="fname">
+        Your name
+        <input id="fname" v-model="form.name" type="text" name="firstname" placeholder="">
+      </label>
 
-      <label for="lname">Your email or phone number</label>
-      <input id="lname" v-model="form.email" type="text" name="lastname" placeholder="">
+      <label for="lname">
+        Your email or phone number
+        <input id="lname" v-model="form.email" type="text" name="lastname" placeholder="">
+      </label>
 
-      <label for="subject">Message</label>
-      <textarea id="subject" v-model="form.message" name="subject" placeholder="" />
+      <label for="subject">
+        sendMessage
+        <textarea id="subject" v-model="form.message" name="subject" placeholder="" />
+      </label>
 
-      <label for="check">Enter lemma "vue"</label>
-      <input id="check" v-model="form.check" type="text" name="check" placeholder="">
+      <label for="check">
+        Enter lemma "vue"
+        <input id="check" v-model="form.check" type="text" name="check" placeholder="">
+      </label>
 
       <input ref="submit" type="submit" value="Submit" @click="submitForm">
     </div>

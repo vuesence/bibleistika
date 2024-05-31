@@ -31,31 +31,33 @@ function displayTooltip() {
 </script>
 
 <template>
-  <div>
-    <div
-      class="token"
-      :popovertarget="`popover-${props.token.sn}`"
-      @mouseenter="displayTooltip()"
-      @mouseleave="hideTooltip()"
+  <!-- <div> -->
+  <button
+    class="token"
+    :popovertarget="`popover-${props.token.sn}`"
+    @mouseenter="displayTooltip()"
+    @focusin="displayTooltip()"
+    @mouseleave="hideTooltip()"
+    @blur="hideTooltip()"
+  >
+    <span class="text">
+      {{ props.token.tr ?? 'nbsp' }}
+    </span>
+    <span
+      v-if="props.token.sn && settings.showStrongsNumber"
+      class="strongs-number"
     >
-      <span class="text">
-        {{ props.token.tr ?? 'nbsp' }}
-      </span>
-      <span
-        v-if="props.token.sn && settings.showStrongsNumber"
-        class="strongs-number"
-      >
-        {{ props.token.sn }}
-      </span>
-      <span
-        v-if="props.token.sc && settings.showStrongsLemma"
-        class="original-lemma"
-      >
-        {{ props.token.sc.lemma }}
-      </span>
-    </div>
+      {{ props.token.sn }}
+    </span>
+    <span
+      v-if="props.token.sc && settings.showStrongsLemma"
+      class="lemma"
+    >
+      {{ props.token.sc.lemma }}
+    </span>
     <VerseTokenPreview v-if="showTooltip" ref="popover" :token="props.token" />
-  </div>
+  </button>
+  <!-- </div> -->
 </template>
 
 <style scoped>
@@ -64,9 +66,11 @@ function displayTooltip() {
   flex-direction: column;
   position: relative;
   align-items: center;
+  font-size: 1em;
+  border: 0;
   border-right: 1px solid transparent;
   border-left: 1px solid transparent;
-  .highlighted & {
+  &.highlighted {
     color: red;
   }
 
@@ -99,7 +103,7 @@ function displayTooltip() {
     font-size: 0.5em;
   }
 
-  .original-lemma {
+  .lemma {
     min-width: 0.7em;
     display: block;
   }

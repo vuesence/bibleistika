@@ -16,7 +16,8 @@ export const notificationInterceptor = {
       console.log("JSON-RPC message: ", msg);
     }
     if (data.error?.message) {
-      // const msg = data.error.data?.i18n ? t(`errors.${data.error.data?.i18n}`) : data.error.message;
+      // const msg = data.error.data?.i18n
+      //   ? t(`errors.${data.error.data?.i18n}`) : data.error.message;
       const msg = data.error.message;
       // toast.warn(msg);
       console.log("JSON-RPC error: ", msg, data.error.data);

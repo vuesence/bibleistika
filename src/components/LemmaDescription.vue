@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import { computed } from "vue";
+import BaseButton from "../../../../../home/altay/src/vuesence/bibleistika/src/components/ui/BaseButton.vue";
 // import { defineProps } from "vue";
 // import { StrongsConcordance } from "../models/StrongsConcordance";
-import { computed } from "vue";
 import BaseIcon from "./ui/BaseIcon.vue";
 import { router } from "@/router";
 
@@ -45,19 +46,24 @@ function playAudio() {
       <h2>{{ sc.lemma }}</h2>
       <h4>{{ sc.sn }}</h4>
       <p class="desc" v-html="buildDesc(sc.desc)" />
-      <button class="show-occurrences-btn" @click="go('verse-lemma-occurrences')">
-        Показать вхождения
-      </button>
 
-      <button class="show--btn" @click="go('lemma-bdb-dict')">
-        BDB
-      </button>
-      <button class="show--btn" @click="go('lemma-gesenius-dict')">
-        Gesenius
-      </button>
+      <div class="show-occurrences-wrapper">
+        <BaseButton class="show-occurrences-btn" @click="go('verse-lemma-occurrences')">
+          Показать вхождения
+        </BaseButton>
+      </div>
+
+      <div class="dictionary-links">
+        <BaseButton class="show--btn" @click="go('lemma-bdb-dict')">
+          BDB
+        </BaseButton>
+        <BaseButton class="show--btn" @click="go('lemma-gesenius-dict')">
+          Gesenius
+        </BaseButton>
+      </div>
 
       <div class="stats">
-        <div class="pron" title="Произношение" @click="playAudio()">
+        <div role="button" tabindex="0" class="pron" title="Произношение" @click="playAudio()" @keydown="playAudio()">
           <BaseIcon name="speaker" size="18" />
           {{ sc.pr }}
         </div>
@@ -72,6 +78,7 @@ function playAudio() {
       </div>
       <audio controls>
         <source :src="audioUrl" />
+        <track kind="captions" default />
       </audio>
     </div>
   </div>
@@ -81,41 +88,59 @@ function playAudio() {
 .lemma-desc {
   margin-left: 1em;
 
-  .show-occurrences-btn {
-    border: 1px solid var(--vwa-c-border);
-    padding: 2px 9px;
-    color: var(--vwa-c-brand-2);
-    transition: all 0.3s ease;
-    margin: 1em;
-    &:hover {
-      color: var(--vwa-c-text-1);
+  .show-occurrences-wrapper {
+    display: flex;
+    justify-content: space-around;
+    .show-occurrences-btn {
+      border: 1px solid var(--vwa-c-border);
+      padding: 2px 9px;
+      color: var(--vwa-c-brand-2);
+      transition: all 0.3s ease;
+      margin: 1em;
+
+      &:hover {
+        color: var(--vwa-c-text-1);
+      }
     }
+  }
+
+  .dictionary-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 1em 0 2em;
   }
 
   .desc {
     line-height: 1.5em;
   }
+
   .stats {
-    > div {
+    >div {
       display: flex;
       align-items: center;
       margin: 5px 0;
       color: var(--vwa-c-text-3);
       transition: all 0.3s ease;
+
       &.pron {
         cursor: pointer;
+
         &:hover {
           color: var(--vwa-c-brand-2);
         }
+
         .base-icon {
           color: var(--vwa-c-brand-1);
         }
       }
+
       .base-icon {
         margin-right: 1em;
       }
     }
   }
+
   audio {
     display: none;
     opacity: 0.4;

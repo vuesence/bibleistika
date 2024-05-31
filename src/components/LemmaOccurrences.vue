@@ -98,7 +98,7 @@ onMounted(async () => {
     }
 
     :deep(.token .strongs-number),
-    :deep(.token .original-lemma) {
+    :deep(.token .lemma) {
       display: none;
     }
   }

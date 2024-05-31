@@ -31,5 +31,5 @@ export function getPageNumbers(current, totalPage, pageNumberSize) {
   const start = getPageNumberStart(current, totalPage, pageNumberSize);
   return Array.from({ length: pageNumberSize })
     .map((val, index) => start + index)
-    .filter((val) => val >= FIRST && val <= totalPage);
+    .filter(val => val >= FIRST && val <= totalPage);
 }

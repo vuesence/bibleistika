@@ -1,5 +1,5 @@
 <template>
-  <button class="toggle" type="button" role="switch">
+  <button class="toggle" type="button" role="switch" aria-checked="false">
     <span class="check">
       <span v-if="$slots.default" class="icon">
         <slot />
@@ -20,9 +20,11 @@
   border: 1px solid var(--vwa-input-border-color);
   background-color: var(--vwa-input-switch-bg-color);
   transition: border-color 0.25s !important;
+
   &:hover {
     border-color: var(--vwa-c-brand-1);
   }
+
   .check {
     position: absolute;
     top: 1px;

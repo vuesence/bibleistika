@@ -36,14 +36,14 @@ const routes: RouteRecordRaw[] = [
       {
         name: "lemma-bdb-dict",
         path: "bdb",
-        props: (route) => ({ sn: route.params.sn, dict: "bdb" }),
+        props: route => ({ sn: route.params.sn, dict: "bdb" }),
         component: LemmaDictionaryArticle,
       },
       {
         name: "lemma-gesenius-dict",
         path: "gesenius",
         // props: true,
-        props: (route) => ({ sn: route.params.sn, dict: "gesenius" }),
+        props: route => ({ sn: route.params.sn, dict: "gesenius" }),
         component: LemmaDictionaryArticle,
       },
     ],

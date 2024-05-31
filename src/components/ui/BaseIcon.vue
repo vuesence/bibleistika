@@ -43,16 +43,24 @@ const height = computed(() => {
 
 <template>
   <!-- color: props.color, -->
-  <div v-if="getSvgIcon(props.name)" class="base-icon" :data-name="props.name" :fill="props.fill ?? 'currentColor'"
+  <div
+    v-if="getSvgIcon(props.name)"
+    class="base-icon" :data-name="props.name"
+    :fill="props.fill ?? 'currentColor'"
     stroke="currentColor" :style="{
-      width, height
-    }" v-html="getSvgIcon(props.name)" />
-  <img v-else :src="getImageUrl(props.name)" :data-name="props.name" :style="{
-    width,
-    height,
-    minWidth: width,
-    minHeight: height,
-  }" />
+      width, height,
+    }" v-html="getSvgIcon(props.name)"
+  />
+  <img
+    v-else
+    alt="props.name"
+    :src="getImageUrl(props.name)" :data-name="props.name" :style="{
+      width,
+      height,
+      minWidth: width,
+      minHeight: height,
+    }"
+  />
 </template>
 
 <style scoped>
