@@ -70,10 +70,10 @@ function changePagination(data) {
       margin: 1em auto;
     }
 
-    /* :deep(.token .strongs-number),
-    :deep(.token .lemma) {
+    :deep(.token > .strongs-number),
+    :deep(.token > .lemma) {
       display: none;
-    } */
+    }
   }
 
   .pagination1 {
