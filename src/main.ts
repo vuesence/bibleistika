@@ -4,7 +4,7 @@ import { createApp } from "vue";
 // import "./styles/base.css";
 
 import "./assets/styles/base.css";
-import "./assets/styles/custom.css";
+// import "./assets/styles/custom.css";
 import App from "./App.vue";
 import { router } from "./router";
 import { loadIcons } from "@/utils/icons";

@@ -34,7 +34,7 @@ function displayTooltip() {
   <!-- <div> -->
   <button
     class="token"
-    :popovertarget="`popover-${props.token.sn}`"
+    :popovertarget="props.token.sn ? `popover-${props.token.sn}` : null"
     @mouseenter="displayTooltip()"
     @focusin="displayTooltip()"
     @mouseleave="hideTooltip()"
@@ -101,6 +101,7 @@ function displayTooltip() {
   .strongs-number {
     color: var(--vwa-c-text-2);
     font-size: 0.5em;
+    line-height: 1.2em;
   }
 
   .lemma {

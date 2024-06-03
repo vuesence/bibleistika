@@ -3,6 +3,7 @@ import BaseIcon from "@/components/ui/BaseIcon.vue";
 // import HamburgerIcon from "@/components/ui/HamburgerIcon.vue";
 import ThemeToggle from "@/components/ui/ThemeToggle.vue";
 import { useAppSettings } from "@/composables/useAppSettings";
+import { router } from "@/router";
 
 const { openSettingsDialog } = useAppSettings();
 </script>
@@ -23,6 +24,9 @@ const { openSettingsDialog } = useAppSettings();
       </RouterLink>
     </div> -->
     <div class="right-pane">
+      <button class="search-btn" @click="router.push({ name: 'search-view' })">
+        <BaseIcon name="search" />
+      </button>
       <button class="settings-btn" @click="openSettingsDialog">
         <BaseIcon name="settings" />
       </button>
@@ -67,8 +71,13 @@ const { openSettingsDialog } = useAppSettings();
     gap: 1em;
     align-items: center;
 
-    .settings-btn {
+    > button {
       border: 0;
+      transition: color 0.3s ease-out;
+      color: var(--vwa-c-text-3);
+      &:hover {
+        color: var(--vwa-c-text-1);
+      }
     }
   }
 

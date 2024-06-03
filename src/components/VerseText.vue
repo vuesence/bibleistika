@@ -45,10 +45,10 @@ function displayWord(sn: string) {
   display: flex;
   flex-wrap: wrap;
   row-gap: 2em;
-  margin-bottom: 7px;
-  padding-bottom: 7px;
+  margin-bottom: 18px;
+  padding-bottom: 8px;
   border-bottom: 1px solid var(--vwa-c-divider);
-  .lemma-occurrences & {
+  .verse-list & {
     row-gap: 0;
   }
   .anchor {

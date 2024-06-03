@@ -41,54 +41,52 @@ function playAudio() {
 </script>
 
 <template>
-  <section>
-    <article v-if="sc" class="lemma-desc">
-      <h2>{{ sc.lemma }}</h2>
-      <h4>{{ sc.sn }}</h4>
-      <p class="desc" v-html="buildDesc(sc.desc)" />
+  <article v-if="sc" class="lemma-desc">
+    <h2>{{ sc.lemma }}</h2>
+    <h4>{{ sc.sn }}</h4>
+    <p class="desc" v-html="buildDesc(sc.desc)" />
 
-      <div class="show-occurrences-wrapper">
-        <BaseButton class="show-occurrences-btn" @click="go('verse-lemma-occurrences')">
-          Показать вхождения
-        </BaseButton>
-      </div>
+    <div class="show-occurrences-wrapper">
+      <BaseButton class="show-occurrences-btn" @click="go('verse-lemma-occurrences')">
+        Показать вхождения
+      </BaseButton>
+    </div>
 
-      <div class="dictionary-links">
-        <BaseButton class="show--btn" @click="go('lemma-bdb-dict')">
-          BDB
-        </BaseButton>
-        <BaseButton class="show--btn" @click="go('lemma-gesenius-dict')">
-          Gesenius
-        </BaseButton>
-      </div>
+    <div class="dictionary-links">
+      <BaseButton class="show--btn" @click="go('lemma-bdb-dict')">
+        BDB
+      </BaseButton>
+      <BaseButton class="show--btn" @click="go('lemma-gesenius-dict')">
+        Gesenius
+      </BaseButton>
+    </div>
 
-      <div class="stats">
-        <div
-          role="button"
-          tabindex="0"
-          class="pron"
-          title="Произношение"
-          @click="playAudio()"
-          @keydown="playAudio()"
-        >
-          <BaseIcon name="speaker" size="18" />
-          {{ sc.pr }}
-        </div>
-        <div class="tr" title="Транслитерация">
-          <BaseIcon name="xlit" size="18" />
-          {{ sc.tr }}
-        </div>
-        <div class="wc" title="Сколько раз встречается в Библии">
-          <BaseIcon name="lemma-count" size="18" />
-          {{ sc.f }}
-        </div>
+    <div class="stats">
+      <div
+        role="button"
+        tabindex="0"
+        class="pron"
+        title="Произношение"
+        @click="playAudio()"
+        @keydown="playAudio()"
+      >
+        <BaseIcon name="speaker" size="18" />
+        {{ sc.pr }}
       </div>
-      <audio controls>
-        <source :src="audioUrl" />
-        <track kind="captions" default />
-      </audio>
-    </article>
-  </section>
+      <div class="tr" title="Транслитерация">
+        <BaseIcon name="xlit" size="18" />
+        {{ sc.tr }}
+      </div>
+      <div class="wc" title="Сколько раз встречается в Библии">
+        <BaseIcon name="lemma-count" size="18" />
+        {{ sc.f }}
+      </div>
+    </div>
+    <audio controls>
+      <source :src="audioUrl" />
+      <track kind="captions" default />
+    </audio>
+  </article>
 </template>
 
 <style scoped>

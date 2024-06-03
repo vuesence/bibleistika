@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// import LemmaDescription from '../components/LemmaDescription.vue'
+import LemmaDescription from "../components/LemmaDescription.vue";
 // import VerseToken from '../components/VerseToken.vue'
 // import { ref, onMounted } from "vue";
 // import { getVerse } from "@/models/VerseLibrary";

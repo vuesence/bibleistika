@@ -6,6 +6,7 @@ import VerseText from "../components/VerseText.vue";
 import LemmaDescription from "../components/LemmaDescription.vue";
 import { useVerseUtils } from "../composables/useVerseUtils";
 import { useStrongsConcordance } from "@/composables/useStrongsConcordance";
+import TwoColumnLayout from "@/layouts/TwoColumnLayout.vue";
 
 const props = defineProps({
   vid: {
@@ -34,64 +35,43 @@ watch(() => route.name, () => {
 </script>
 
 <template>
-  <div class="layout">
-    <section class="verse-section">
+  <!-- <div class="layout"> -->
+  <TwoColumnLayout>
+    <template #top>
       <VerseHeader :vid="props.vid" />
       <VerseText :vid="props.vid" :verse="verse" />
-    </section>
+    </template>
 
-    <Transition mode="out-in">
-      <LemmaDescription
-        v-if="props.sn"
-        :key="props.sn"
-        :sc="sc"
-        class="lemma-section"
-      />
-    </Transition>
-
-    <router-view v-slot="{ Component }" mode="out-in">
-      <Transition name="fade">
-        <component :is="Component" class="details-section" />
+    <template #aside>
+      <Transition mode="out-in">
+        <LemmaDescription
+          v-if="props.sn"
+          :key="props.sn"
+          :sc="sc"
+          class="lemma-section1"
+        />
       </Transition>
-    </router-view>
-  </div>
+    </template>
+
+    <template #bottom>
+      <router-view v-slot="{ Component }" mode="out-in">
+        <Transition name="fade">
+          <component :is="Component" class="details-section1" />
+        </Transition>
+      </router-view>
+    </template>
+  </TwoColumnLayout>
+  <!-- </div>
+</template> -->
+  <!-- </div> -->
 </template>
 
 <style scoped>
-.layout {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  /* grid-template-rows: repeat(6, 1fr); */
-  gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
-  .mobile &, .tablet & {
-    display: flex;
-    flex-direction: column;
-  }
-}
-
 .verse-section {
-  grid-column: 1 / 5;
-  grid-row: 1;
-  /* border: 1px solid gray; */
   & :deep(.verse .anchor) {
     display: none;
   }
 
-}
-/* .verse-section   */
-
-.lemma-section {
-  /* margin-top: 2em; */
-  grid-column: 5 / 7;
-  grid-row: 1 / 3;
-  /* border: 1px solid gray; */
-}
-
-.details-section {
-  grid-column: 1 / 5;
-  grid-row: 2;
-  /* border: 1px solid gray; */
 }
 
 .v-enter-active,

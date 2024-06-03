@@ -51,6 +51,16 @@ export function useVerseUtils(props) {
 
 export async function loadLemmaOccurrences(sn: string): Promise<Verse[]> {
   const data = await api.bible.loadLemmaOccurrences(sn);
+  return buildVerses(data);
+}
+
+export async function
+loadSearchResults(searchString: string): Promise<Verse[]> {
+  const data = await api.bible.loadSearchResults(searchString);
+  return buildVerses(data);
+}
+
+function buildVerses(data: any): Verse[] {
   const verses: Verse[] = [];
   data.forEach((d) => {
     const v = buildVerse(d);

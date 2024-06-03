@@ -61,6 +61,14 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* width: var(--vwa-layout-max-width); */
+  max-width: var(--vwa-layout-max-width);
+  margin: 0 auto;
+}
+
+#app {
+  width: 100%;
 }
 
 a {
@@ -161,10 +169,4 @@ input[type='number'] {
 }
 select {
   -webkit-appearance: none;
-}
-
-#app {
-  width: var(--vwa-layout-max-width);
-  max-width: var(--vwa-layout-max-width);
-  margin: 0 auto;
 }

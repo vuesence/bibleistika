@@ -26,6 +26,12 @@ const bible = {
   async loadLemmaOccurrences(sn: string) {
     return await http.get(`http://192.168.1.101/api/verse/lemma-occurences.php?sn=${sn}`);
   },
+
+  async loadSearchResults(searchString: string) {
+    return await http
+      .get(`http://192.168.1.101/api/verse/search.php?search=${searchString}`);
+  },
+
   async loadDict(sn: string, type: string) {
     return await (await http.get(
       `http://192.168.1.101/api/verse/dict.php?sn=${sn}&dict=${type}`,
