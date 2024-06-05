@@ -2,7 +2,7 @@
 import { ref, watch } from "vue";
 import { useRoute } from "vue-router";
 import VerseHeader from "../components/VerseHeader.vue";
-import VerseText from "../components/VerseText.vue";
+import VerseComponent from "../components/VerseComponent.vue";
 import LemmaDescription from "../components/LemmaDescription.vue";
 import { useVerseUtils } from "../composables/useVerseUtils";
 import { useStrongsConcordance } from "@/composables/useStrongsConcordance";
@@ -39,7 +39,7 @@ watch(() => route.name, () => {
   <TwoColumnLayout>
     <template #top>
       <VerseHeader :vid="props.vid" />
-      <VerseText :vid="props.vid" :verse="verse" />
+      <VerseComponent :vid="props.vid" :verse="verse" />
     </template>
 
     <template #aside>
@@ -67,13 +67,6 @@ watch(() => route.name, () => {
 </template>
 
 <style scoped>
-.verse-section {
-  & :deep(.verse .anchor) {
-    display: none;
-  }
-
-}
-
 .v-enter-active,
 .v-leave-active {
   transition: opacity 0.2s ease;

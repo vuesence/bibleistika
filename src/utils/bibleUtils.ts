@@ -55,5 +55,12 @@ export function getBookName(vid: string) {
 
 export function getVerseURI(vid: string) {
   const { bookId, chapterId, verseId } = parseVerseId(vid);
-  return `${books[bookId - 1].shortName} ${chapterId}:${verseId}`;
+  return {
+    book: books[bookId - 1].shortName,
+    chapterAndVerse: `${chapterId}:${verseId}`,
+  };
 }
+// export function getVerseURI(vid: string) {
+//   const { bookId, chapterId, verseId } = parseVerseId(vid);
+//   return `${books[bookId - 1].shortName} ${chapterId}:${verseId}`;
+// }

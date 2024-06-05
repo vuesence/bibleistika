@@ -36,6 +36,7 @@ function displayTooltip() {
   <!-- <div> -->
   <button
     class="token"
+    :class="{ 'no-hover': !settings.showTooltipInList }"
     :popovertarget="props.token.sn ? `popover-${props.token.sn}` : null"
     @mouseenter="displayTooltip()"
     @focusin="displayTooltip()"
@@ -76,11 +77,11 @@ function displayTooltip() {
     color: red;
   }
 
-  &:has(.strongs-number) {
+  &:has(.strongs-number):not(.no-hover) {
     cursor: pointer;
   }
 
-  &:has(.strongs-number) {
+  &:has(.strongs-number):not(.no-hover) {
     &:hover {
       opacity: 0.8;
       background: var(--bbl-c-soft);
@@ -109,6 +110,7 @@ function displayTooltip() {
   .lemma {
     min-width: 0.7em;
     display: block;
+    margin-bottom: 0.5em;
   }
 }
 </style>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { PaginationBar } from "./ui/pagination";
-import VerseText from "./VerseText.vue";
+import VerseComponent from "./VerseComponent.vue";
 
 const props = defineProps({
   verses: {
@@ -35,16 +35,15 @@ function changePagination(data) {
     />
 
     <div class="verses">
-      <div
+      <template
         v-for="verse in props.verses.slice(
           (page - 1) * pageSize,
           page * pageSize,
         )"
         :key="verse.vid"
-        class="verse-wrapper"
       >
-        <VerseText :verse="verse" mode="short" :highlighted="props.sn" />
-      </div>
+        <VerseComponent :verse="verse" mode="short" :highlighted="props.sn" />
+      </template>
     </div>
   </div>
 </template>
@@ -53,21 +52,10 @@ function changePagination(data) {
   .verse-list {
     margin-top: 1em;
 
-    .verse-wrapper {
+    /* .verse-wrapper {
       display: flex;
       align-items: flex-start;
-    }
-
-    .shortcut {
-      margin-left: 0.5em;
-      margin-top: 3px;
-      color: var(--bbl-c-text-3);
-      transition: color 0.3s ease;
-
-      &:hover {
-        color: var(--bbl-c-text-1);
-      }
-    }
+    } */
 
     .pagination {
       margin: 1em auto;
