@@ -36,7 +36,10 @@ function changePagination(data) {
 
     <div class="verses">
       <div
-        v-for="verse in props.verses.slice((page - 1) * pageSize, page * pageSize)"
+        v-for="verse in props.verses.slice(
+          (page - 1) * pageSize,
+          page * pageSize,
+        )"
         :key="verse.vid"
         class="verse-wrapper"
       >
@@ -58,11 +61,11 @@ function changePagination(data) {
     .shortcut {
       margin-left: 0.5em;
       margin-top: 3px;
-      color: var(--vwa-c-text-3);
+      color: var(--bbl-c-text-3);
       transition: color 0.3s ease;
 
       &:hover {
-        color: var(--vwa-c-text-1);
+        color: var(--bbl-c-text-1);
       }
     }
 
@@ -74,13 +77,6 @@ function changePagination(data) {
     :deep(.token > .lemma) {
       display: none;
     }
-  }
-
-  .pagination1 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1em;
   }
 
   .current-page {

@@ -22,8 +22,8 @@ onMounted(async () => {
 
 <style scoped>
 ul {
-  color: var(--vwa-c-text-2);
-  border: 1px solid var(--vwa-c-divider);
+  color: var(--bbl-c-text-2);
+  border: 1px solid var(--bbl-c-divider);
   margin-bottom: 2em;
 
   li {
@@ -31,7 +31,7 @@ ul {
     display: flex;
 
     &:nth-child(even) {
-      background-color: var(--vwa-c-bg-alt);
+      background-color: var(--bbl-c-bg-alt);
     }
 
     &.dimmed {

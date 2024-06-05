@@ -55,7 +55,7 @@ function go(direction: string) {
     width: 5em;
     margin-left: 1.5em;
     padding: 0 1em;
-    color: var(--vwa-c-text-3);
+    color: var(--bbl-c-text-3);
     .icon {
       margin: 0 auto;;
     }

@@ -85,7 +85,7 @@ const steps = [
 .verse-selection[open] {
   display: flex;
   flex-direction: column;
-  border-color: var(--vwa-c-text-3);
+  border-color: var(--bbl-c-text-3);
 
   .close-button {
     position: absolute;
@@ -93,10 +93,10 @@ const steps = [
     top: 0.8em;
     font-size: 1.5em;
     border: 0;
-    color: var(--vwa-c-text-3);
+    color: var(--bbl-c-text-3);
     transition: color 0.3s ease;
     &:hover {
-      color: var(--vwa-c-text-2);
+      color: var(--bbl-c-text-2);
     }
   }
 }

@@ -80,9 +80,9 @@ function doSearch() {
             padding: 5px 19px;
             font-size: 15px;
             vertical-align: middle;
-            background-color: var(--vwa-c-bg-soft);
-            /* // border: 1px solid var(--vwa-c-border); */
-            border: 1px solid var(--vwa-c-divider);
+            background-color: var(--bbl-c-bg-soft);
+            /* // border: 1px solid var(--bbl-c-border); */
+            border: 1px solid var(--bbl-c-divider);
             border-right: 0;
             border-radius: 4px 0 0 4px;
             line-height: 1;
@@ -99,20 +99,20 @@ function doSearch() {
 
         button {
             height: 100%;
-            background-color: var(--vwa-c-brand-3) ;
+            background-color: var(--bbl-c-brand-3) ;
             /* // border: none; */
             border-radius: 0 4px 4px 0;
-            border-color: var(--vwa-c-divider);
+            border-color: var(--bbl-c-divider);
             cursor: pointer;
-            color: var(--vwa-c-bg-alt);
+            color: var(--bbl-c-bg-alt);
             padding: 0.10em 1.5em;
             display: flex;
             align-items: center;
             user-select: none;
             transition: all 0.3s ease-in-out;
             &:active {
-              background-color: var(--vwa-c-brand-3) ;
-              border-color: var(--vwa-c-brand-3) ;
+              background-color: var(--bbl-c-brand-3) ;
+              border-color: var(--bbl-c-brand-3) ;
               transition: all 0.1s ease-in-out;
             }
         }
@@ -120,15 +120,15 @@ function doSearch() {
     &:focus-within {
         & button {
             /* // color: var(--group-color-focus); */
-            background-color: var(--vwa-c-brand-1) ;
+            background-color: var(--bbl-c-brand-1) ;
             /* // border-color: #777; */
-            border-color: var(--vwa-c-brand-1) ;
-            color: var(--vwa-c-bg);
+            border-color: var(--bbl-c-brand-1) ;
+            color: var(--bbl-c-bg);
 
         }
         & input {
             /* // color: var(--group-color-focus); */
-            border-color: var(--vwa-c-brand-1) ;
+            border-color: var(--bbl-c-brand-1) ;
         }
     }
 }
@@ -140,14 +140,14 @@ function doSearch() {
     margin-right: 1em;
     /* margin-left: 1em; */
     font-size: 0.7em;
-    color: var(--vwa-c-text-2);
+    color: var(--bbl-c-text-2);
   }
   .switch {
     transform: scaleY(0.8);
   }
 }
 .note {
-  color: car(--vwa-c-text-3);
+  color: car(--bbl-c-text-3);
   font-size: 0.8em;
   margin-top: 2em;
   p {

@@ -63,11 +63,11 @@ h4 {
     padding: 3px 7px;
     cursor: pointer;
     border-radius: 2px;
-    color: var(--vwa-c-text-2);
+    color: var(--bbl-c-text-2);
     transition: all 0.3s ease;
     &:hover {
-      color: var(--vwa-c-text-1);
-      background-color: var(--vwa-c-bg-soft);
+      color: var(--bbl-c-text-1);
+      background-color: var(--bbl-c-bg-soft);
     }
   }
 }

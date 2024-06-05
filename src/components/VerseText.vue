@@ -47,19 +47,19 @@ function displayWord(sn: string) {
   row-gap: 2em;
   margin-bottom: 18px;
   padding-bottom: 8px;
-  border-bottom: 1px solid var(--vwa-c-divider);
+  border-bottom: 1px solid var(--bbl-c-divider);
   .verse-list & {
     row-gap: 0;
   }
   .anchor {
     display: flex;
     align-items: center;
-    color: var(--vwa-c-text-3);
+    color: var(--bbl-c-text-3);
     &:hover {
-      color: var(--vwa-c-text-1);
+      color: var(--bbl-c-text-1);
     }
     .verse-uri {
-      /* color: var(--vwa-c-text-3); */
+      /* color: var(--bbl-c-text-3); */
       margin: 0 0.5em;
       font-size: 0.7em;
       font-style: italic;

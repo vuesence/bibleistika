@@ -97,14 +97,14 @@ function playAudio() {
     display: flex;
     justify-content: space-around;
     .show-occurrences-btn {
-      border: 1px solid var(--vwa-c-border);
+      border: 1px solid var(--bbl-c-border);
       padding: 2px 9px;
-      color: var(--vwa-c-brand-2);
+      color: var(--bbl-c-brand-2);
       transition: all 0.3s ease;
       margin: 1em;
 
       &:hover {
-        color: var(--vwa-c-text-1);
+        color: var(--bbl-c-text-1);
       }
     }
   }
@@ -125,18 +125,18 @@ function playAudio() {
       display: flex;
       align-items: center;
       margin: 5px 0;
-      color: var(--vwa-c-text-3);
+      color: var(--bbl-c-text-3);
       transition: all 0.3s ease;
 
       &.pron {
         cursor: pointer;
 
         &:hover {
-          color: var(--vwa-c-brand-2);
+          color: var(--bbl-c-brand-2);
         }
 
         .base-icon {
-          color: var(--vwa-c-brand-1);
+          color: var(--bbl-c-brand-1);
         }
       }
 

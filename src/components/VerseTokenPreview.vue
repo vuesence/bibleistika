@@ -97,12 +97,12 @@ function buildPreview(desc) {
     margin: 0;
     padding: 1em;
     text-align: left;
-    border: 1px solid var(--vwa-c-border);
+    border: 1px solid var(--bbl-c-border);
     border-radius: 5px;
-    background: var(--vwa-c-bg-alt);
-    color: var(--vwa-c-text-1);
+    background: var(--bbl-c-bg-alt);
+    color: var(--bbl-c-text-1);
     max-width: 400px;
-    box-shadow: var(--vwa-shadow-3);
+    box-shadow: var(--bbl-shadow-3);
     /* max-height: 170px; */
 
     .title {
@@ -113,7 +113,7 @@ function buildPreview(desc) {
       }
 
       .strongs-number {
-        color: var(--vwa-c-text-1);
+        color: var(--bbl-c-text-1);
         margin-left: 1em;
         font-size: 0.8em;
       }

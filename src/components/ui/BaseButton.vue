@@ -28,12 +28,12 @@ function click(event) {
 
 <style scoped>
 .base-button {
-  color: var(--vwa-c-text-2);
+  color: var(--bbl-c-text-2);
   letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.2s ease-in;
   border-radius: 4px;
-  border-color: var(--vwa-c-border);
+  border-color: var(--bbl-c-border);
   font-weight: 600;
   min-height: 2.0em;
   min-width: 2em;
@@ -41,7 +41,7 @@ function click(event) {
 
   &:not(.text) {
     opacity: 0.9;
-    background-color: var(--vwa-c-bg-alt);
+    background-color: var(--bbl-c-bg-alt);
   }
 
   &.active {
@@ -58,8 +58,8 @@ function click(event) {
 
   &:hover {
     opacity: 1;
-    color: var(--vwa-c-text-2);
-    background-color: var(--vwa-c-bg-hglt);
+    color: var(--bbl-c-text-2);
+    background-color: var(--bbl-c-bg-hglt);
   }
 
   &.category:hover {

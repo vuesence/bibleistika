@@ -40,6 +40,6 @@ watch(() => props.dict, async () => {
 
 <style scoped>
 article {
-  color: var(--vwa-c-text-2);
+  color: var(--bbl-c-text-2);
 }
 </style>

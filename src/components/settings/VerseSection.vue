@@ -5,7 +5,7 @@ import { settings } from "@/composables/useAppSettings";
 
 <template>
   <section class="verse">
-    <span class="section-title">Отображения стиха</span>
+    <span class="section-title">Стихи</span>
     <div class="row">
       <div class="title">
         Показывать номера Стронга:
@@ -25,10 +25,18 @@ import { settings } from "@/composables/useAppSettings";
     </div>
     <div class="row">
       <div class="title">
-        Подсвечивать текущее слово в списке вхождений:
+        Подсвечивать текущее слово в списке стихов:
       </div>
       <div class="value">
         <BaseSwitch v-model="settings.highlightSearch" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="title">
+        Показывать всплывающую подсказку в списке стихов:
+      </div>
+      <div class="value">
+        <BaseSwitch v-model="settings.showTooltipInList" />
       </div>
     </div>
   </section>

@@ -12,6 +12,7 @@ export const settings = reactive<Settings>(
     showStrongsNumber: true,
     showStrongsLemma: true,
     highlightSearch: true,
+    showTooltipInList: true,
   },
 );
 
@@ -29,7 +30,7 @@ export function initSettings() {
   ls.init();
   ls.observe("settings", settings);
 
-  setCssVar("--vwa-font-size", settings.fontSize);
+  setCssVar("--bbl-font-size", settings.fontSize);
 
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   if (settings.darkMode || prefersDark) {

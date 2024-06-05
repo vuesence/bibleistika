@@ -21,7 +21,9 @@ function hideTooltip() {
 }
 
 function displayTooltip() {
-  if (props.token.sc) {
+  if (props.token.sc && settings.showTooltipInList) {
+    console.log(settings.showTooltipInList);
+
     showTooltip.value = true;
     nextTick(() => {
       popover.value.showTooltip();
@@ -81,7 +83,7 @@ function displayTooltip() {
   &:has(.strongs-number) {
     &:hover {
       opacity: 0.8;
-      background: var(--vwa-c-soft);
+      background: var(--bbl-c-soft);
     }
   }
 
@@ -99,7 +101,7 @@ function displayTooltip() {
   }
 
   .strongs-number {
-    color: var(--vwa-c-text-2);
+    color: var(--bbl-c-text-2);
     font-size: 0.5em;
     line-height: 1.2em;
   }

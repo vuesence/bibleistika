@@ -17,12 +17,12 @@
   height: 22px;
   flex-shrink: 0;
   cursor: pointer;
-  border: 1px solid var(--vwa-input-border-color);
-  background-color: var(--vwa-input-switch-bg-color);
+  border: 1px solid var(--bbl-input-border-color);
+  background-color: var(--bbl-input-switch-bg-color);
   transition: border-color 0.25s !important;
 
   &:hover {
-    border-color: var(--vwa-c-brand-1);
+    border-color: var(--bbl-c-brand-1);
   }
 
   .check {
@@ -33,8 +33,8 @@
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background-color: var(--vwa-c-neutral-inverse);
-    box-shadow: var(--vwa-shadow-1);
+    background-color: var(--bbl-c-neutral-inverse);
+    box-shadow: var(--bbl-shadow-1);
     transition: transform 0.25s !important;
   }
 
@@ -54,11 +54,11 @@
   left: 3px;
   width: 12px;
   height: 12px;
-  fill: var(--vwa-c-text-2);
+  fill: var(--bbl-c-text-2);
 }
 
 .dark .icon :deep(svg) {
-  fill: var(--vwa-c-text-1);
+  fill: var(--bbl-c-text-1);
   transition: opacity 0.25s !important;
 }
 </style>

@@ -29,4 +29,5 @@ interface Settings {
   showStrongsNumber: boolean
   showStrongsLemma: boolean
   highlightSearch: boolean
+  showTooltipInList: boolean
 }

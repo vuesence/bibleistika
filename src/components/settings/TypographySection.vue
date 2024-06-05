@@ -8,9 +8,9 @@ import { getCssVar, setCssVar, toNumber } from "@/utils/css-utils";
 // const showTooltip = ref(false);
 
 function updateFontSize(change: number) {
-  const fs = toNumber(getCssVar("--vwa-font-size"));
+  const fs = toNumber(getCssVar("--bbl-font-size"));
   settings.fontSize = `${fs + change}px`;
-  setCssVar("--vwa-font-size", settings.fontSize);
+  setCssVar("--bbl-font-size", settings.fontSize);
 }
 </script>
 

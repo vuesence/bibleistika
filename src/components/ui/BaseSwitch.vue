@@ -36,7 +36,7 @@ const model = defineModel({ type: Boolean });
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--vwa-c-border);
+  background-color: var(--bbl-c-border);
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -48,13 +48,13 @@ const model = defineModel({ type: Boolean });
   width: var(--switch-slider);
   left: 3px;
   bottom: 3px;
-  background-color: var(--vwa-c-bg-soft);
+  background-color: var(--bbl-c-bg-soft);
   -webkit-transition: .4s;
   transition: .4s;
 }
 
 input:checked + .slider {
-  background-color: var(--vwa-c-brand-1);
+  background-color: var(--bbl-c-brand-1);
 }
 
 input:focus + .slider {

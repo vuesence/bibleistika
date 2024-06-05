@@ -44,10 +44,10 @@ const { openSettingsDialog } = useAppSettings();
   top: 0;
   height: 4em;
   padding: 15px 20px;
-  background-color: var(--vwa-c-bg);
+  background-color: var(--bbl-c-bg);
   z-index: 3;
   justify-content: space-between;
-  border-bottom: 1px solid var(--vwa-c-divider);
+  border-bottom: 1px solid var(--bbl-c-divider);
 
   .logo {
     max-width: 200px;
@@ -59,7 +59,7 @@ const { openSettingsDialog } = useAppSettings();
       font-size: 1.2rem;
       font-weight: 700;
       width: 8rem;
-      color: var(--vwa-c-text-1);
+      color: var(--bbl-c-text-1);
       svg {
         margin-top: 5px;
       }
@@ -74,9 +74,9 @@ const { openSettingsDialog } = useAppSettings();
     > button {
       border: 0;
       transition: color 0.3s ease-out;
-      color: var(--vwa-c-text-3);
+      color: var(--bbl-c-text-3);
       &:hover {
-        color: var(--vwa-c-text-1);
+        color: var(--bbl-c-text-1);
       }
     }
   }

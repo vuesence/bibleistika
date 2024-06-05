@@ -25,7 +25,7 @@ const { loading } = useAppLoader();
         right: 100%;
         bottom: 0;
         left: 0;
-        background: var(--vwa-c-brand-3);
+        background: var(--bbl-c-brand-3);
         opacity: 0.7;
         width: 0;
         display: none;

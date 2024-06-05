@@ -81,12 +81,12 @@ const footerLinks = [
         // padding-left: 1em;
         display: flex;
         align-items: center;
-        color: var(--vwa-c-text-2);
+        color: var(--bbl-c-text-2);
 
-        // border-bottom: solid 1px var(--vwa-c-divider);
+        // border-bottom: solid 1px var(--bbl-c-divider);
         &:hover {
-          color: var(--vwa-c-text-1);
-          background-color: var(--vwa-c-bg-alt);
+          color: var(--bbl-c-text-1);
+          background-color: var(--bbl-c-bg-alt);
         }
 
         a {
@@ -95,12 +95,12 @@ const footerLinks = [
           align-items: center;
           width: 100%;
           padding: 0 2em 0 1em;
-          color: var(--vwa-c-text-2);
+          color: var(--bbl-c-text-2);
           text-wrap: nowrap;
         }
 
         .icon {
-          // color: var(--vwa-c-text-1);
+          // color: var(--bbl-c-text-1);
           margin-right: 1em;
         }
       }
@@ -116,7 +116,7 @@ const footerLinks = [
     // padding-top: 1em;
     margin-top: 1em;
     padding-top: 0.7rem;
-    border-top: 1px solid var(--vwa-c-divider);
+    border-top: 1px solid var(--bbl-c-divider);
 
   }
 }

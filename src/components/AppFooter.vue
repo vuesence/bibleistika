@@ -45,7 +45,7 @@ const socials = [
 <style scoped>
 .footer {
   margin-top: 1rem;
-  border-top: 1px solid var(--vwa-c-border);
+  border-top: 1px solid var(--bbl-c-border);
   align-items: none;
   display: flex;
   justify-content: space-between;
@@ -61,7 +61,7 @@ const socials = [
       margin-left: 0.6rem;
       font-size: 1.2rem;
       font-weight: 700;
-      color: var(--vwa-c-text-1);
+      color: var(--bbl-c-text-1);
       width: 5em;
     }
   }
@@ -77,13 +77,13 @@ const socials = [
     .link {
       display: block;
       appearance: none;
-      color: var(--vwa-c-text-2);
+      color: var(--bbl-c-text-2);
       margin: 5px 10px;
-      -webkit-tap-highlight-color: var(--vwa-c-bg);
+      -webkit-tap-highlight-color: var(--bbl-c-bg);
       font-size: 0.8rem;
 
       &:hover {
-        color: var(--vwa-c-text-1);
+        color: var(--bbl-c-text-1);
       }
     }
   }
@@ -99,18 +99,18 @@ const socials = [
 
     button {
       appearance: none;
-      background: var(--vwa-c-bg) none repeat scroll 0% 0% / auto padding-box border-box;
-      border: 1px solid var(--vwa-c-border);
+      background: var(--bbl-c-bg) none repeat scroll 0% 0% / auto padding-box border-box;
+      border: 1px solid var(--bbl-c-border);
       border-radius: 42px;
-      color: var(--vwa-c-text-2);
+      color: var(--bbl-c-text-2);
       cursor: pointer;
-      -webkit-tap-highlight-color: var(--vwa-c-bg);
-      /* background-color: var(--vwa-c-bg); */
+      -webkit-tap-highlight-color: var(--bbl-c-bg);
+      /* background-color: var(--bbl-c-bg); */
       padding: 7px;
       touch-action: manipulation;
 
       &:hover {
-        background-color: var(--vwa-c-bg-soft);
+        background-color: var(--bbl-c-bg-soft);
       }
     }
   }
