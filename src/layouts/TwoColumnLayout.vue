@@ -47,6 +47,9 @@
 .aside {
   grid-column: 5 / 7;
   grid-row: 1 / 5;
+  .notebook &, .desktop & {
+    margin-left: 2em;
+  }
 }
 
 .bottom {

@@ -91,7 +91,7 @@ function playAudio() {
 
 <style scoped>
 .lemma-desc {
-  margin-left: 1em;
+  /* margin-left: 1em; */
 
   .show-occurrences-wrapper {
     display: flex;

@@ -22,7 +22,7 @@ function hideTooltip() {
 
 function displayTooltip() {
   if (props.token.sc && settings.showTooltipInList) {
-    console.log(settings.showTooltipInList);
+    // console.log(settings.showTooltipInList);
 
     showTooltip.value = true;
     nextTick(() => {
@@ -44,7 +44,7 @@ function displayTooltip() {
     @blur="hideTooltip()"
   >
     <span class="text">
-      {{ props.token.tr ?? 'nbsp' }}
+      {{ props.token.tr ?? '&nbsp;' }}
     </span>
     <span
       v-if="props.token.sn && settings.showStrongsNumber"

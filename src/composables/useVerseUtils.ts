@@ -93,7 +93,7 @@ export function buildVerse(data: any): Verse {
   }, "");
   return v;
 }
-export function buildVerseFromString(vid, data: any): Verse {
+function buildVerseFromString(vid, data: any): Verse {
   // const t: string = data.translations[0].tokens;
 
   const v: Verse = {} as Verse;

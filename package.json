@@ -35,9 +35,9 @@
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.19.1",
-    "@types/node": "^20.12.13",
-    "@vitejs/plugin-vue": "^5.0.4",
+    "@antfu/eslint-config": "^2.20.0",
+    "@types/node": "^20.14.2",
+    "@vitejs/plugin-vue": "^5.0.5",
     "eslint": "^8.57.0",
     "eslint-plugin-vuejs-accessibility": "^2.3.0",
     "typescript": "^5.4.5",

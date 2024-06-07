@@ -1,5 +1,6 @@
 import type { RouteRecordRaw } from "vue-router";
 import VerseView from "@/views/VerseView.vue";
+import HomeView from "@/views/HomeView.vue";
 import LemmaView from "@/views/LemmaView.vue";
 import SearchView from "@/views/SearchView.vue";
 // import LemmaDescription from "@/components/LemmaDescription.vue";
@@ -9,12 +10,27 @@ import LemmaDictionaryArticle from "@/components/LemmaDictionaryArticle.vue";
 // import ContactsView from "@/views/ContactsView.vue";
 
 const routes: RouteRecordRaw[] = [
+  // {
+  //   path: "/",
+  //   name: "home",
+  //   // component: VerseView,
+  //   redirect: "/verse/1:1:1",
+  //   // component: HomeView,
+  // },
   {
     path: "/",
     name: "home",
-    // component: VerseView,
-    redirect: "/verse/1:1:1",
+    component: VerseView,
+    // redirect: "/verse/1:1:1",
     // component: HomeView,
+    children: [
+      {
+        path: "",
+        name: "home1",
+        // props: true,
+        component: HomeView,
+      },
+    ],
   },
   {
     path: "/verse",

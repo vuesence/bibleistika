@@ -18,7 +18,9 @@ const props = defineProps({
 });
 
 function displayWord(sn: string) {
-  router.push({ name: "verse-lemma", params: { vid: props.verse.vid, sn } });
+  if (sn) {
+    router.push({ name: "verse-lemma", params: { vid: props.verse.vid, sn } });
+  }
 }
 </script>
 
@@ -43,7 +45,7 @@ function displayWord(sn: string) {
       :to="{ name: 'verse', params: { vid: verse.vid } }"
       class="anchor"
     >
-      <BaseIcon size="16" class="icon" name="arrow-out" />
+      <BaseIcon size="16" class="icon" name="arrow-out" title="Перейти к этому стиху" />
     </router-link>
   </div>
 </template>
