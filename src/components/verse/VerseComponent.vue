@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { PropType } from "vue";
 import VerseToken from "./VerseToken.vue";
-import BaseIcon from "./ui/BaseIcon.vue";
+import BaseIcon from "@/components/ui/BaseIcon.vue";
 import { router } from "@/router";
 import { settings } from "@/composables/useAppSettings";
 import { getVerseURI } from "@/utils/bibleUtils";

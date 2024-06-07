@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
 import { useRoute } from "vue-router";
-import VerseHeader from "../components/VerseHeader.vue";
-import VerseComponent from "../components/VerseComponent.vue";
+import VerseSection from "../components/verse/VerseSection.vue";
 import LemmaDescription from "../components/LemmaDescription.vue";
 import { useVerseUtils } from "../composables/useVerseUtils";
 import { useStrongsConcordance } from "@/composables/useStrongsConcordance";
@@ -15,7 +14,6 @@ const props = defineProps({
   },
   sn: {
     type: String,
-    // default: "1:1:1",
   },
   mode: {
     type: String,
@@ -38,18 +36,12 @@ watch(() => route.name, () => {
   <!-- <div class="layout"> -->
   <TwoColumnLayout>
     <template #top>
-      <VerseHeader :vid="props.vid" />
-      <VerseComponent :vid="props.vid" :verse="verse" />
+      <VerseSection :vid="props.vid" :verse="verse" />
     </template>
 
     <template #aside>
       <Transition mode="out-in">
-        <LemmaDescription
-          v-if="props.sn"
-          :key="props.sn"
-          :sc="sc"
-          class="lemma-section1"
-        />
+        <LemmaDescription v-if="props.sn" :key="props.sn" :sc="sc" class="lemma-section1" />
       </Transition>
     </template>
 
@@ -61,9 +53,6 @@ watch(() => route.name, () => {
       </router-view>
     </template>
   </TwoColumnLayout>
-  <!-- </div>
-</template> -->
-  <!-- </div> -->
 </template>
 
 <style scoped>

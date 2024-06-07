@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import BaseIcon from "./ui/BaseIcon.vue";
-import BaseButton from "./ui/BaseButton.vue";
-import VerseSelectionDialog from "./verse-selection-dialog/VerseSelectionDialog.vue";
+import BaseIcon from "@/components/ui/BaseIcon.vue";
+import BaseButton from "@/components/ui/BaseButton.vue";
+import VerseSelectionDialog from "@/components/verse-selection-dialog/VerseSelectionDialog.vue";
 import { chapterAndVerseId, getBookName, nextVerseId, prevVerseId }
   from "@/utils/bibleUtils";
 import { router } from "@/router";

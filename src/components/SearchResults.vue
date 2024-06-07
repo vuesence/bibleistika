@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from "vue";
+import { ref, watch } from "vue";
 import { loadSearchResults } from "../composables/useVerseUtils";
-import VerseList from "./VerseList.vue";
+import VerseList from "./verse/VerseList.vue";
 import { useAppLoader } from "@/composables/useAppLoader";
 
 const props = defineProps({

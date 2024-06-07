@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { PaginationBar } from "./ui/pagination";
 import VerseComponent from "./VerseComponent.vue";
+import { PaginationBar } from "@/components/ui/pagination";
 
 const props = defineProps({
   verses: {
