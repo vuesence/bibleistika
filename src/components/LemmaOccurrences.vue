@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { loadLemmaOccurrences } from "../composables/useVerseUtils";
-import VerseList from "./VerseList.vue";
+import VerseList from "./verse/VerseList.vue";
 import { useAppLoader } from "@/composables/useAppLoader";
 
 const props = defineProps({
