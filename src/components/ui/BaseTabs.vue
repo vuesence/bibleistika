@@ -40,7 +40,7 @@ const selected = defineModel<number>();
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
   .tabs-header {
     display: flex;
     justify-content: left;
