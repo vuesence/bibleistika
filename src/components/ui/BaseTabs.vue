@@ -4,9 +4,8 @@ import type { PropType } from "vue";
 
 defineProps({
   sections: {
-    // type: Array,
-    default: () => [],
     type: Array as PropType<{ title: string, component: any }[]>,
+    default: () => [],
   },
 });
 
@@ -15,7 +14,6 @@ const selected = defineModel<number>();
 
 <template>
   <div class="base-tabs">
-    {{ selected }}
     <div class="tabs-header">
       <button
         v-for="(section, index) in sections"

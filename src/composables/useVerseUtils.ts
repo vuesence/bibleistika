@@ -1,5 +1,5 @@
 // import { ref, watch } from "vue";
-import { api } from "../services/api";
+import { api } from "@/services/api";
 // import { Verse } from "../models/Verse";
 import { getSC } from "@/composables/useStrongsConcordance";
 
@@ -24,10 +24,10 @@ export async function loadVerse(vid) {
     const lines = data.split("\n");
     for (let i = 0; i < lines.length; i++) {
       const [bookId, chapterId] = vid.split(":");
-      const tvid = `${bookId}:${chapterId}:${i + 1}`;
+      const _vid = `${bookId}:${chapterId}:${i + 1}`;
       verseCache.set(
-        tvid,
-        buildVerseFromString(tvid, lines[i]),
+        _vid,
+        buildVerseFromString(_vid, lines[i]),
       );
     }
     verse = verseCache.get(vid);
@@ -45,7 +45,7 @@ export function buildVerses(data: any): Verse[] {
   return verses;
 }
 
-export function buildVerse(data: any): Verse {
+function buildVerse(data: any): Verse {
   // const t: string = data.translations[0].tokens;
   const v: Verse = {} as Verse;
   v.tokens = [];
@@ -68,7 +68,7 @@ export function buildVerse(data: any): Verse {
   }, "");
   return v;
 }
-function buildVerseFromString(vid, data: any): Verse {
+export function buildVerseFromString(vid, data: any): Verse {
   // const t: string = data.translations[0].tokens;
 
   const v: Verse = {} as Verse;
@@ -85,7 +85,7 @@ function buildVerseFromString(vid, data: any): Verse {
 
   v.vid = vid;
   // v.data = data;
-  v.translationTitle = "Синодальный перевод";
+  // v.translationTitle = "Синодальный перевод";
   v.text = v.tokens.reduce((text, token) => {
     return text + token.tr;
   }, "");

@@ -7,7 +7,7 @@ const bible = {
   async loadVerse(vid: string) {
     const [bookId, chapterId, verseId] = vid.split(":");
     const data = await http.get(
-      `${apiUrl}/verse/?
+      `${apiUrl}/verse/index.php?
         bookId=${bookId}&chapterId=${chapterId}&verseId=${verseId}`,
     );
     return data;

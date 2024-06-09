@@ -44,7 +44,7 @@ function displayTooltip() {
     @blur="hideTooltip()"
   >
     <span class="text">
-      {{ props.token.tr ?? '&nbsp;' }}
+      {{ props.token.tr ?? "&nbsp;" }}
     </span>
     <span
       v-if="props.token.sn && settings.showStrongsNumber"
@@ -52,65 +52,70 @@ function displayTooltip() {
     >
       {{ props.token.sn }}
     </span>
-    <span
-      v-if="props.token.sc && settings.showStrongsLemma"
-      class="lemma"
-    >
+    <span v-if="props.token.sc && settings.showStrongsLemma" class="lemma">
       {{ props.token.sc.lemma }}
     </span>
-    <VerseTokenPreview v-if="showTooltip" ref="popover" :token="props.token" />
+    <VerseTokenPreview
+      v-if="showTooltip"
+      ref="popover"
+      :token="props.token"
+      class="token-tooltip"
+    />
   </button>
   <!-- </div> -->
 </template>
 
 <style scoped>
-.token {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  align-items: center;
-  font-size: 1em;
-  border: 0;
-  border-right: 1px solid transparent;
-  border-left: 1px solid transparent;
-  &.highlighted {
-    color: red;
-  }
-
-  &:has(.strongs-number):not(.no-hover) {
-    cursor: pointer;
-  }
-
-  &:has(.strongs-number):not(.no-hover) {
-    &:hover {
-      opacity: 0.8;
-      background: var(--bbl-c-soft);
-    }
-  }
-
-  .lemma-occurrences & {
+  .token {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    font-size: 1em;
     border: 0;
+    border-right: 1px solid transparent;
+    border-left: 1px solid transparent;
+    &.highlighted {
+      color: red;
+    }
+
+    &:has(.strongs-number):not(.no-hover) {
+      cursor: pointer;
+    }
+
+    &:has(.strongs-number):not(.no-hover) {
+      &:hover {
+        opacity: 0.8;
+        background: var(--bbl-c-soft);
+      }
+    }
+
+    .lemma-occurrences & {
+      border: 0;
+      .text {
+        min-width: unset;
+      }
+    }
+
     .text {
-      min-width: unset;
+      min-width: 0.7em;
+      display: block;
+      white-space: pre;
+    }
+
+    .strongs-number {
+      color: var(--bbl-c-text-2);
+      font-size: 0.5em;
+      line-height: 1.2em;
+    }
+
+    .lemma {
+      min-width: 0.7em;
+      display: block;
+      margin-bottom: 0.5em;
     }
   }
-
-  .text {
-    min-width: 0.7em;
-    display: block;
-    white-space: pre;
+  .no-tooltip .token-tooltip {
+    display: none;
   }
-
-  .strongs-number {
-    color: var(--bbl-c-text-2);
-    font-size: 0.5em;
-    line-height: 1.2em;
-  }
-
-  .lemma {
-    min-width: 0.7em;
-    display: block;
-    margin-bottom: 0.5em;
-  }
-}
 </style>

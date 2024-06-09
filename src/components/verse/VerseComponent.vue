@@ -10,13 +10,13 @@ const props = defineProps({
   verse: {
     type: Object as PropType<Verse>,
   },
-  highlighted: {
+  highlightedSn: {
     type: String,
     default: null,
   },
 });
 
-console.log(props.verse);
+console.log("VerseComponent setup: ", props.verse);
 
 function displayWord(sn: string) {
   if (sn) {
@@ -34,7 +34,7 @@ function displayWord(sn: string) {
       <VerseToken
         v-for="(token, index) in verse.tokens" :key="index" :token="token" :class="{
           highlighted:
-            settings.highlightSearch && props.highlighted === token.sn,
+            settings.highlightSearch && props.highlightedSn === token.sn,
         }" @click="displayWord(token.sn)"
       />
     </div>
