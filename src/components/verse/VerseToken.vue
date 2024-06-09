@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { nextTick, ref } from "vue";
-import VerseTokenPreview from "./VerseTokenPreview.vue";
+import { ref } from "vue";
+import VerseTokenTooltip from "./VerseTokenTooltip.vue";
 import { settings } from "@/composables/useAppSettings";
 
 const props = defineProps({
@@ -10,33 +10,27 @@ const props = defineProps({
   },
 });
 
-const popover = ref();
 const showTooltip = ref(false);
+let timeout;
 
 function hideTooltip() {
-  if (props.token.sc && popover.value) {
-    showTooltip.value = false;
-    popover.value.hideTooltip();
-  }
+  clearTimeout(timeout);
+  showTooltip.value = false;
 }
 
 function displayTooltip() {
-  if (props.token.sc && settings.showTooltipInList) {
-    // console.log(settings.showTooltipInList);
-
-    showTooltip.value = true;
-    nextTick(() => {
-      popover.value.showTooltip();
-    });
+  if (props.token.sc) {
+    timeout = setTimeout(() => {
+      showTooltip.value = true;
+    }, 300);
   }
 }
 </script>
 
 <template>
-  <!-- <div> -->
   <button
     class="token"
-    :class="{ 'no-hover': !settings.showTooltipInList }"
+    :class11="{ 'no-hover': !settings.showTooltipInList }"
     :popovertarget="props.token.sn ? `popover-${props.token.sn}` : null"
     @mouseenter="displayTooltip()"
     @focusin="displayTooltip()"
@@ -55,14 +49,12 @@ function displayTooltip() {
     <span v-if="props.token.sc && settings.showStrongsLemma" class="lemma">
       {{ props.token.sc.lemma }}
     </span>
-    <VerseTokenPreview
+    <VerseTokenTooltip
       v-if="showTooltip"
-      ref="popover"
-      :token="props.token"
+      :sc="props.token.sc"
       class="token-tooltip"
     />
   </button>
-  <!-- </div> -->
 </template>
 
 <style scoped>
@@ -79,11 +71,14 @@ function displayTooltip() {
       color: red;
     }
 
-    &:has(.strongs-number):not(.no-hover) {
+    /* &:has(.strongs-number):not(.no-hover) { */
+    /* &:has(.strongs-number) {
       cursor: pointer;
-    }
+    } */
 
-    &:has(.strongs-number):not(.no-hover) {
+    /* &:has(.strongs-number):not(.no-hover) { */
+    &:has(.strongs-number) {
+      cursor: pointer;
       &:hover {
         opacity: 0.8;
         background: var(--bbl-c-soft);
@@ -115,7 +110,7 @@ function displayTooltip() {
       margin-bottom: 0.5em;
     }
   }
-  .no-tooltip .token-tooltip {
+  .verse-list .no-tooltip .token-tooltip {
     display: none;
   }
 </style>

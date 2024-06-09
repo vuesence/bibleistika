@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import VerseComponent from "./VerseComponent.vue";
 import { PaginationBar } from "@/components/ui/pagination";
+import { settings } from "@/composables/useAppSettings";
 
 const props = defineProps({
   verses: {
@@ -34,7 +35,10 @@ function changePagination(data) {
       @change="changePagination"
     />
 
-    <div class="verses">
+    <div
+      class="verses"
+      :class="{ 'no-tooltip': !settings.showTooltipInList }"
+    >
       <template
         v-for="verse in props.verses.slice(
           (page - 1) * pageSize,

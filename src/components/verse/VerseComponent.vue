@@ -16,7 +16,7 @@ const props = defineProps({
   },
 });
 
-console.log("VerseComponent setup: ", props.verse);
+// console.log("VerseComponent setup: ", props.verse);
 
 function displayWord(sn: string) {
   if (sn) {

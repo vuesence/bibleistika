@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import {
   computePosition,
   flip,
@@ -9,53 +9,56 @@ import {
 import { getSC } from "@/composables/useStrongsConcordance";
 
 const props = defineProps({
-  token: {
-    type: Object as () => VerseToken,
+  sc: {
+    type: Object as () => StrongsConcordance,
     required: true,
   },
 });
 
 const popover = ref();
-let timeout;
+// let timeout;
 
-defineExpose({ showTooltip, hideTooltip });
+// defineExpose({ hideTooltip });
 
-function showTooltip() {
-  timeout = setTimeout(() => {
-    // const arrowEl = popover.value.querySelector("#arrow");
-    popover.value.showPopover();
-    computePosition(popover.value.parentElement, popover.value, {
-      placement: "bottom",
-      // middleware: [flip(), shift({ padding: 5 }), offset(6)],
-      middleware: [
-        flip(),
-        shift({ padding: 5 }),
-        offset(10),
-        // arrow({ element: arrowEl, padding: 5 }),
-      ],
-    }).then(({ x, y }) => {
-      // console.log(middlewareData.arrow);
-
-      // if (middlewareData.arrow) {
-      //   // const { x, y } = middlewareData.arrow;
-
-      //   Object.assign(arrowEl.style, {
-      //     left: x != null ? `${middlewareData.arrow.x}px` : "",
-      //     top: y != null ? `${middlewareData.arrow.y}px` : "",
-      //   });
-      // }
-      // console.log(x, y);
-      Object.assign(popover.value.style, {
-        left: `${x}px`,
-        top: `${y}px`,
-      });
+// function showTooltip() {
+//   timeout = setTimeout(() => {
+//     // const arrowEl = popover.value.querySelector("#arrow");
+//     popover.value.showPopover();
+//     computePosition(popover.value.parentElement, popover.value, {
+//       placement: "bottom",
+//       middleware: [
+//         flip(),
+//         shift({ padding: 5 }),
+//         offset(10),
+//       ],
+//     }).then(({ x, y }) => {
+//       Object.assign(popover.value.style, {
+//         left: `${x}px`,
+//         top: `${y}px`,
+//       });
+//     });
+//   }, 300);
+// }
+onMounted(() => {
+  popover.value.showPopover();
+  computePosition(popover.value.parentElement, popover.value, {
+    placement: "bottom",
+    middleware: [
+      flip(),
+      shift({ padding: 5 }),
+      offset(10),
+    ],
+  }).then(({ x, y }) => {
+    Object.assign(popover.value.style, {
+      left: `${x}px`,
+      top: `${y}px`,
     });
-  }, 100);
-}
-function hideTooltip() {
-  popover.value.hidePopover();
-  clearTimeout(timeout);
-}
+  });
+});
+// function hideTooltip() {
+//   popover.value.hidePopover();
+//   // clearTimeout(timeout);
+// }
 
 function buildPreview(desc) {
   let str = "";
@@ -68,22 +71,22 @@ function buildPreview(desc) {
   }
   return str;
 }
+// console.log(props.token);
 </script>
 
 <template>
   <div
-    v-if="props.token.sc"
-    :id="`popover-${props.token.sn}`"
+    :id="`popover-${props.sc.sn}`"
     ref="popover"
     class="popover"
     popover
     role="tooltip"
   >
     <div class="title">
-      <span class="lemma">{{ props.token.sc.lemma }}</span>
-      <span class="strongs-number">({{ props.token.sc.sn }})</span>
+      <span class="lemma">{{ props.sc.lemma }}</span>
+      <span class="strongs-number">({{ props.sc.sn }})</span>
     </div>
-    <div class="desc" v-html="buildPreview(getSC(props.token.sn).desc)" />
+    <div class="desc" v-html="buildPreview(getSC(props.sc.sn).desc)" />
     <!-- <div id="arrow"></div> -->
   </div>
 </template>

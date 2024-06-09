@@ -14,7 +14,6 @@ export function getSC(sn: string): StrongsConcordance | undefined {
   if (!_sc) {
     const data = rawDict.get(sn);
     if (data) {
-      // _sc = new StrongsConcordance(sn, data);
       _sc = buildSC(sn, data);
       dict.set(sn, _sc);
     }

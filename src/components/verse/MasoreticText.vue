@@ -17,20 +17,18 @@ onMounted(async () => {
   startLoading();
   const data = await api.bible.loadVerse(props.vid);
   verse.value = buildVerseFromString(props.vid, data.translations[1].tokens);
-  stopLoading();
-  console.log({ data });
   console.log(verse.value);
+
+  stopLoading();
 });
 </script>
 
 <template>
-  <!-- <div v-if="verse"> -->
-  <VerseComponent :verse="verse" class="masoretic-verse no-tooltip" />
-  <!-- </div> -->
+  <VerseComponent :verse="verse" class="masoretic-text no-tooltip" />
 </template>
 
 <style scoped>
-.masoretic-verse :deep(.token .lemma) {
+.masoretic-text :deep(.token .lemma) {
   display: none;
 }
 </style>
