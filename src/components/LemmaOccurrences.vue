@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import { loadLemmaOccurrences } from "../composables/useVerseUtils";
+import { api } from "../services/api";
 import VerseList from "./verse/VerseList.vue";
 import { useAppLoader } from "@/composables/useAppLoader";
 
@@ -17,7 +17,7 @@ const verses = ref([]);
 
 onMounted(async () => {
   startLoading();
-  verses.value = await loadLemmaOccurrences(props.sn);
+  verses.value = await api.bible.loadLemmaOccurrences(props.sn);
   stopLoading();
 });
 </script>

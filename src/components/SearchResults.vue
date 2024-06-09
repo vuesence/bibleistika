@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
-import { loadSearchResults } from "../composables/useVerseUtils";
+import { buildVerses } from "../composables/useVerseUtils";
+import { api } from "../services/api";
 import VerseList from "./verse/VerseList.vue";
 import { useAppLoader } from "@/composables/useAppLoader";
 
@@ -9,31 +10,19 @@ const props = defineProps({
     type: String,
     default: null,
   },
-  // searchMode: {
-  //   type: String,
-  //   default: null,
-  // },
 });
 
 const { startLoading, stopLoading } = useAppLoader();
 
 const verses = ref([]);
-// const page = ref(1);
-// const pageSize = ref(5);
 
 watch(() => props.searchString, async () => {
   if (props.searchString) {
     startLoading();
-    verses.value = await loadSearchResults(props.searchString);
+    verses.value = await api.bible.loadSearchResults(props.searchString);
     stopLoading();
   }
 }, { immediate: true });
-
-// onMounted(async () => {
-//   startLoading();
-//   verses.value = await loadSearchResults(props.searchString);
-//   stopLoading();
-// });
 </script>
 
 <template>

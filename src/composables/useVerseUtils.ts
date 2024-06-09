@@ -31,63 +31,11 @@ export async function loadVerse(vid) {
       );
     }
     verse = verseCache.get(vid);
-
-    // load by verse
-    // const data = await api.bible.loadVerse(props.vid);
-    // verse.value = buildVerse(data);
-    // verseCache.set(props.vid, verse.value);
   }
   return verse;
 }
 
-export function useVerseUtils(props) {
-  const verse = ref<Verse>();
-  watch(
-    () => props.vid,
-    loadVerse,
-    { immediate: true },
-  );
-
-  async function loadVerse1() {
-    verse.value = verseCache.get(props.vid);
-    if (!verse.value) {
-      const data = await api.bible.loadChapter(props.vid);
-      // console.log(data);
-
-      const lines = data.split("\n");
-      for (let i = 0; i < lines.length; i++) {
-        const [bookId, chapterId] = props.vid.split(":");
-        const vid = `${bookId}:${chapterId}:${i + 1}`;
-        verseCache.set(
-          vid,
-          buildVerseFromString(vid, lines[i]),
-        );
-      }
-      verse.value = verseCache.get(props.vid);
-
-      // load by verse
-      // const data = await api.bible.loadVerse(props.vid);
-      // verse.value = buildVerse(data);
-      // verseCache.set(props.vid, verse.value);
-    }
-    return verse;
-  }
-
-  return { verse, loadVerse1 };
-}
-
-export async function loadLemmaOccurrences(sn: string): Promise<Verse[]> {
-  const data = await api.bible.loadLemmaOccurrences(sn);
-  return buildVerses(data);
-}
-
-export async function
-loadSearchResults(searchString: string): Promise<Verse[]> {
-  const data = await api.bible.loadSearchResults(searchString);
-  return buildVerses(data);
-}
-
-function buildVerses(data: any): Verse[] {
+export function buildVerses(data: any): Verse[] {
   const verses: Verse[] = [];
   data.forEach((d) => {
     const v = buildVerse(d);
