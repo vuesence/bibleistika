@@ -28,7 +28,7 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-.masoretic-text :deep(.token .lemma) {
+.masoretic-text :deep(.token > .lemma) {
   display: none;
 }
 </style>
