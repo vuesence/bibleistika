@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
-import { useRoute } from "vue-router";
+// import { ref, watch } from "vue";
+// import { useRoute } from "vue-router";
 import VerseSection from "../components/verse/VerseSection.vue";
 import LemmaDescription from "../components/LemmaDescription.vue";
-import { useVerseUtils } from "../composables/useVerseUtils";
-import { useStrongsConcordance } from "@/composables/useStrongsConcordance";
+// import { loadVerse, useVerseUtils } from "../composables/useVerseUtils";
+// import { useStrongsConcordance } from "@/composables/useStrongsConcordance";
 import TwoColumnLayout from "@/layouts/TwoColumnLayout.vue";
 
 const props = defineProps({
@@ -15,40 +15,30 @@ const props = defineProps({
   sn: {
     type: String,
   },
-  mode: {
-    type: String,
-    default: "",
-  },
 });
 
-const { verse } = useVerseUtils(props);
-const { sc } = useStrongsConcordance(props);
-const showOccurrences = ref(false);
+// const { verse } = useVerseUtils(props);
 
-const route = useRoute();
-
-watch(() => route.name, () => {
-  showOccurrences.value = false;
-});
+// const { sc } = useStrongsConcordance(props);
 </script>
 
 <template>
   <!-- <div class="layout"> -->
   <TwoColumnLayout>
     <template #top>
-      <VerseSection :vid="props.vid" :verse="verse" />
+      <VerseSection :vid="vid" />
     </template>
 
     <template #aside>
       <Transition mode="out-in">
-        <LemmaDescription v-if="props.sn" :key="props.sn" :sc="sc" class="lemma-section1" />
+        <LemmaDescription v-if="props.sn" :key="props.sn" :sn="props.sn" class="lemma-section1" />
       </Transition>
     </template>
 
     <template #bottom>
       <router-view v-slot="{ Component }" mode="out-in">
         <Transition name="fade">
-          <component :is="Component" class="details-section1" />
+          <component :is="Component" />
         </Transition>
       </router-view>
     </template>

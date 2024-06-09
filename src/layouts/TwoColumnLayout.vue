@@ -22,7 +22,9 @@
   grid-template-columns: repeat(6, 1fr);
   gap: 10px;
   grid-auto-rows: minmax(100px, auto);
-  .mobile &, .tablet & {
+
+  .mobile &,
+  .tablet & {
     display: flex;
     flex-direction: column;
   }
@@ -35,9 +37,11 @@
 .top {
   grid-column: 1 / 5;
   grid-row: 1;
+
   & :deep(.verse .uri) {
     display: none;
   }
+
   & :deep(.verse .anchor) {
     display: none;
   }
@@ -47,7 +51,9 @@
 .aside {
   grid-column: 5 / 7;
   grid-row: 1 / 5;
-  .notebook &, .desktop & {
+
+  .notebook &,
+  .desktop & {
     margin-left: 2em;
   }
 }

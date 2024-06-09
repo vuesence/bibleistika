@@ -5,17 +5,20 @@ import BaseButton from "@/components/ui/BaseButton.vue";
 // import { defineProps } from "vue";
 // import { StrongsConcordance } from "../models/StrongsConcordance";
 import { router } from "@/router";
+import { useStrongsConcordance } from "@/composables/useStrongsConcordance";
 
 const props = defineProps({
-  sc: {
-    type: Object as () => StrongsConcordance,
+  sn: {
+    type: String,
     default: null,
   },
 });
 
-const audioUrl = computed(() => `https://4bbl.ru/data/strong/${props.sc.sn.startsWith("H")
+const { sc } = useStrongsConcordance(props);
+
+const audioUrl = computed(() => `https://4bbl.ru/data/strong/${props.sn.startsWith("H")
   ? "hebrew"
-  : "greek"}/${props.sc.sn.substring(1)}.mp3`);
+  : "greek"}/${props.sn.substring(1)}.mp3`);
 
 function go(to) {
   router.push({

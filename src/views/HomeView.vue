@@ -20,31 +20,4 @@ onMounted(async () => {
   </div>
 </template>
 
-<style scoped>
-ul {
-  color: var(--bbl-c-text-2);
-  border: 1px solid var(--bbl-c-divider);
-  margin-bottom: 2em;
-
-  li {
-    padding: .4rem;
-    display: flex;
-
-    &:nth-child(even) {
-      background-color: var(--bbl-c-bg-alt);
-    }
-
-    &.dimmed {
-      opacity: 0.5;
-    }
-
-    span {
-      width: 50%;
-    }
-  }
-}
-
-button {
-  padding: 0.3em 1em;
-}
-</style>
+<style scoped></style>

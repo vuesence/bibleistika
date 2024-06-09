@@ -5,24 +5,50 @@ import { getSC } from "@/composables/useStrongsConcordance";
 
 const verseCache: Map<string, Verse> = new Map();
 
-const verse = ref<Verse>();
+// const verse = ref<Verse>();
 
 export function rebuildVerse() {
   // verse.value = verseCache.get(verse.value.vid);
-  if (verse.value) {
-    verse.value = buildVerse(verse.value.data);
-    verseCache.set(verse.value.vid, verse.value);
+  // if (verse.value) {
+  //   verse.value = buildVerse(verse.value.data);
+  //   verseCache.set(verse.value.vid, verse.value);
+  // }
+}
+
+export async function loadVerse(vid) {
+  let verse = verseCache.get(vid);
+  if (!verse) {
+    const data = await api.bible.loadChapter(vid);
+    // console.log(data);
+
+    const lines = data.split("\n");
+    for (let i = 0; i < lines.length; i++) {
+      const [bookId, chapterId] = vid.split(":");
+      const tvid = `${bookId}:${chapterId}:${i + 1}`;
+      verseCache.set(
+        tvid,
+        buildVerseFromString(tvid, lines[i]),
+      );
+    }
+    verse = verseCache.get(vid);
+
+    // load by verse
+    // const data = await api.bible.loadVerse(props.vid);
+    // verse.value = buildVerse(data);
+    // verseCache.set(props.vid, verse.value);
   }
+  return verse;
 }
 
 export function useVerseUtils(props) {
+  const verse = ref<Verse>();
   watch(
     () => props.vid,
     loadVerse,
     { immediate: true },
   );
 
-  async function loadVerse() {
+  async function loadVerse1() {
     verse.value = verseCache.get(props.vid);
     if (!verse.value) {
       const data = await api.bible.loadChapter(props.vid);
@@ -44,9 +70,10 @@ export function useVerseUtils(props) {
       // verse.value = buildVerse(data);
       // verseCache.set(props.vid, verse.value);
     }
+    return verse;
   }
 
-  return { verse, loadVerse };
+  return { verse, loadVerse1 };
 }
 
 export async function loadLemmaOccurrences(sn: string): Promise<Verse[]> {
