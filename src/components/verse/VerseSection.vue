@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
 import BaseTabs from "../ui/BaseTabs.vue";
-import BaseToggle from "../ui/BaseToggle.vue";
-import BaseButton from "../ui/BaseButton.vue";
 import MasoreticText from "./MasoreticText.vue";
+import CrossReferences from "./CrossReferences.vue";
 import VerseHeader from "./VerseHeader.vue";
 import VerseComponent from "./VerseComponent.vue";
 import { loadVerse } from "@/composables/useVerseUtils";
@@ -27,9 +26,8 @@ watch(() => props.vid, () => {
 });
 
 const sections = [
-  { title: "btn", component: BaseButton },
   { title: "Масоретский текст", component: MasoreticText },
-  { title: "toggle", component: BaseToggle },
+  { title: "Перекрестные ссылки", component: CrossReferences },
 ];
 </script>
 
