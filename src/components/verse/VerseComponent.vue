@@ -14,6 +14,10 @@ const props = defineProps({
     type: String,
     default: null,
   },
+  textOnly: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 // console.log("VerseComponent setup: ", props.verse);
@@ -32,10 +36,15 @@ function displayWord(sn: string) {
     </div>
     <div class="content">
       <VerseToken
-        v-for="(token, index) in verse.tokens" :key="index" :token="token" :class="{
+        v-for="(token, index) in verse.tokens"
+        :key="index"
+        :token="token"
+        :class="{
           highlighted:
             settings.highlightSearch && props.highlightedSn === token.sn,
-        }" @click="displayWord(token.sn)"
+        }"
+        :text-only="props.textOnly"
+        @click="displayWord(token.sn)"
       />
     </div>
     <router-link :to="{ name: 'verse', params: { vid: verse.vid } }" class="anchor">

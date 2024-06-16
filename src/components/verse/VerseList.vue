@@ -51,7 +51,7 @@ function changePagination(data) {
         )"
         :key="verse.vid"
       >
-        <VerseComponent :verse="verse" :highlighted-sn="props.sn" />
+        <VerseComponent :verse="verse" :highlighted-sn="props.sn" :text-only="true" />
       </template>
     </div>
   </div>

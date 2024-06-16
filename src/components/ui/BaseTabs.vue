@@ -47,7 +47,7 @@ const selected = defineModel<number>();
     .tab-title {
       text-align: center;
       cursor: pointer;
-      margin-right: 1em;
+      margin-right: 2em;
       transition: all 0.2s ease-in-out;
       border: 0;
 

@@ -56,10 +56,11 @@ function playAudio() {
     </div>
 
     <div class="dictionary-links">
-      <BaseButton class="show--btn" @click="go('lemma-bdb-dict')">
+      <span>Словари:</span>
+      <BaseButton class="link" @click="go('lemma-bdb-dict')">
         BDB
       </BaseButton>
-      <BaseButton class="show--btn" @click="go('lemma-gesenius-dict')">
+      <BaseButton class="link" @click="go('lemma-gesenius-dict')">
         Gesenius
       </BaseButton>
     </div>
@@ -99,12 +100,15 @@ function playAudio() {
   .show-occurrences-wrapper {
     display: flex;
     justify-content: space-around;
+    margin: 2em 0 1.5em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid var(--bbl-c-divider);
     .show-occurrences-btn {
       border: 1px solid var(--bbl-c-border);
       padding: 2px 9px;
       color: var(--bbl-c-brand-2);
       transition: all 0.3s ease;
-      margin: 1em;
+      /* margin: 1em; */
 
       &:hover {
         color: var(--bbl-c-text-1);
@@ -115,8 +119,14 @@ function playAudio() {
   .dictionary-links {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     margin: 1em 0 2em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid var(--bbl-c-divider);
+    /* justify-content: space-evenly; */
+    .link {
+      margin: 0 1em;
+    }
   }
 
   .desc {
