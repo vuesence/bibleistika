@@ -118,7 +118,7 @@
 
 .v-pagination {
   align-items: center;
-  .mobile &, .tablet & {
+  .mobile &, .tablet &, .notebook & {
     flex-direction: column;
   }
 }

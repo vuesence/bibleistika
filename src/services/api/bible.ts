@@ -18,6 +18,11 @@ const bible = {
     return await (await http.get(`/bible/${bookId}/${chapterId}.syn.txt`, true)).text();
   },
 
+  async loadCrossReferences(vid: string) {
+    const [bookId, chapterId] = vid.split(":");
+    return await (await http.get(`/bible/${bookId}/${chapterId}.xr.txt`, true)).text();
+  },
+
   async loadStrongsConcordance() {
     return await (await http.get("/strongs-dictionary.txt", true)).text();
   },

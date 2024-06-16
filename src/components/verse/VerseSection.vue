@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
+import { useRoute } from "vue-router";
 import BaseTabs from "../ui/BaseTabs.vue";
 import MasoreticText from "./MasoreticText.vue";
 import CrossReferences from "./CrossReferences.vue";
@@ -25,6 +26,14 @@ watch(() => props.vid, () => {
   selected.value = -1;
 });
 
+const route = useRoute();
+
+watch(() => route.name, () => {
+  if (route.name !== "verse") {
+    selected.value = -1;
+  }
+});
+
 const sections = [
   { title: "Масоретский текст", component: MasoreticText },
   { title: "Перекрестные ссылки", component: CrossReferences },
@@ -34,7 +43,7 @@ const sections = [
 <template>
   <div v-if="verse">
     <VerseHeader :vid="verse.vid" />
-    <VerseComponent :verse="verse" />
+    <VerseComponent :verse="verse" class="main-verse" />
     <BaseTabs v-model="selected" :sections="sections">
       <template #tabTitle="{ section }">
         {{ section.title }}
@@ -49,5 +58,11 @@ const sections = [
 <style scoped>
 button {
   border: 0;
+}
+:deep(.tabs-header) {
+  margin-bottom: 1em;
+}
+:deep(.tab-title.active) {
+  border-bottom: 1px solid var(--bbl-c-border) !important;
 }
 </style>

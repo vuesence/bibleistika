@@ -13,6 +13,10 @@ const props = defineProps({
     type: String,
     default: null,
   },
+  showPagination: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 const page = ref(1);
@@ -26,6 +30,7 @@ function changePagination(data) {
 <template>
   <div class="verse-list">
     <PaginationBar
+      v-if="showPagination"
       v-model="page"
       :total-row="verses.length"
       :page-size-menu="[5, 10, 20, 50]"
@@ -46,7 +51,7 @@ function changePagination(data) {
         )"
         :key="verse.vid"
       >
-        <VerseComponent :verse="verse" mode="short" :highlighted-sn="props.sn" />
+        <VerseComponent :verse="verse" :highlighted-sn="props.sn" />
       </template>
     </div>
   </div>

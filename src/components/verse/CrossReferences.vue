@@ -1,35 +1,71 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
-import VerseComponent from "./VerseComponent.vue";
-import { api } from "@/services/api";
-// import type { PropType } from "vue";
-import { buildVerseFromString } from "@/composables/useVerseUtils";
-import { useAppLoader } from "@/composables/useAppLoader";
+import { onMounted, ref, watch } from "vue";
+import BaseButton from "../ui/BaseButton.vue";
+// import VerseComponent from "./VerseComponent.vue";
+import VerseList from "./VerseList.vue";
+import { loadXr } from "@/utils/crossReferensesUtils";
+import { loadVerse } from "@/composables/useVerseUtils";
 
 const props = defineProps({
   vid: String,
 });
 
-const verse = ref();
-const { startLoading, stopLoading } = useAppLoader();
+const xrs = ref();
+const currentXr = ref();
+const verses = ref();
+
+watch(currentXr, async () => {
+  verses.value = [];
+  currentXr.value?.vids.forEach(async (vid: string) => {
+    const v = await loadVerse(vid);
+    if (v) {
+      verses.value.push(v);
+    }
+  });
+  // console.log(verses.value);
+});
 
 onMounted(async () => {
-  startLoading();
-  const data = await api.bible.loadVerse(props.vid);
-  verse.value = buildVerseFromString(props.vid, data.translations[1].tokens);
-  console.log(verse.value);
-
-  stopLoading();
+  xrs.value = await loadXr(props.vid);
 });
 </script>
 
 <template>
-  CrossReferences
+  <!-- {{ xrs }} -->
+  <ul>
+    <li v-for="(xr, index) in xrs" :key="index">
+      <BaseButton
+        class="item"
+        @click="currentXr = xr"
+      >
+        {{ xr.title }}
+      </BaseButton>
+    </li>
+  </ul>
+  <div v-if="currentXr" class="details">
+    <VerseList :verses="verses" :show-pagination="false" />
+  </div>
   <!-- <VerseComponent :verse="verse" class="cross-references" /> -->
 </template>
 
 <style scoped>
-.masoretic-text :deep(.token > .lemma) {
-  display: none;
+ul {
+  display: flex;
+  white-space: nowrap;
+  flex-wrap: wrap;
+  column-gap: 1em;
+  row-gap: 0.5em;
+  margin-bottom: 1em;
+  li {
+    .item {
+      width: 9em;
+      padding: 0 0.3em;
+    }
+  }
+}
+.details {
+  margin-top: 2em;
+  color: var(--bbl-c-text-2);
+  font-size: 0.9em;
 }
 </style>

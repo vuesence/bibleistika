@@ -63,8 +63,8 @@ function displayWord(sn: string) {
     flex-wrap: wrap;
     flex-grow: 1;
     row-gap: 0.3em;
-    margin-bottom: 18px;
-    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.6em;
     border-bottom: 1px solid var(--bbl-c-divider);
 
     .verse-list & {
@@ -74,6 +74,7 @@ function displayWord(sn: string) {
 
   .anchor {
     margin-left: 0.5em;
+    margin-top: 0.5em;
     color: var(--bbl-c-text-3);
 
     &:hover {

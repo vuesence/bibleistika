@@ -38,11 +38,11 @@
   grid-column: 1 / 5;
   grid-row: 1;
 
-  & :deep(.verse .uri) {
+  & :deep(.main-verse .uri) {
     display: none;
   }
 
-  & :deep(.verse .anchor) {
+  & :deep(.main-verse .anchor) {
     display: none;
   }
 

@@ -15,7 +15,7 @@ export function rebuildVerse() {
   // }
 }
 
-export async function loadVerse(vid) {
+export async function loadVerse(vid): Promise<Verse> {
   let verse = verseCache.get(vid);
   if (!verse) {
     const data = await api.bible.loadChapter(vid);
