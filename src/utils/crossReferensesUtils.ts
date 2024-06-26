@@ -25,7 +25,7 @@ export async function loadXr(vid) {
   return xr;
 }
 function parseLine(line: string) {
-  const [, ...tokens] = line.split("🞍");
+  const [, ...tokens] = line.split("`");
   const xrs = [];
   if (tokens) {
     tokens.forEach((xr) => {

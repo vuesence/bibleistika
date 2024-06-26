@@ -122,7 +122,7 @@ function getVerse($bookId, $chapterId, $verseId) {
         // exit;
 
     }
-    $line = implode("🞍", $xrs);
+    $line = implode("`", $xrs);
 
     $lines[] = $line;
 

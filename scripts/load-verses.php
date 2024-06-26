@@ -195,7 +195,7 @@ function parseVerse($str) {
     });
     $verse["tokens"] = $tokens;
     $verse["strongNumbers"] = $verseStrongNumbers;
-    $verse["tokens2"] = implode("🞍", $tokens2);
+    $verse["tokens2"] = implode("`", $tokens2);
     // $verse["sourceLang"] = $sourceLang;
     // $verse["string"] = $str;
     return $verse;

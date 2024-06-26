@@ -45,11 +45,12 @@ export function buildVerses(data: any): Verse[] {
   return verses;
 }
 
-function buildVerse(data: any): Verse {
-  // const t: string = data.translations[0].tokens;
+function buildVerse(verseData: any): Verse {
+  // const t: string = verseData.translations[0].tokens;
   const v: Verse = {} as Verse;
   v.tokens = [];
-  data.translations[0].tokens.split("🞍").forEach((token) => {
+  verseData.data.split("`").forEach((token) => {
+  // data.translations[0].tokens.split("`").forEach((token) => {
     const parts = token.split("₋");
     if (parts.length === 1) {
       v.tokens.push(buildVerseToken(parts[0]));
@@ -59,10 +60,10 @@ function buildVerse(data: any): Verse {
     }
   });
 
-  v.vid = data.vid;
-  v.data = data;
-  v.sourceLang = data.translations[0].sourceLang;
-  v.translationTitle = data.translations[0].title;
+  v.vid = verseData.vid;
+  v.data = verseData.data;
+  // v.sourceLang = data.translations[0].sourceLang;
+  // v.translationTitle = data.translations[0].title;
   v.text = v.tokens.reduce((text, token) => {
     return text + token.tr;
   }, "");
@@ -73,7 +74,7 @@ export function buildVerseFromString(vid, data: any): Verse {
 
   const v: Verse = {} as Verse;
   v.tokens = [];
-  data.split("🞍").forEach((token) => {
+  data.split("`").forEach((token) => {
     const parts = token.split("₋");
     if (parts.length === 1) {
       v.tokens.push(buildVerseToken(parts[0]));
