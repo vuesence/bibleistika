@@ -53,6 +53,7 @@ onMounted(() => {
     flex-grow: 1;
     /* max-width: 1000px; */
     padding: 1em 2em;
+    margin-top: 1em;
     z-index: 2;
   }
 }

@@ -1,6 +1,7 @@
 import type { RouteRecordRaw } from "vue-router";
 import VerseView from "@/views/VerseView.vue";
 import HomeView from "@/views/HomeView.vue";
+import HelpView from "@/views/HelpView.vue";
 import LemmaView from "@/views/LemmaView.vue";
 import SearchView from "@/views/SearchView.vue";
 // import LemmaDescription from "@/components/LemmaDescription.vue";
@@ -93,6 +94,11 @@ const routes: RouteRecordRaw[] = [
     path: "/about",
     name: "about",
     component: AboutView,
+  },
+  {
+    path: "/help",
+    name: "help",
+    component: HelpView,
   },
 ];
 

@@ -59,12 +59,13 @@ function displayWord(sn: string) {
 
   .uri {
     color: var(--bbl-c-text-2);
-    margin: 0 0.5em 0 0;
+    margin: 0 4px 0 0;
     font-size: 0.7em;
     /* font-style: italic; */
     white-space: nowrap;
     flex: 0 0 3em;
     line-height: 1.3em;
+    min-width: 2.1rem;
   }
 
   .content {

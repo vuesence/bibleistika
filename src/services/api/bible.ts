@@ -7,8 +7,15 @@ const bible = {
   async loadVerse(vid: string) {
     const [bookId, chapterId, verseId] = vid.split(":");
     const data = await http.get(
-      `${apiUrl}/verse/index.php?
-        bookId=${bookId}&chapterId=${chapterId}&verseId=${verseId}`,
+      `${apiUrl}/verse/index.php?bookId=${bookId}&chapterId=${chapterId}&verseId=${verseId}`,
+    );
+    return data;
+  },
+
+  async loadVerseOriginText(vid: string) {
+    const [bookId, chapterId, verseId] = vid.split(":");
+    const data = await http.get(
+      `${apiUrl}/verse/verseOrigin.php?bookId=${bookId}&chapterId=${chapterId}&verseId=${verseId}`,
     );
     return data;
   },

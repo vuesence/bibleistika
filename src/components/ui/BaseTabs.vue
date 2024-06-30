@@ -2,14 +2,22 @@
 // import { ref } from "vue";
 import type { PropType } from "vue";
 
-defineProps({
+const props = defineProps({
   sections: {
     type: Array as PropType<{ title: string, component: any }[]>,
     default: () => [],
   },
+  hidableTabs: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 const selected = defineModel<number>();
+
+function handleClick(index) {  
+  (props.hidableTabs && selected.value === index) ? selected.value = -1 : selected.value = index;
+}
 </script>
 
 <template>
@@ -20,8 +28,8 @@ const selected = defineModel<number>();
         :key="index"
         class="tab-title"
         :class="{ active: selected === index }"
-        @click="selected !== index ? selected = index : selected = -1"
-        @keyup="selected !== index ? selected = index : selected = -1"
+        @click="handleClick(index)"
+        @keyup="handleClick(index)"
       >
         <slot name="tabTitle" :section="section">
           {{ section.title }}

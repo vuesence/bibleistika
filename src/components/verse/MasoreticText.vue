@@ -15,8 +15,8 @@ const { startLoading, stopLoading } = useAppLoader();
 
 onMounted(async () => {
   startLoading();
-  const data = await api.bible.loadVerse(props.vid);
-  verse.value = buildVerseFromString(props.vid, data.translations[1].tokens);
+  const data = await api.bible.loadVerseOriginText(props.vid);
+  verse.value = buildVerseFromString(props.vid, data.data);
   console.log(verse.value);
 
   stopLoading();
