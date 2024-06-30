@@ -8,7 +8,8 @@ const selected = ref(0);
 
 const sections = [
   { title: "О приложении", component: HelpAppAbout },
-  { title: "Использование приложения", component: HelpAppUsage },
+  { title: "Использование", component: HelpAppUsage },
+  // { title: "Пример", component: HelpAppUsage },
 ];
 
 </script>

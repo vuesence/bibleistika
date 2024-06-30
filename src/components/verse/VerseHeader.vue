@@ -47,8 +47,14 @@ function go(direction: string) {
   align-items: center;
   margin-bottom: 2em;
   .open-verse-selection {
-    border: 0;
+    /* border: 0; */
+    border-radius: 3px;
+    /* border-color: var(--bbl-c-border); */
+    padding: 0 1em;
     cursor: pointer;
+    h2 {
+      margin: 5px;
+    }
   }
   .nav-button {
     height: 1.5em;
