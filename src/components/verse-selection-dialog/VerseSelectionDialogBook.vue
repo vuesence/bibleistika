@@ -23,7 +23,7 @@ const emit = defineEmits(["next"]);
 
     <h2>Новый Завет</h2>
     <div class="wrapper">
-      <button v-for="i in 39" :key="i" @click="emit('next', i)">
+      <button v-for="i in 39" :key="i" @click="emit('next', 39 + i)">
         {{ books[39 + i - 1]?.name }}
       </button>
     </div>

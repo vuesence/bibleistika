@@ -3,16 +3,15 @@ import BaseIcon from "@/components/ui/BaseIcon.vue";
 
 const links = [
   // { title: "Contact", route: { name: "contacts" } },
-  { title: "Privacy", route: { name: "about" } },
-  { title: "Blog", route: { name: "about" } },
-  { title: "Store", route: { name: "about" } },
-  { title: "Careers", route: { name: "about" } },
+  { title: "Главная", route: { name: "home" } },
+  { title: "Справка", route: { name: "help" } },
+  { title: "Поиск", route: { name: "search-view" } },
 ];
 
 const socials = [
-  { name: "twitter", url: "https://twitter.com/acme" },
-  { name: "youtube", url: "https://youtube.com/acme" },
-  { name: "instagram", url: "https://instagram.com/acme" },
+  // { name: "twitter", url: "https://twitter.com/acme" },
+  // { name: "youtube", url: "https://youtube.com/acme" },
+  // { name: "instagram", url: "https://instagram.com/acme" },
 ];
 </script>
 

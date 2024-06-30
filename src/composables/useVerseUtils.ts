@@ -27,7 +27,7 @@ export async function loadVerse(vid): Promise<Verse> {
       const _vid = `${bookId}:${chapterId}:${i + 1}`;
       verseCache.set(
         _vid,
-        buildVerseFromString(_vid, lines[i]),
+        buildVerseFromString(_vid, lines[i], bookId < 40 ? "H" : "G"),
       );
     }
     verse = verseCache.get(vid);
@@ -69,7 +69,7 @@ function buildVerse(verseData: any): Verse {
   }, "");
   return v;
 }
-export function buildVerseFromString(vid, data: any): Verse {
+export function buildVerseFromString(vid, data: any, lang): Verse {
   // const t: string = data.translations[0].tokens;
 
   const v: Verse = {} as Verse;
@@ -80,7 +80,7 @@ export function buildVerseFromString(vid, data: any): Verse {
       v.tokens.push(buildVerseToken(parts[0]));
     } else {
       const sn = parts[1].padStart(4, "0");
-      v.tokens.push(buildVerseToken(parts[0], `H${sn}`));
+      v.tokens.push(buildVerseToken(parts[0], `${lang}${sn}`));
     }
   });
 
