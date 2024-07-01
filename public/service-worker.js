@@ -48,7 +48,7 @@ self.addEventListener("fetch", (event) => {
         // console.log("\tCached version found: " + event.request.url);
         return cachedResponse;
       } else {
-        console.log(`\tGetting from the Internet:${event.request.url}`);
+        // console.log(`\tGetting from the Internet:${event.request.url}`);
         return await fetchAndCache(event.request);
       }
     })(),
@@ -68,14 +68,16 @@ function fetchAndCache(request) {
       // console.log(url);
       if (
         response.status < 400
-        && response.type === "basic"
+        // && response.type === "basic"
+        && ["basic", "cors"].includes(response.type )
         && !url.search.includes("mode=nocache")
         && !nonCached.includes(url.pathname)
         && url.protocol !== "chrome-extension:"
       ) {
+        // console.log("url");
         const cur_cache = getCache(response);
         if (cur_cache) {
-          // console.log("\tCaching the response to", request.url);
+          console.log("\tCaching the response to", request.url);
           return caches.open(cur_cache).then((cache) => {
             cache.put(request, response.clone());
             return response;
