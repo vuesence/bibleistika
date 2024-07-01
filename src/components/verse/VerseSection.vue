@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { ref, reactive, watch } from "vue";
 import { useRoute } from "vue-router";
 import BaseTabs from "../ui/BaseTabs.vue";
 import MasoreticText from "./MasoreticText.vue";
 import CrossReferences from "./CrossReferences.vue";
 import VerseHeader from "./VerseHeader.vue";
 import VerseComponent from "./VerseComponent.vue";
-import { loadVerse } from "@/composables/useVerseUtils";
+import { loadVerse } from "@/utils/verseUtils";
 
 const props = defineProps({
   vid: String,
@@ -22,9 +22,17 @@ watch(() => props.vid, async () => {
 
 const selected = ref(-1);
 
+const sections = reactive([
+  { title: "Масоретский текст"},
+  { title: "Перекрестные ссылки"},
+]);
+
+const sectionComponents = [MasoreticText, CrossReferences];
+
 watch(() => props.vid, () => {
   selected.value = -1;
-});
+  updateTitle();
+}, { immediate: true });
 
 const route = useRoute();
 
@@ -32,12 +40,14 @@ watch(() => route.name, () => {
   if (route.name !== "verse") {
     selected.value = -1;
   }
+  updateTitle();
 });
 
-const sections = [
-  { title: "Масоретский текст", component: MasoreticText },
-  { title: "Перекрестные ссылки", component: CrossReferences },
-];
+function updateTitle() {  
+  const [bookId] = props.vid.split(":");
+  sections[0].title = +bookId < 40 ? "Масоретский текст" : "Textus Receptus"
+}
+
 </script>
 
 <template>
@@ -49,7 +59,7 @@ const sections = [
         {{ section.title }}
       </template>
       <template #tabComponent="{ selectedTab }">
-        <component :is="sections[selectedTab].component" :vid="verse.vid" />
+        <component :is="sectionComponents[selectedTab]" :vid="verse.vid" />
       </template>
     </BaseTabs>
   </div>

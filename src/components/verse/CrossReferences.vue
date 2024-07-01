@@ -4,7 +4,7 @@ import BaseButton from "../ui/BaseButton.vue";
 // import VerseComponent from "./VerseComponent.vue";
 import VerseList from "./VerseList.vue";
 import { loadXr } from "@/utils/crossReferensesUtils";
-import { loadVerse } from "@/composables/useVerseUtils";
+import { loadVerse } from "@/utils/verseUtils";
 
 const props = defineProps({
   vid: String,

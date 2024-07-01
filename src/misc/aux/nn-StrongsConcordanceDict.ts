@@ -1,6 +1,6 @@
 // import { ref } from "vue";
 // import { api } from "../../services/api";
-// import { rebuildVerse } from "../../composables/useVerseUtils";
+// import { rebuildVerse } from "../../utils/verseUtils";
 // // import { StrongsConcordance } from "../1StrongsConcordance";
 
 // const loaded = ref(false);

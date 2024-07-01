@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
-// import { buildVerses } from "../composables/useVerseUtils";
+// import { buildVerses } from "../utils/verseUtils";
 import { api } from "../services/api";
 import VerseList from "./verse/VerseList.vue";
 import { useAppLoader } from "@/composables/useAppLoader";

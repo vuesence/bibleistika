@@ -18,12 +18,21 @@ foreach ($books as $book) {
         $sql = "SELECT `vid`, `origin` FROM `verses` WHERE vid LIKE '{$bookId}:{$ch}%' ORDER BY id";
         $result = $conn->query($sql);
         $rows = $result->fetch_all(MYSQLI_ASSOC);
+        $i = 0;
         foreach ($rows as $row) {
+            $dt = $row['origin'] ?? "";
+            // if (!$row['origin']) $dt = "";
+            if ($bookId >= 40) {
+                $t = explode(" ", $dt);
+                $dt = implode(" ", array_filter($t, function($k, $i) { return $i % 2 == 0; }, ARRAY_FILTER_USE_BOTH));                
+            }
             $data[] = [
                 'vid' => $row['vid'],
-                'tokens' => $row['origin']
+                // 'tokens' => $row['origin']
+                'tokens' => $dt
             ];
-            $dataTxt[] = $row['origin'];
+            // $dataTxt[] = $row['origin'];
+            $dataTxt[] = $dt;
         }
         $data = json_encode($data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
         $result->close();

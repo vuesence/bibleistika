@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
 // import { useRoute } from "vue-router";
-// import { useVerseUtils } from "../composables/useVerseUtils";
+// import { useVerseUtils } from "../utils/verseUtils";
 import SearchPanel from "@/components/SearchPanel.vue";
 import SearchResults from "@/components/SearchResults.vue";
 // import { useStrongsConcordance } from "@/composables/useStrongsConcordance";

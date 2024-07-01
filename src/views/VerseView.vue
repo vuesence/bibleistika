@@ -3,7 +3,7 @@
 // import { useRoute } from "vue-router";
 import VerseSection from "../components/verse/VerseSection.vue";
 import LemmaDescription from "../components/LemmaDescription.vue";
-// import { loadVerse, useVerseUtils } from "../composables/useVerseUtils";
+// import { loadVerse, useVerseUtils } from "../utils/verseUtils";
 // import { useStrongsConcordance } from "@/composables/useStrongsConcordance";
 import TwoColumnLayout from "@/layouts/TwoColumnLayout.vue";
 

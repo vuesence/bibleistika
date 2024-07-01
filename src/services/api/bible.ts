@@ -1,5 +1,5 @@
 import http from "./http/http";
-import { buildVerses } from "@/composables/useVerseUtils";
+import { buildVerses } from "@/utils/verseUtils";
 
 const apiUrl = "http://192.168.1.101/api";
 
@@ -23,6 +23,11 @@ const bible = {
   async loadChapter(vid: string) {
     const [bookId, chapterId] = vid.split(":");
     return await (await http.get(`/bible/${bookId}/${chapterId}.syn.txt`, true)).text();
+  },
+
+  async loadChapterOrigin(vid: string) {
+    const [bookId, chapterId] = vid.split(":");
+    return await (await http.get(`/bible/${bookId}/${chapterId}.origin.txt`, true)).text();
   },
 
   async loadCrossReferences(vid: string) {
