@@ -20,14 +20,14 @@ const routes: RouteRecordRaw[] = [
   // },
   {
     path: "/",
-    name: "home",
+    // name: "home",
     component: VerseView,
     // redirect: "/verse/1:1:1",
     // component: HomeView,
     children: [
       {
         path: "",
-        // name: "home1",
+        name: "home",
         // props: true,
         component: HomeView,
       },
