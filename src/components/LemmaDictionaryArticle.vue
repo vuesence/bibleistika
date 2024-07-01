@@ -1,9 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
 import { api } from "../services/api";
-import { useAppLoader } from "@/composables/useAppLoader";
-
-const { startLoading, stopLoading } = useAppLoader();
 
 const props = defineProps({
   sn: {
@@ -25,9 +22,7 @@ watch(() => props.dict, async () => {
   } else if (props.dict === "gesenius") {
     title.value = "Hebrew and Chaldee Gesenius Lexicon";
   }
-  startLoading();
   data.value = await api.bible.loadDict(props.sn, props.dict);
-  stopLoading();
 }, { immediate: true });
 
 // onMounted(async () => {

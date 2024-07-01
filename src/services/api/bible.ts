@@ -1,8 +1,5 @@
 import http from "./http/http";
 import { buildVerses } from "@/utils/verseUtils";
-// import { useAppLoader } from "@/composables/useAppLoader";
-
-// const { startLoading, stopLoading } = useAppLoader();
 
 // const apiUrl = "http://192.168.1.101/api";
 const apiUrl = "https://bibleistika.alwaysdata.net";

@@ -1,16 +1,11 @@
 import { api } from "@/services/api";
-import { useAppLoader } from "@/composables/useAppLoader";
 
 const xrCache: Map<string, object> = new Map();
-
-const { startLoading, stopLoading } = useAppLoader();
 
 export async function loadXr(vid) {
   let xr = xrCache.get(vid);
   if (!xr) {
-    startLoading();
     const data = await api.bible.loadCrossReferences(vid);
-    stopLoading();
     const lines = data.split("\n");
     for (let i = 0; i < lines.length; i++) {
       const [bookId, chapterId] = vid.split(":");

@@ -2,13 +2,8 @@
 import { api } from "@/services/api";
 // import { Verse } from "../models/Verse";
 import { getSC } from "@/composables/useStrongsConcordance";
-import { useAppLoader } from "@/composables/useAppLoader";
-
-const { startLoading, stopLoading } = useAppLoader();
 
 const verseCache: Map<string, Verse> = new Map();
-
-// const verse = ref<Verse>();
 
 export function rebuildVerseSC() {
   for (let verse of verseCache.values()) {
@@ -21,9 +16,7 @@ export function rebuildVerseSC() {
 export async function loadVerse(vid): Promise<Verse> {
   let verse = verseCache.get(vid);
   if (!verse) {
-    startLoading();
     const data = await api.bible.loadChapter(vid);
-    stopLoading();
     // console.log(data);
 
     const lines = data.split("\n");

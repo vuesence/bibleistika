@@ -2,11 +2,15 @@
 // import type { AxiosRequestConfig } from "axios";
 // import HttpRequest from "./xhr";
 
+import { useAppLoader } from "@/composables/useAppLoader";
+
+const { startLoading, stopLoading } = useAppLoader();
+
 interface IOptions {
-  baseUrl: string
-  headers?: Record<string, string>
-  token?: Function
-  logout?: Function
+  baseUrl: string;
+  headers?: Record<string, string>;
+  token?: Function;
+  logout?: Function;
 }
 
 let options: IOptions = { baseUrl: "/" };
@@ -28,15 +32,15 @@ const http = {
 
   async get(url: string, raw: boolean = false) {
     try {
-      if (raw) {
-        return fetch(url);
-      } else {
-        return fetch(url).then(response => response.json());
-      }
+      startLoading();
+      return raw
+        ? await fetch(url)
+        : await fetch(url).then((response) => response.json());
     } catch (error) {
       console.log(error);
+    } finally {
+      stopLoading();
     }
-    
   },
 };
 
@@ -47,34 +51,7 @@ async function postFetch(data: any, uri: string) {
     headers: options.headers,
     // credentials: "include",
     body: JSON.stringify(data),
-  }).then(response => response.json());
+  }).then((response) => response.json());
 }
-
-// Uncomment, if you are using `XMLHttpRequest`
-
-// async function postXhr(data: any, uri: string) {
-//   const xhr
-//   = new HttpRequest("POST", `${options.baseUrl}${uri}`, "application/json", options.headers);
-//   xhr.xhr.withCredentials = true;
-//   const response = await xhr.send(data);
-//   return response.json;
-// }
-
-// Uncomment, if you are using `axios`
-
-// async postAxios(data: any, uri: String) {
-//   const config: AxiosRequestConfig = {
-//     method: "POST",
-//     url: `${options.baseUrl}${uri}`,
-//     data,
-//     withCredentials: true,
-//     headers: options.headers,
-//   };
-//   try {
-//     return await axios.request(config);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// },
 
 export default http;
