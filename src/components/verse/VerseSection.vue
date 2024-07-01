@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, reactive, watch } from "vue";
+import { reactive, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 import BaseTabs from "../ui/BaseTabs.vue";
 import MasoreticText from "./MasoreticText.vue";
@@ -23,8 +23,8 @@ watch(() => props.vid, async () => {
 const selected = ref(-1);
 
 const sections = reactive([
-  { title: "Масоретский текст"},
-  { title: "Перекрестные ссылки"},
+  { title: "Масоретский текст" },
+  { title: "Перекрестные ссылки" },
 ]);
 
 const sectionComponents = [MasoreticText, CrossReferences];
@@ -43,11 +43,10 @@ watch(() => route.name, () => {
   updateTitle();
 });
 
-function updateTitle() {  
+function updateTitle() {
   const [bookId] = props.vid.split(":");
-  sections[0].title = +bookId < 40 ? "Масоретский текст" : "Textus Receptus"
+  sections[0].title = +bookId < 40 ? "Масоретский текст" : "Textus Receptus";
 }
-
 </script>
 
 <template>

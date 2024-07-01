@@ -49,7 +49,7 @@ function buildVerse(verseData: any): Verse {
   // const t: string = verseData.translations[0].tokens;
   const v: Verse = {} as Verse;
   v.tokens = [];
-  
+
   const lang = +verseData.vid.split(":")[0] < 40 ? "H" : "G";
   verseData.data.split("`").forEach((token) => {
   // data.translations[0].tokens.split("`").forEach((token) => {
@@ -75,7 +75,6 @@ export function buildVerseFromString(vid, data: any, lang): Verse {
   // const t: string = data.translations[0].tokens;
 
   console.log(lang);
-  
 
   const v: Verse = {} as Verse;
   v.tokens = [];

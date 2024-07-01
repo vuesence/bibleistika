@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
 // import { useRoute } from "vue-router";
 // import { useVerseUtils } from "../utils/verseUtils";
 import SearchPanel from "@/components/SearchPanel.vue";

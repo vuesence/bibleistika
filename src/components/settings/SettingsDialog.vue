@@ -38,7 +38,7 @@ function onClick($event) {
 </script>
 
 <template>
-  <dialog ref="dialog" role="textbox" tabindex="0" @click="onClick" @keydown="() => {}">
+  <dialog ref="dialog" @click="onClick" @keydown="() => {}">
     <div>
       <header>
         <h3>Настройки</h3>

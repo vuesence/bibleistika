@@ -24,13 +24,13 @@ const { openSettingsDialog } = useAppSettings();
       </RouterLink>
     </div> -->
     <div class="right-pane">
-      <button class="search-btn" @click="router.push({ name: 'search-view' })" title="Поиск">
+      <button class="search-btn" title="Поиск" @click="router.push({ name: 'search-view' })">
         <BaseIcon name="search" />
       </button>
-      <button class="settings-btn" @click="openSettingsDialog" title="Настройки">
+      <button class="settings-btn" title="Настройки" @click="openSettingsDialog">
         <BaseIcon name="settings" />
       </button>
-      <button class="help-btn" @click="router.push({ name: 'help' })" title="Помощь">
+      <button class="help-btn" title="Помощь" @click="router.push({ name: 'help' })">
         <BaseIcon name="help" />
       </button>
       <ThemeToggle />

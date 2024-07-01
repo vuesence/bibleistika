@@ -1,5 +1,5 @@
 {
-    "require": {
-        "cijic/phpmorphy": "^0.3.4"
-    }
+  "require": {
+    "cijic/phpmorphy": "^0.3.4"
+  }
 }

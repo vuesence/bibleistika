@@ -11,12 +11,11 @@ const sections = [
   { title: "Использование", component: HelpAppUsage },
   // { title: "Пример", component: HelpAppUsage },
 ];
-
 </script>
 
 <template>
   <div>
-    <BaseTabs v-model="selected" :sections="sections" :hidableTabs="false">
+    <BaseTabs v-model="selected" :sections="sections" :hidable-tabs="false">
       <template #tabTitle="{ section }">
         {{ section.title }}
       </template>
@@ -24,8 +23,6 @@ const sections = [
         <component :is="sections[selectedTab].component" />
       </template>
     </BaseTabs>
-    
-    
   </div>
 </template>
 

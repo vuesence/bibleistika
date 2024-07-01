@@ -32,8 +32,8 @@ function onClick($event) {
   if ($event.target === dialog.value
     || $event.target === dialog.value.querySelector(".close-button")
   ) {
-    step.value = 0; 
-    dialog.value.close();    
+    step.value = 0;
+    dialog.value.close();
   }
 }
 

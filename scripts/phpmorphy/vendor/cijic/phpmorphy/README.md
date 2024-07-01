@@ -1,10 +1,10 @@
 # cijic/phpmorphy
 
-phpMorphy --- morphological analyzer library for Russian, English, German and Ukrainian languages.  
+phpMorphy --- morphological analyzer library for Russian, English, German and Ukrainian languages.
 ```cijic/phpMorphy``` is Laravel wrapper for phpMorphy library with PHP7 support.
 
-Source website (in russian): http://phpmorphy.sourceforge.net/  
-SF project: http://sourceforge.net/projects/phpmorphy  
+Source website (in russian): http://phpmorphy.sourceforge.net/
+SF project: http://sourceforge.net/projects/phpmorphy
 Wrapper on Github: https://github.com/cijic/phpmorphy
 
 This library allow retireve follow morph information for any word:
@@ -25,7 +25,7 @@ $ composer require cijic/phpmorphy
 $morphy = new cijic\phpMorphy\Morphy('en');
 print_r($morphy->getPseudoRoot('FIGHTY'));
 ```
-result 
+result
 ```
 Array
 (
