@@ -1,10 +1,10 @@
 <?php
 
 include("init-db.php");
-$bs = json_decode(file_get_contents("../src/models/bible-structure.json"));    
+$books = json_decode(file_get_contents("../src/utils/bibleStructure.json"));    
 // echo $bs;
 
-foreach ($bs->books as $book) {
+foreach ($books as $book) {
     // echo $book->name;
     $bookId = $book->id;
     // if ($bookId > 3) exit;
