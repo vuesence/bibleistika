@@ -4,7 +4,8 @@ import { buildVerses } from "@/utils/verseUtils";
 
 // const { startLoading, stopLoading } = useAppLoader();
 
-const apiUrl = "http://192.168.1.101/api";
+// const apiUrl = "http://192.168.1.101/api";
+const apiUrl = "https://bibleistika.alwaysdata.net";
 const bibleApiUrl = "https://bible.bibleistika.ru";
 
 const bible = {
@@ -45,19 +46,21 @@ const bible = {
 
   async loadLemmaOccurrences(sn: string) {
     return buildVerses(
-      await http.get(`${apiUrl}/verse/lemma-occurences.php?sn=${sn}`),
+      await http.get(`${apiUrl}/lemma-occurences.php?sn=${sn}`),
+      // await http.get(`${apiUrl}/verse/lemma-occurences.php?sn=${sn}`),
     );
   },
 
   async loadSearchResults(searchString: string) {
     return buildVerses(
-      await http.get(`${apiUrl}/verse/search.php?search=${searchString}`),
+      await http.get(`${apiUrl}/search.php?search=${searchString}`),
     );
   },
 
   async loadDict(sn: string, type: string) {
     return await (await http.get(
-      `${apiUrl}/verse/dict.php?sn=${sn}&dict=${type}`,
+      `${apiUrl}/dict.php?sn=${sn}&dict=${type}`,
+      // `${apiUrl}/verse/dict.php?sn=${sn}&dict=${type}`,
       true,
     )).text();
   },
