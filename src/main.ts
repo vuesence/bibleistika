@@ -12,7 +12,7 @@ import { initSettings } from "@/composables/useAppSettings";
 import { api } from "@/services/api";
 import { loadStrongsConcordance } from "@/composables/useStrongsConcordance";
 
-// loadStrongsConcordance();
+loadStrongsConcordance();
 
 const app = createApp(App);
 app.use(router);
@@ -20,7 +20,7 @@ loadIcons();
 initSettings();
 api.init();
 
-// await Promise.all([router.isReady()]);
-await Promise.all([router.isReady(), loadStrongsConcordance()]);
+await Promise.all([router.isReady()]);
+// await Promise.all([router.isReady(), loadStrongsConcordance()]);
 
 app.mount("#app");

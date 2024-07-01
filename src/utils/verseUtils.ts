@@ -2,23 +2,28 @@
 import { api } from "@/services/api";
 // import { Verse } from "../models/Verse";
 import { getSC } from "@/composables/useStrongsConcordance";
+import { useAppLoader } from "@/composables/useAppLoader";
+
+const { startLoading, stopLoading } = useAppLoader();
 
 const verseCache: Map<string, Verse> = new Map();
 
 // const verse = ref<Verse>();
 
-export function rebuildVerse() {
-  // verse.value = verseCache.get(verse.value.vid);
-  // if (verse.value) {
-  //   verse.value = buildVerse(verse.value.data);
-  //   verseCache.set(verse.value.vid, verse.value);
-  // }
+export function rebuildVerseSC() {
+  for (let verse of verseCache.values()) {
+    verse.tokens.forEach((vt) => {
+      vt.sc = getSC(vt.sn) ?? null;
+    })
+  }
 }
 
 export async function loadVerse(vid): Promise<Verse> {
   let verse = verseCache.get(vid);
   if (!verse) {
+    startLoading();
     const data = await api.bible.loadChapter(vid);
+    stopLoading();
     // console.log(data);
 
     const lines = data.split("\n");
@@ -50,7 +55,7 @@ function buildVerse(verseData: any): Verse {
   const v: Verse = {} as Verse;
   v.tokens = [];
 
-  const lang = +verseData.vid.split(":")[0] < 40 ? "H" : "G";
+  const lang = verseData.vid.split(":")[0] < 40 ? "H" : "G";
   verseData.data.split("`").forEach((token) => {
   // data.translations[0].tokens.split("`").forEach((token) => {
     const parts = token.split("₋");
@@ -73,8 +78,6 @@ function buildVerse(verseData: any): Verse {
 }
 export function buildVerseFromString(vid, data: any, lang): Verse {
   // const t: string = data.translations[0].tokens;
-
-  console.log(lang);
 
   const v: Verse = {} as Verse;
   v.tokens = [];

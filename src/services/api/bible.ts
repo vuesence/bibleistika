@@ -1,25 +1,28 @@
 import http from "./http/http";
 import { buildVerses } from "@/utils/verseUtils";
+// import { useAppLoader } from "@/composables/useAppLoader";
+
+// const { startLoading, stopLoading } = useAppLoader();
 
 const apiUrl = "http://192.168.1.101/api";
 const bibleApiUrl = "https://bible.bibleistika.ru";
 
 const bible = {
-  async loadVerse(vid: string) {
-    const [bookId, chapterId, verseId] = vid.split(":");
-    const data = await http.get(
-      `${apiUrl}/verse/index.php?bookId=${bookId}&chapterId=${chapterId}&verseId=${verseId}`,
-    );
-    return data;
-  },
+  // async loadVerse(vid: string) {
+  //   const [bookId, chapterId, verseId] = vid.split(":");
+  //   const data = await http.get(
+  //     `${apiUrl}/verse/index.php?bookId=${bookId}&chapterId=${chapterId}&verseId=${verseId}`,
+  //   );
+  //   return data;
+  // },
 
-  async loadVerseOriginText(vid: string) {
-    const [bookId, chapterId, verseId] = vid.split(":");
-    const data = await http.get(
-      `${apiUrl}/verse/verseOrigin.php?bookId=${bookId}&chapterId=${chapterId}&verseId=${verseId}`,
-    );
-    return data;
-  },
+  // async loadVerseOriginText(vid: string) {
+  //   const [bookId, chapterId, verseId] = vid.split(":");
+  //   const data = await http.get(
+  //     `${apiUrl}/verse/verseOrigin.php?bookId=${bookId}&chapterId=${chapterId}&verseId=${verseId}`,
+  //   );
+  //   return data;
+  // },
 
   async loadChapter(vid: string) {
     const [bookId, chapterId] = vid.split(":");

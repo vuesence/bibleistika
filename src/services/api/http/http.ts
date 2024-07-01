@@ -36,6 +36,7 @@ const http = {
     } catch (error) {
       console.log(error);
     }
+    
   },
 };
 
