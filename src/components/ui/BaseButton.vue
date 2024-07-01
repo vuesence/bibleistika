@@ -34,7 +34,7 @@ function click(event) {
   transition: all 0.2s ease-in;
   border-radius: 4px;
   border-color: var(--bbl-c-border);
-  font-weight: 600;
+  font-weight: 700;
   min-height: 2.0em;
   min-width: 2em;
   padding: 0 1em;

@@ -112,7 +112,7 @@ function buildPreview(desc) {
       margin-bottom: 5px;
 
       .lemma {
-        font-weight: 600;
+        font-weight: 700;
       }
 
       .strongs-number {
