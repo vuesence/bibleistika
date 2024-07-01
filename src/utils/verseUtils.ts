@@ -7,13 +7,13 @@ const verseCache: Map<string, Verse> = new Map();
 
 // const verse = ref<Verse>();
 
-// export function rebuildVerse() {
-//   // verse.value = verseCache.get(verse.value.vid);
-//   // if (verse.value) {
-//   //   verse.value = buildVerse(verse.value.data);
-//   //   verseCache.set(verse.value.vid, verse.value);
-//   // }
-// }
+export function rebuildVerse() {
+  // verse.value = verseCache.get(verse.value.vid);
+  // if (verse.value) {
+  //   verse.value = buildVerse(verse.value.data);
+  //   verseCache.set(verse.value.vid, verse.value);
+  // }
+}
 
 export async function loadVerse(vid): Promise<Verse> {
   let verse = verseCache.get(vid);

@@ -28,6 +28,15 @@ let book = 1;
 let chapter = 1;
 // const chapter = ref(1);
 
+function onClick($event) {
+  if ($event.target === dialog.value
+    || $event.target === dialog.value.querySelector(".close-button")
+  ) {
+    step.value = 0; 
+    dialog.value.close();    
+  }
+}
+
 const steps = [
   {
     comp: VerseSelectionDialogBook,
@@ -61,7 +70,7 @@ const steps = [
 </script>
 
 <template>
-  <dialog ref="dialog" class="verse-selection">
+  <dialog ref="dialog" class="verse-selection" @click="onClick" @keydown="() => {}">
     <Transition mode="out-in">
       <component
         :is="steps[step].comp"
@@ -71,11 +80,7 @@ const steps = [
         @next="steps[step].next($event)"
       />
     </Transition>
-    <button
-      aria-label="close"
-      class="close-button"
-      @click="step = 0; dialog.close()"
-    >
+    <button aria-label="close" class="close-button">
       ✖
     </button>
   </dialog>

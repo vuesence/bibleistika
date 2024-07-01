@@ -2,6 +2,7 @@ import http from "./http/http";
 import { buildVerses } from "@/utils/verseUtils";
 
 const apiUrl = "http://192.168.1.101/api";
+const bibleApiUrl = "https://bible.bibleistika.ru";
 
 const bible = {
   async loadVerse(vid: string) {
@@ -22,21 +23,21 @@ const bible = {
 
   async loadChapter(vid: string) {
     const [bookId, chapterId] = vid.split(":");
-    return await (await http.get(`/bible/${bookId}/${chapterId}.syn.txt`, true)).text();
+    return await (await http.get(`${bibleApiUrl}/bible/${bookId}/${chapterId}.syn.txt`, true)).text();
   },
 
   async loadChapterOrigin(vid: string) {
     const [bookId, chapterId] = vid.split(":");
-    return await (await http.get(`/bible/${bookId}/${chapterId}.origin.txt`, true)).text();
+    return await (await http.get(`${bibleApiUrl}/bible/${bookId}/${chapterId}.origin.txt`, true)).text();
   },
 
   async loadCrossReferences(vid: string) {
     const [bookId, chapterId] = vid.split(":");
-    return await (await http.get(`/bible/${bookId}/${chapterId}.xr.txt`, true)).text();
+    return await (await http.get(`${bibleApiUrl}/bible/${bookId}/${chapterId}.xr.txt`, true)).text();
   },
 
   async loadStrongsConcordance() {
-    return await (await http.get("/strongs-dictionary.txt", true)).text();
+    return await (await http.get(`${bibleApiUrl}/strongs-dictionary.txt`, true)).text();
   },
 
   async loadLemmaOccurrences(sn: string) {

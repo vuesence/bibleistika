@@ -26,7 +26,7 @@ export default antfu(
       "vue/html-self-closing": "off",
       "@typescript-eslint/no-shadow": "error",
       "@typescript-eslint/explicit-module-boundary-types": "off",
-      "style/max-len": ["error", { code: 100, tabWidth: 2 }],
+      "style/max-len": ["error", { code: 120, tabWidth: 2 }],
       "style/semi": ["error", "always"],
       "style/indent": 2, // 4, or 'tab'
       "style/quotes": ["error", "double"],

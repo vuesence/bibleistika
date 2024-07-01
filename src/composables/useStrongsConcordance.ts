@@ -1,7 +1,7 @@
 import { computed, ref } from "vue";
 import { api } from "../services/api";
 // import { StrongsConcordance } from "../models/StrongsConcordance";
-// import { rebuildVerse } from "../utils/verseUtils";
+import { rebuildVerse } from "../utils/verseUtils";
 
 const loaded = ref(false);
 // const sc = ref();
@@ -49,6 +49,6 @@ export async function loadStrongsConcordance() {
   });
   loaded.value = true;
   // sc.value = getSC(props.vid);
-  // rebuildVerse();
+  rebuildVerse();
   // }, 3000);
 }

@@ -125,7 +125,7 @@ function playAudio() {
     border-bottom: 1px solid var(--bbl-c-divider);
     /* justify-content: space-evenly; */
     .link {
-      margin: 0 1em;
+      margin: 0 0.5em;
     }
   }
 
