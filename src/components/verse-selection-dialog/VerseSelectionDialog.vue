@@ -70,7 +70,7 @@ const steps = [
 </script>
 
 <template>
-  <dialog ref="dialog" class="verse-selection" @click="onClick" @keydown="() => {}">
+  <dialog ref="dialog" role="textbox" tabindex="0" class="verse-selection" @click="onClick" @keydown="() => {}">
     <Transition mode="out-in">
       <component
         :is="steps[step].comp"

@@ -1,7 +1,7 @@
 import { api } from "@/services/api";
 import { useAppLoader } from "@/composables/useAppLoader";
 
-const xrCache: Map<string, Object> = new Map();
+const xrCache: Map<string, object> = new Map();
 
 const { startLoading, stopLoading } = useAppLoader();
 

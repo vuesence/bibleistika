@@ -6,7 +6,7 @@ import SearchResults from "@/components/SearchResults.vue";
 // import { useStrongsConcordance } from "@/composables/useStrongsConcordance";
 import OneColumnLayout from "@/layouts/OneColumnLayout.vue";
 
-const props = defineProps({
+defineProps({
   searchString: {
     type: String,
     default: null,
