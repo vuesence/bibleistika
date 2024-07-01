@@ -33,7 +33,7 @@ function changePagination(data) {
       v-if="showPagination"
       v-model="page"
       :total-row="verses.length"
-      :page-size-menu="[5, 10, 20, 50]"
+      :page-size-menu="[10, 20, 50, 100]"
       align="center"
       language="ru"
       class="pagination"

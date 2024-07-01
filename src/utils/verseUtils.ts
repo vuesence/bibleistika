@@ -49,6 +49,8 @@ function buildVerse(verseData: any): Verse {
   // const t: string = verseData.translations[0].tokens;
   const v: Verse = {} as Verse;
   v.tokens = [];
+  
+  const lang = +verseData.vid.split(":")[0] < 40 ? "H" : "G";
   verseData.data.split("`").forEach((token) => {
   // data.translations[0].tokens.split("`").forEach((token) => {
     const parts = token.split("₋");
@@ -56,7 +58,7 @@ function buildVerse(verseData: any): Verse {
       v.tokens.push(buildVerseToken(parts[0]));
     } else {
       const sn = parts[1].padStart(4, "0");
-      v.tokens.push(buildVerseToken(parts[0], `H${sn}`));
+      v.tokens.push(buildVerseToken(parts[0], `${lang}${sn}`));
     }
   });
 
@@ -71,6 +73,9 @@ function buildVerse(verseData: any): Verse {
 }
 export function buildVerseFromString(vid, data: any, lang): Verse {
   // const t: string = data.translations[0].tokens;
+
+  console.log(lang);
+  
 
   const v: Verse = {} as Verse;
   v.tokens = [];
