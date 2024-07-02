@@ -62,7 +62,7 @@ onMounted(async () => {
 <style scoped>
 a {
   text-decoration: underline;
-  color: var(--bbl-c-text-3);
+  color: var(--bbl-c-text-2);
   &:hover {
     color: var(--bbl-c-text-1);
   }
