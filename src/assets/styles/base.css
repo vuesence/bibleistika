@@ -19,12 +19,12 @@
   // -webkit-text-size-adjust: 100%; */
 }
 
-@media screen and (min-width: 960px) {
+/* @media screen and (min-width: 960px) {
   html {
     overflow-x: hidden;
     margin-right: calc(-1 * (100vw - 100%));
   }
-}
+} */
 
 
 *,
