@@ -28,6 +28,9 @@ function displayTooltip() {
     }, 300);
   }
 }
+function alert(a) {
+  window.alert(a);
+}
 </script>
 
 <template>
@@ -35,8 +38,8 @@ function displayTooltip() {
     :is="props.token.sn ? 'button' : 'div'"
     class="token"
     :popovertarget="props.token.sn ? `popover-${props.token.sn}` : null"
-    @mouseenter="displayTooltip()"
-    @focusin="displayTooltip()"
+    @mouseenter="alert($event);displayTooltip()"
+    @focusin1="console.log(2);displayTooltip()"
     @mouseleave="hideTooltip()"
     @blur="hideTooltip()"
   >
