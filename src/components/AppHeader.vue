@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BaseButton from './ui/BaseButton.vue'
+import BaseButton from "@/components/ui/BaseButton.vue";
 import BaseIcon from "@/components/ui/BaseIcon.vue";
 // import HamburgerIcon from "@/components/ui/HamburgerIcon.vue";
 import ThemeToggle from "@/components/ui/ThemeToggle.vue";

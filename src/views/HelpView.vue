@@ -29,7 +29,6 @@ const sections = [
 </template>
 
 <style scoped>
-
 h2 {
   margin-top: 0;
 }
@@ -49,5 +48,4 @@ h2 {
 .help-tabs :deep(.tabs-header .tab-title.active) {
   border-color: var(--bbl-c-text-2);
 }
-
 </style>

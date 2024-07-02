@@ -82,7 +82,7 @@ function click(event) {
   &.wide {
     width: 100%;
   }
-  
+
   /* Ripple effect */
   &.ripple {
     background-position: center;

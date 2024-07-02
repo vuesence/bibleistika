@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import BaseButton from '@/components/ui/BaseButton.vue'
 import type { PropType } from "vue";
 import VerseToken from "./VerseToken.vue";
+import BaseButton from "@/components/ui/BaseButton.vue";
 import BaseIcon from "@/components/ui/BaseIcon.vue";
 import { router } from "@/router";
 import { settings } from "@/composables/useAppSettings";
@@ -29,7 +29,8 @@ function displayWord(sn: string) {
   }
 }
 function copy(verse) {
-  navigator.clipboard.writeText(verse.text)
+  navigator.clipboard.writeText(`${verse.text} 
+    (${getVerseURI(verse.vid).book}${getVerseURI(verse.vid).chapterAndVerse})`);
 }
 </script>
 
