@@ -10,7 +10,7 @@ const { openSettingsDialog } = useAppSettings();
 
 <template>
   <header class="header">
-    <RouterLink :to="{ name: 'home' }">
+    <RouterLink :to="{ name: 'home' }" aria-label="Вернуться на главную страницу">
       <div class="logo">
         <BaseIcon size="30" name="logo" class="icon" />
         <svg class="title" viewBox="0 0 1194.000000 229.000000">

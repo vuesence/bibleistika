@@ -31,7 +31,8 @@ function displayTooltip() {
 </script>
 
 <template>
-  <button
+  <component
+    :is="props.token.sn ? 'button' : 'div'"
     class="token"
     :popovertarget="props.token.sn ? `popover-${props.token.sn}` : null"
     @mouseenter="displayTooltip()"
@@ -56,7 +57,7 @@ function displayTooltip() {
       :sc="props.token.sc"
       class="token-tooltip"
     />
-  </button>
+  </component>
 </template>
 
 <style scoped>
