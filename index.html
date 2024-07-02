@@ -7,8 +7,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.json" />
-    <script type="module" crossorigin src="/assets/index-CYU6hYRN.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CFG9lWoG.css">
+    <script type="module" crossorigin src="/assets/index-BLOOnTSd.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-D7tYhiL3.css">
   <!-- HTML Tags -->
 <title>Библеистика</title>
 <meta name="description" content="Изучении Библии по контекстам с помощью Конкорданса Стронга">
@@ -211,6 +211,9 @@ l-3 210 -29 42 c-25 35 -115 121 -127 121 -2 0 -16 -20 -31 -44z"/>
   body {
     /*position: initial;*/
     /* position: fixed; */
+    
+    overflow-x: hidden;
+    margin-right: calc(-1 * (100vw - 100%));
   }
   body.splash {
     overflow-y: hidden;
@@ -232,11 +235,13 @@ l-3 210 -29 42 c-25 35 -115 121 -127 121 -2 0 -16 -20 -31 -44z"/>
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
     color: #eee;
     opacity: 1;
     /* opacity: 0.8; */
     display: none;
+    overflow-x: hidden;
+    margin-right: calc(-1 * (100vw - 100%));
   }
 
   .splash-screen.fade-out {
