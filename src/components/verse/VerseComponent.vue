@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import BaseButton from '@/components/ui/BaseButton.vue'
 import type { PropType } from "vue";
 import VerseToken from "./VerseToken.vue";
 import BaseIcon from "@/components/ui/BaseIcon.vue";
@@ -27,6 +28,9 @@ function displayWord(sn: string) {
     router.push({ name: "verse-lemma", params: { vid: props.verse.vid, sn } });
   }
 }
+function copy(verse) {
+  navigator.clipboard.writeText(verse.text)
+}
 </script>
 
 <template>
@@ -47,9 +51,14 @@ function displayWord(sn: string) {
         @click="displayWord(token.sn)"
       />
     </div>
-    <router-link :to="{ name: 'verse', params: { vid: verse.vid } }" class="anchor">
-      <BaseIcon size="16" class="icon" name="arrow-out" title="Перейти к этому стиху" />
-    </router-link>
+    <div class="actions">
+      <router-link :to="{ name: 'verse', params: { vid: verse.vid } }" class="anchor">
+        <BaseIcon size="16" class="icon" name="arrow-out" title="Перейти к этому стиху" />
+      </router-link>
+      <BaseButton class="copy icon ripple" aria-label="Копировать стих" title="Скопировать стих" @click="copy(verse)">
+        <BaseIcon size="20" name="copy" />
+      </BaseButton>
+    </div>
   </div>
 </template>
 
@@ -82,13 +91,23 @@ function displayWord(sn: string) {
     }
   }
 
-  .anchor {
-    margin-left: 0.5em;
-    margin-top: 0.5em;
-    color: var(--bbl-c-text-3);
-
-    &:hover {
-      color: var(--bbl-c-text-1);
+  .actions {
+    margin: 0.1em 0 0 0.5em;
+    /* color: var(--bbl-c-text-3); */
+    .anchor, .copy {
+      color: var(--bbl-c-text-3);
+      transition: color 0.3s ease-out;
+      &:hover {
+        color: var(--bbl-c-text-1);
+      }
+    }
+    .copy {
+      /* display: block; */
+      margin-top: 6px;
+      /* cursor: pointer; */
+      /* &:hover {
+        color: var(--bbl-c-text-1);
+      } */
     }
   }
 }

@@ -21,7 +21,7 @@
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
+  /* grid-auto-rows: minmax(100px, auto); */
 
   .mobile &,
   .tablet & {

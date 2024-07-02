@@ -35,8 +35,8 @@ function click(event) {
   border-radius: 4px;
   border-color: var(--bbl-c-border);
   font-weight: 700;
-  min-height: 2.0em;
-  min-width: 2em;
+  /* min-height: 2.0em; */
+  /* min-width: 2em; */
   padding: 0 1em;
 
   &:not(.text) {
@@ -50,6 +50,15 @@ function click(event) {
 
   &.alight {
     background-image: linear-gradient(to right, #0686f3, #5a45ed);
+  }
+
+  &.icon {
+    background:transparent;
+    border: 0;
+    padding: 0;
+    &:hover {
+      background-color:transparent;
+    }
   }
 
   &.high {
@@ -72,6 +81,20 @@ function click(event) {
 
   &.wide {
     width: 100%;
+  }
+  
+  /* Ripple effect */
+  &.ripple {
+    background-position: center;
+    transition: background 0.9s;
+    &:hover {
+      background: #fff radial-gradient(circle, transparent 1%, #e5e2f5 1%) center/15000%;
+    }
+    &:active {
+      background-color: #e5e2f5;
+      background-size: 100%;
+      transition: background 0s;
+    }
   }
 }
 </style>

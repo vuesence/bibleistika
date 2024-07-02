@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import BaseButton from './ui/BaseButton.vue'
 import BaseIcon from "@/components/ui/BaseIcon.vue";
 // import HamburgerIcon from "@/components/ui/HamburgerIcon.vue";
 import ThemeToggle from "@/components/ui/ThemeToggle.vue";
@@ -24,15 +25,15 @@ const { openSettingsDialog } = useAppSettings();
       </RouterLink>
     </div> -->
     <div class="right-pane">
-      <button class="search-btn" title="Поиск" @click="router.push({ name: 'search-view' })">
+      <BaseButton class="search-btn icon ripple" title="Поиск" @click="router.push({ name: 'search-view' })">
         <BaseIcon name="search" />
-      </button>
-      <button class="settings-btn" title="Настройки" @click="openSettingsDialog">
+      </BaseButton>
+      <BaseButton class="settings-btn icon ripple" title="Настройки" @click="openSettingsDialog">
         <BaseIcon name="settings" />
-      </button>
-      <button class="help-btn" title="Помощь" @click="router.push({ name: 'help' })">
+      </BaseButton>
+      <BaseButton class="help-btn icon ripple" title="Помощь" @click="router.push({ name: 'help' })">
         <BaseIcon name="help" />
-      </button>
+      </BaseButton>
       <ThemeToggle />
     </div>
     <!-- <HamburgerIcon v-model="isDrawerOpen" class="drawer-toggle" /> -->

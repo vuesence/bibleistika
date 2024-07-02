@@ -60,11 +60,4 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-a {
-  text-decoration: underline;
-  color: var(--bbl-c-text-2);
-  &:hover {
-    color: var(--bbl-c-text-1);
-  }
-}
 </style>

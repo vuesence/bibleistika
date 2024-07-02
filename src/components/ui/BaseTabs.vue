@@ -63,7 +63,7 @@ function handleClick(index) {
         color: var(--bbl-c-text-1);
       }
       &.active {
-        color: var(--bbl-c-text-2);
+        color: var(--bbl-c-text-1);
       }
     }
   }

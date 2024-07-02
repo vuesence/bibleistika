@@ -35,6 +35,10 @@
 
 html {
   line-height: 1.4;
+  scrollbar-gutter: stable both-edges;
+  &:has(body.mobile) {
+    scrollbar-gutter: unset;
+  }
   /* -webkit-text-size-adjust: 100%; */
   /* overflow-x: hidden;
   margin-right: calc(-1 * (100vw - 100%)); */
@@ -68,6 +72,7 @@ body {
   /* width: var(--bbl-layout-max-width); */
   max-width: var(--bbl-layout-max-width);
   margin: 0 auto;
+  
 }
 
 #app {
@@ -75,9 +80,14 @@ body {
 }
 
 a {
-  color: inherit;
-  text-decoration: inherit;
+  /* color: inherit; */
+  /* text-decoration: inherit; */
   transition: color .25s;
+  text-decoration: underline;
+  color: var(--bbl-c-text-2);
+  &:hover {
+    color: var(--bbl-c-text-1);
+  }
 }
 
 ol,
