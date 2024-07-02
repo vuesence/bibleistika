@@ -21,15 +21,12 @@ function hideTooltip() {
   showTooltip.value = false;
 }
 
-function displayTooltip() {
-  if (props.token.sc) {
+function displayTooltip($event) {
+  if (props.token.sc && !$event.sourceCapabilities?.firesTouchEvents) {
     timeout = setTimeout(() => {
       showTooltip.value = true;
     }, 300);
   }
-}
-function alert(a) {
-  window.alert(a);
 }
 </script>
 
@@ -38,8 +35,8 @@ function alert(a) {
     :is="props.token.sn ? 'button' : 'div'"
     class="token"
     :popovertarget="props.token.sn ? `popover-${props.token.sn}` : null"
-    @mouseenter="alert($event);displayTooltip()"
-    @focusin1="console.log(2);displayTooltip()"
+    @mouseenter="displayTooltip($event)"
+    @focusin="() => {}"
     @mouseleave="hideTooltip()"
     @blur="hideTooltip()"
   >
