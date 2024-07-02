@@ -50,7 +50,7 @@
 
 .aside {
   grid-column: 5 / 7;
-  grid-row: 1 / 5;
+  grid-row: 1 / 3;
 
   .notebook &,
   .desktop & {
