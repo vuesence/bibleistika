@@ -50,7 +50,7 @@ function handleClick(index) {
   .tabs-header {
     display: flex;
     justify-content: left;
-    color: var(--bbl-c-text-3);
+    color: var(--bbl-c-text-2);
 
     .tab-title {
       text-align: center;
