@@ -35,7 +35,10 @@
 
 html {
   line-height: 1.4;
-  -webkit-text-size-adjust: 100%;
+  /* -webkit-text-size-adjust: 100%; */
+  /* overflow-x: hidden;
+  margin-right: calc(-1 * (100vw - 100%)); */
+  /* scrollbar-gutter: stable both-edges; */
 }
 
 html.dark {
