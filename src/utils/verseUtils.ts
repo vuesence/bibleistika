@@ -6,10 +6,10 @@ import { getSC } from "@/composables/useStrongsConcordance";
 const verseCache: Map<string, Verse> = new Map();
 
 export function rebuildVerseSC() {
-  for (let verse of verseCache.values()) {
+  for (const verse of verseCache.values()) {
     verse.tokens.forEach((vt) => {
       vt.sc = getSC(vt.sn) ?? null;
-    })
+    });
   }
 }
 

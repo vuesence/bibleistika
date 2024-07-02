@@ -7,10 +7,10 @@ import { useAppLoader } from "@/composables/useAppLoader";
 const { startLoading, stopLoading } = useAppLoader();
 
 interface IOptions {
-  baseUrl: string;
-  headers?: Record<string, string>;
-  token?: Function;
-  logout?: Function;
+  baseUrl: string
+  headers?: Record<string, string>
+  token?: Function
+  logout?: Function
 }
 
 let options: IOptions = { baseUrl: "/" };
@@ -35,7 +35,7 @@ const http = {
       startLoading();
       return raw
         ? await fetch(url)
-        : await fetch(url).then((response) => response.json());
+        : await fetch(url).then(response => response.json());
     } catch (error) {
       console.log(error);
     } finally {
@@ -51,7 +51,7 @@ async function postFetch(data: any, uri: string) {
     headers: options.headers,
     // credentials: "include",
     body: JSON.stringify(data),
-  }).then((response) => response.json());
+  }).then(response => response.json());
 }
 
 export default http;
