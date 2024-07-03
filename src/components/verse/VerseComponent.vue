@@ -30,7 +30,7 @@ function displayWord(sn: string) {
 }
 function copy(verse) {
   navigator.clipboard.writeText(`${verse.text} 
-    (${getVerseURI(verse.vid).book}${getVerseURI(verse.vid).chapterAndVerse})`);
+    (${getVerseURI(verse.vid).book} ${getVerseURI(verse.vid).chapterAndVerse})`);
 }
 </script>
 

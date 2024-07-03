@@ -28,6 +28,7 @@ function doSearch() {
 }
 </script>
 
+<!-- eslint-disable vuejs-accessibility/no-autofocus -->
 <template>
   <div class="search-bar">
     <div class="search-field">
