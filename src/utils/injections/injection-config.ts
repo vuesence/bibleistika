@@ -13,6 +13,7 @@ export const htmlInjectionConfig: IHtmlInjectionConfig = {
       path: "./src/utils/injections/splash-screen.html",
       type: "raw",
       injectTo: "body-prepend",
+      buildModes: "prod",
     },
     {
       name: "Splash screen / logo.svg",

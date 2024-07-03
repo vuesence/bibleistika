@@ -38,20 +38,15 @@ const bible = {
   },
 
   async loadStrongsConcordance() {
-    return await (await http.get(`${bibleApiUrl}/strongs-dictionary.txt`, true)).text();
+    return (await http.get(`${bibleApiUrl}/strongs-dictionary.txt`, true)).text();
   },
 
   async loadLemmaOccurrences(sn: string) {
-    return buildVerses(
-      await http.get(`${apiUrl}/lemma-occurences.php?sn=${sn}`),
-      // await http.get(`${apiUrl}/verse/lemma-occurences.php?sn=${sn}`),
-    );
+    return http.get(`${apiUrl}/lemma-occurences.php?sn=${sn}`);
   },
 
   async loadSearchResults(searchString: string) {
-    return buildVerses(
-      await http.get(`${apiUrl}/search.php?search=${searchString}`),
-    );
+    return http.get(`${apiUrl}/search.php?search=${searchString}`);
   },
 
   async loadDict(sn: string, type: string) {

@@ -1,20 +1,13 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
-// import { api } from "@/services/api";
+// import { onMounted } from "vue";
+import VerseSection from "@/components/verse/VerseSection.vue";
+import { addFirstVerse } from "@/utils/verseUtils";
 
-// interface IOption {
-//   name: string
-//   value: string
-// }
-
-// const apiData = ref();
-
-onMounted(async () => {
-  // apiData.value = await api.utils.testRest();
-});
+addFirstVerse();
 </script>
 
 <template>
+  <VerseSection vid="1:1:1" />
   <div>
     <h2>Библеистика</h2>
     <p>

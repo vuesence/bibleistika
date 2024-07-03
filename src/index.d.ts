@@ -6,12 +6,12 @@ interface VerseToken {
 }
 
 interface Verse {
-  data: string
+  data?: string
   vid: string
   tokens: Token[]
   text: string
-  sourceLang: string
-  translationTitle: string
+  sourceLang?: string
+  translationTitle?: string
 }
 
 interface StrongsConcordance {

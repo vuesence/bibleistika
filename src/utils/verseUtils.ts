@@ -1,6 +1,4 @@
-// import { ref, watch } from "vue";
 import { api } from "@/services/api";
-// import { Verse } from "../models/Verse";
 import { getSC } from "@/utils/strongsConcordanceUtils";
 
 const verseCache: Map<string, Verse> = new Map();
@@ -30,6 +28,8 @@ export async function loadVerse(vid): Promise<Verse> {
     }
     verse = verseCache.get(vid);
   }
+  // console.log(verse);
+
   return verse;
 }
 
@@ -104,4 +104,9 @@ function buildVerseToken(_tn: string, _sn?: string): VerseToken {
     // vt.ow = getSC(_sn)?.lemma ?? "";
   }
   return vt;
+}
+
+export function addFirstVerse() {
+  const v = "В начале₋7225` `сотворил₋1254` `Бог₋430` `небо₋8064` `и₋853` `землю₋776`.";
+  verseCache.set("1:1:1", buildVerseFromString("1:1:1", v, "H"));
 }

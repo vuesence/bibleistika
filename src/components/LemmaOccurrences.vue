@@ -2,6 +2,7 @@
 import { onMounted, ref } from "vue";
 import { api } from "../services/api";
 import VerseList from "./verse/VerseList.vue";
+import { buildVerses } from "@/utils/verseUtils";
 
 const props = defineProps({
   sn: {
@@ -13,7 +14,7 @@ const props = defineProps({
 const verses = ref([]);
 
 onMounted(async () => {
-  verses.value = await api.bible.loadLemmaOccurrences(props.sn);
+  verses.value = buildVerses(await api.bible.loadLemmaOccurrences(props.sn));
 });
 </script>
 

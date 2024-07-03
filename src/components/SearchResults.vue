@@ -2,6 +2,7 @@
 import { ref, watch } from "vue";
 import { api } from "../services/api";
 import VerseList from "./verse/VerseList.vue";
+import { buildVerses } from "@/utils/verseUtils";
 
 const props = defineProps({
   searchString: {
@@ -14,7 +15,7 @@ const verses = ref([]);
 
 watch(() => props.searchString, async () => {
   if (props.searchString) {
-    verses.value = await api.bible.loadSearchResults(props.searchString);
+    verses.value = buildVerses(await api.bible.loadSearchResults(props.searchString));
   }
 }, { immediate: true });
 </script>
