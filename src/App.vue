@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { useScreenWidth } from "@/composables/useScreenWidth";
-import { useSplashScreen } from "@/composables/useSplashScreen";
+import { removeSplashScreen } from "@/utils/splashScreenUtils";
 import AppHeader from "@/components/AppHeader.vue";
 import AppFooter from "@/components/AppFooter.vue";
 import SettingsDialog from "@/components/settings/SettingsDialog.vue";
@@ -16,11 +16,10 @@ useScreenWidth({
   desktop: 10000,
 });
 
-useSplashScreen();
-
 const settingsDialog = ref();
 onMounted(() => {
   useAppSettings().setSettingsDialog(settingsDialog.value);
+  removeSplashScreen();
 });
 </script>
 

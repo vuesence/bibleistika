@@ -1,10 +1,5 @@
-import { computed, ref } from "vue";
 import { api } from "../services/api";
-// import { StrongsConcordance } from "../models/StrongsConcordance";
-import { rebuildVerseSC } from "../utils/verseUtils";
-
-const loaded = ref(false);
-// const sc = ref();
+import { rebuildVerseSC } from "./verseUtils";
 
 const dict: Map<string, StrongsConcordance> = new Map();
 const rawDict: Map<string, string> = new Map();
@@ -19,14 +14,6 @@ export function getSC(sn: string): StrongsConcordance | undefined {
     }
   }
   return _sc;
-}
-
-export function useStrongsConcordance(props) {
-  const sc = computed<StrongsConcordance>(() => {
-    return loaded.value ? getSC(props.sn) : null;
-  });
-
-  return { sc, getSC };
 }
 
 function buildSC(_sn: string, data: string) {
@@ -47,7 +34,6 @@ export async function loadStrongsConcordance() {
   data.split("\n").forEach((line: string) => {
     rawDict.set(line.substring(0, 5), line.substring(6));
   });
-  loaded.value = true;
   // sc.value = getSC(props.vid);
   rebuildVerseSC();
   // }, 3000);

@@ -10,7 +10,7 @@ import { router } from "./router";
 import { loadIcons } from "@/utils/icons";
 import { initSettings } from "@/composables/useAppSettings";
 import { api } from "@/services/api";
-import { loadStrongsConcordance } from "@/composables/useStrongsConcordance";
+import { loadStrongsConcordance } from "@/utils/strongsConcordanceUtils";
 
 loadStrongsConcordance();
 

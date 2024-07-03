@@ -2,31 +2,6 @@
 /* // @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap");
 // @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); */
 
-:root {
-  /* // font-family: 'Roboto', sans-serif;
-  // font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  // line-height: 1.5;
-  // font-weight: 400;
-
-  // color-scheme: light dark;
-  // color: #213547;
-  // background-color: #ffffff;
-
-  // font-synthesis: none;
-  // text-rendering: optimizeLegibility;
-  // -webkit-font-smoothing: antialiased;
-  // -moz-osx-font-smoothing: grayscale;
-  // -webkit-text-size-adjust: 100%; */
-}
-
-/* @media screen and (min-width: 960px) {
-  html {
-    overflow-x: hidden;
-    margin-right: calc(-1 * (100vw - 100%));
-  }
-} */
-
-
 *,
 ::before,
 ::after {
@@ -40,7 +15,6 @@ html {
   &:has(body.mobile) {
     scrollbar-gutter: unset;
   }
-  /* -webkit-text-size-adjust: 100%; */
   /* overflow-x: hidden;
   margin-right: calc(-1 * (100vw - 100%)); */
   /* scrollbar-gutter: stable both-edges; */
@@ -179,8 +153,8 @@ input::-webkit-inner-spin-button {
 }
 
 input[type='number'] {
-  -moz-appearance: textfield;
+  appearance: textfield;
 }
 select {
-  -webkit-appearance: none;
+  appearance: none;
 }

@@ -1,9 +1,6 @@
 <script setup lang="ts">
-// import { useRoute } from "vue-router";
-// import { useVerseUtils } from "../utils/verseUtils";
 import SearchPanel from "@/components/SearchPanel.vue";
 import SearchResults from "@/components/SearchResults.vue";
-// import { useStrongsConcordance } from "@/composables/useStrongsConcordance";
 import OneColumnLayout from "@/layouts/OneColumnLayout.vue";
 
 defineProps({

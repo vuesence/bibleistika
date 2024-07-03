@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import BaseIcon from "./ui/BaseIcon.vue";
 import BaseButton from "@/components/ui/BaseButton.vue";
 // import { defineProps } from "vue";
 // import { StrongsConcordance } from "../models/StrongsConcordance";
 import { router } from "@/router";
-import { useStrongsConcordance } from "@/composables/useStrongsConcordance";
+import { getSC } from "@/utils/strongsConcordanceUtils";
 
 const props = defineProps({
   sn: {
@@ -14,7 +14,12 @@ const props = defineProps({
   },
 });
 
-const { sc } = useStrongsConcordance(props);
+const sc = ref(getSC(props.sn));
+if (!sc.value) {
+  setTimeout(() => {
+    sc.value = getSC(props.sn);
+  }, 1000);
+}
 
 const audioUrl = computed(() => `https://4bbl.ru/data/strong/${props.sn.startsWith("H")
   ? "hebrew"

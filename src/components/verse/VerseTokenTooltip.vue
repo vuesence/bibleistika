@@ -6,7 +6,7 @@ import {
   offset,
   shift,
 } from "@floating-ui/dom";
-import { getSC } from "@/composables/useStrongsConcordance";
+import { getSC } from "@/utils/strongsConcordanceUtils";
 
 const props = defineProps({
   sc: {

@@ -1,10 +1,6 @@
 <script setup lang="ts">
-// import { ref, watch } from "vue";
-// import { useRoute } from "vue-router";
 import VerseSection from "../components/verse/VerseSection.vue";
 import LemmaDescription from "../components/LemmaDescription.vue";
-// import { loadVerse, useVerseUtils } from "../utils/verseUtils";
-// import { useStrongsConcordance } from "@/composables/useStrongsConcordance";
 import TwoColumnLayout from "@/layouts/TwoColumnLayout.vue";
 
 const props = defineProps({
@@ -16,10 +12,6 @@ const props = defineProps({
     type: String,
   },
 });
-
-// const { verse } = useVerseUtils(props);
-
-// const { sc } = useStrongsConcordance(props);
 </script>
 
 <template>
