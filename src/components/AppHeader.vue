@@ -57,6 +57,9 @@ const { openSettingsDialog } = useAppSettings();
     max-width: 200px;
     display: flex;
     align-items: center;
+    .mobile & {
+      max-width: 140px;
+    }
 
     .title {
       margin-left: 0.6rem;

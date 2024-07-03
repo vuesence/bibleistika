@@ -1,51 +1,61 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import BaseTabs from "@/components/ui/BaseTabs.vue";
-import HelpAppAbout from "@/components/help/HelpAppAbout.vue";
-import HelpAppUsage from "@/components/help/HelpAppUsage.vue";
-import HelpAppExample from "@/components/help/HelpAppExample.vue";
-
-const selected = ref(0);
+import BaseButton from "../components/ui/BaseButton.vue";
+import { router } from "@/router";
 
 const sections = [
-  { title: "О приложении", component: HelpAppAbout },
-  { title: "Использование", component: HelpAppUsage },
-  { title: "Пример", component: HelpAppExample },
+  { title: "О приложении", name: "help-about" },
+  { title: "Использование", name: "help-usage" },
+  { title: "Пример", name: "help-example" },
 ];
+console.log(router.currentRoute.value);
 </script>
 
 <template>
-  <div class="help-tabs">
+  <div class="help">
     <h2>Справка</h2>
-    <BaseTabs v-model="selected" :sections="sections" :hidable-tabs="false">
-      <template #tabTitle="{ section }">
+    <div class="buttons">
+      <BaseButton
+        v-for="(section, index) in sections"
+        :key="index"
+        class="button"
+        :class="{ selected: section.name === router.currentRoute.value.name }"
+        @click="router.push({ name: section.name })"
+        @keyup="router.push({ name: section.name })"
+      >
         {{ section.title }}
-      </template>
-      <template #tabComponent="{ selectedTab }">
-        <component :is="sections[selectedTab].component" />
-      </template>
-    </BaseTabs>
+      </BaseButton>
+    </div>
+    <router-view />
   </div>
 </template>
 
 <style scoped>
 h2 {
   margin-top: 0;
+  text-align: center;
 }
-
-.help-tabs :deep(.tabs-header .tab-title) {
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-bottom: 2em;
+  .mobile & {
+    justify-content: space-between;
+    gap: unset;
+    &:deep(.base-button) {
+      letter-spacing: 0;
+    }
+  }
+}
+.button {
   border: 1px solid var(--bbl-c-border);
-  border-radius: 3px;
-  padding: 3px 10px;
-  min-width: 9em;
   white-space: nowrap;
 }
-.mobile .help-tabs :deep(.tabs-header .tab-title) {
-  margin-right: 0.7em;
+.mobile .button {
   padding: 3px 4px;
-  min-width: 7em;
-}
-.help-tabs :deep(.tabs-header .tab-title.active) {
-  border-color: var(--bbl-c-text-2);
+  min-width: 9em;
+  &.active {
+    border-color: var(--bbl-c-text-2);
+  }
 }
 </style>

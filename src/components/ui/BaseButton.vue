@@ -65,7 +65,7 @@ function click(event) {
     min-height: 44px;
   }
 
-  &:hover {
+  &:hover, &.selected {
     opacity: 1;
     color: var(--bbl-c-text-2);
     background-color: var(--bbl-c-bg-hglt);

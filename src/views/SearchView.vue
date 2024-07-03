@@ -11,31 +11,20 @@ defineProps({
     type: String,
     default: null,
   },
-  // sn: {
-  //   type: String,
-  //   // default: "1:1:1",
-  // },
-  // mode: {
-  //   type: String,
-  //   default: "",
-  // },
 });
-
-// const showOccurrences = ref(false);
-// const route = useRoute();
-
-// watch(() => route.name, () => {
-//   showOccurrences.value = false;
-// });
 </script>
 
 <template>
   <OneColumnLayout>
+    <h2>Поиск</h2>
     <SearchPanel />
     <SearchResults v-if="searchString" :search-string="searchString" />
   </OneColumnLayout>
 </template>
 
 <style scoped>
-
+h2 {
+  margin-top: 0;
+  text-align: center;
+}
 </style>

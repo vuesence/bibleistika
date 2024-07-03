@@ -2,13 +2,13 @@ import type { RouteRecordRaw } from "vue-router";
 import VerseView from "@/views/VerseView.vue";
 import HomeView from "@/views/HomeView.vue";
 import HelpView from "@/views/HelpView.vue";
+import HelpAbout from "@/components/help/HelpAbout.vue";
+import HelpUsage from "@/components/help/HelpUsage.vue";
+import HelpExample from "@/components/help/HelpExample.vue";
 import LemmaView from "@/views/LemmaView.vue";
 import SearchView from "@/views/SearchView.vue";
-// import LemmaDescription from "@/components/LemmaDescription.vue";
-import AboutView from "@/views/AboutView.vue";
 import LemmaOccurrences from "@/components/LemmaOccurrences.vue";
 import LemmaDictionaryArticle from "@/components/LemmaDictionaryArticle.vue";
-// import ContactsView from "@/views/ContactsView.vue";
 
 const routes: RouteRecordRaw[] = [
   // {
@@ -91,14 +91,27 @@ const routes: RouteRecordRaw[] = [
     component: SearchView,
   },
   {
-    path: "/about",
-    name: "about",
-    component: AboutView,
-  },
-  {
     path: "/help",
     name: "help",
     component: HelpView,
+    redirect: "/help/about",
+    children: [
+      {
+        name: "help-about",
+        path: "about",
+        component: HelpAbout,
+      },
+      {
+        name: "help-usage",
+        path: "usage",
+        component: HelpUsage,
+      },
+      {
+        name: "help-example",
+        path: "example",
+        component: HelpExample,
+      },
+    ],
   },
 ];
 

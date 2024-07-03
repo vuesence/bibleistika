@@ -55,6 +55,9 @@ onMounted(() => {
     padding: 1em 2em;
     margin-top: 1em;
     z-index: 2;
+    .mobile & {
+      padding: 1em 1em;
+    }
   }
 }
 

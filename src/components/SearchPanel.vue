@@ -38,7 +38,7 @@ function doSearch() {
           autofocus
           name="search"
           type="text"
-          placeholder="Поиск.."
+          placeholder="Введите слово.."
           autocomplete="off"
           @keypress.enter="doSearch"
         />
