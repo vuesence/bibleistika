@@ -9,7 +9,7 @@ const links = [
 ];
 
 const socials = [
-  // { name: "twitter", url: "https://twitter.com/acme" },
+  { name: "telegram", title: "Связаться с автором", url: "https://t.me/RuslanMakarov" },
   // { name: "youtube", url: "https://youtube.com/acme" },
   // { name: "instagram", url: "https://instagram.com/acme" },
 ];
@@ -33,7 +33,7 @@ const socials = [
     </div>
     <div class="socials">
       <a v-for="social in socials" :key="social.name" :href="social.url" target="_blank">
-        <button>
+        <button :title="social.title">
           <BaseIcon size="18" :name="social.name" fill11="none" />
         </button>
       </a>

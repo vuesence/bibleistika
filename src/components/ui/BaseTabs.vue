@@ -16,7 +16,7 @@ const props = defineProps({
 const selected = defineModel<number>();
 
 function handleClick(index) {
-  (props.hidableTabs && selected.value === index) ? selected.value = -1 : selected.value = index;
+  selected.value = (props.hidableTabs && selected.value === index) ? -1 : index;
 }
 </script>
 

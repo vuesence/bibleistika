@@ -9,8 +9,8 @@ const { startLoading, stopLoading } = useAppLoader();
 interface IOptions {
   baseUrl: string
   headers?: Record<string, string>
-  token?: Function
-  logout?: Function
+  token?: () => string
+  logout?: () => void
 }
 
 let options: IOptions = { baseUrl: "/" };
