@@ -57,7 +57,7 @@ function go(direction: string) {
     }
   }
   .nav-button {
-    height: 1.5em;
+    height: 2.2em;
     width: 5em;
     margin-left: 1.5em;
     padding: 0 1em;
