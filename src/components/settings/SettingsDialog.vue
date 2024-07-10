@@ -82,6 +82,7 @@ dialog {
 dialog[open] {
   opacity: 1;
   transform: scaleY(1);
+  border-radius: 7px;
 }
 
 /*   Closed state of the dialog   */
@@ -104,6 +105,7 @@ dialog {
   dialog[open] {
     opacity: 0;
     transform: scaleY(0.6);
+    border-radius: 7px;
   }
 }
 

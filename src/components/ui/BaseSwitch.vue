@@ -13,7 +13,7 @@ const model = defineModel({ type: Boolean });
 /* The switch - the box around the slider */
 .switch {
   --switch-width: 36px;
-  --switch-height: 20px;
+  --switch-height: 19px;
   --switch-slider: 15px;
   position: relative;
   display: inline-block;
@@ -47,7 +47,7 @@ const model = defineModel({ type: Boolean });
   height: var(--switch-slider);
   width: var(--switch-slider);
   left: 3px;
-  bottom: 3px;
+  bottom: 2px;
   background-color: var(--bbl-c-bg-soft);
   -webkit-transition: .4s;
   transition: .4s;
