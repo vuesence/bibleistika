@@ -79,6 +79,7 @@ const socials = [
     .link {
       display: block;
       appearance: none;
+      text-decoration: none;
       color: var(--bbl-c-text-2);
       margin: 5px 10px;
       -webkit-tap-highlight-color: var(--bbl-c-bg);

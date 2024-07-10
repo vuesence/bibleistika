@@ -43,7 +43,7 @@ function onClick($event) {
       <header>
         <h3>Настройки</h3>
         <BaseButton class="close-btn">
-          Close
+          Закрыть
         </BaseButton>
       </header>
 
