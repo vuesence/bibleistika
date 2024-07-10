@@ -31,7 +31,7 @@ body {
   margin: 0;
   width: 100%;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 100svh;
   line-height: 24px;
   font-family: var(--bbl-font-family-base);
   font-size: var(--bbl-font-size);
