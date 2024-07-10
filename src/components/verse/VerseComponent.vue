@@ -54,7 +54,7 @@ function copy(verse) {
     </div>
     <div class="actions">
       <router-link :to="{ name: 'verse', params: { vid: verse.vid } }" class="anchor">
-        <BaseIcon size="16" class="icon" name="arrow-out" title="Перейти к этому стиху" />
+        <BaseIcon size="20" class="icon" name="arrow-out" title="Перейти к этому стиху" />
       </router-link>
       <BaseButton class="copy icon ripple" aria-label="Копировать стих" title="Скопировать стих" @click="copy(verse)">
         <BaseIcon size="20" name="copy" />
@@ -66,6 +66,7 @@ function copy(verse) {
 <style scoped>
 .verse {
   display: flex;
+  margin-top: 1em;
 
   .uri {
     color: var(--bbl-c-text-2);
@@ -83,7 +84,7 @@ function copy(verse) {
     flex-wrap: wrap;
     flex-grow: 1;
     row-gap: 0.3em;
-    margin-bottom: 1em;
+    /* margin-bottom: 1em; */
     padding-bottom: 0.6em;
     border-bottom: 1px solid var(--bbl-c-divider);
 
@@ -93,18 +94,31 @@ function copy(verse) {
   }
 
   .actions {
-    margin: 0.1em 0 0 0.5em;
+    margin: 0.1em 0 0.4em 0.5em;
     /* color: var(--bbl-c-text-3); */
+    display: flex;
+    justify-content: center;
+    /* .notebook &, .desktop & { */
+    /* height: fit-content; */
+    align-items: flex-end;
+    .mobile &, .tablet & {
+      flex-direction: column;
+    }
     .anchor, .copy {
-      color: var(--bbl-c-text-3);
+      color: var(--bbl-c-divider);
       transition: color 0.3s ease-out;
       &:hover {
-        color: var(--bbl-c-text-1);
+        color: var(--bbl-c-text-3);
       }
     }
     .copy {
       /* display: block; */
       margin-top: 6px;
+      margin-left: 10px;
+      .mobile &, .tablet & {
+        margin-top: 0.7em;
+        margin-left: 0;
+      }
       /* cursor: pointer; */
       /* &:hover {
         color: var(--bbl-c-text-1);
