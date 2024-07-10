@@ -4,8 +4,8 @@ import BaseIcon from "@/components/ui/BaseIcon.vue";
 const links = [
   // { title: "Contact", route: { name: "contacts" } },
   { title: "Главная", route: { name: "home" } },
-  { title: "Справка", route: { name: "help" } },
   { title: "Поиск", route: { name: "search-view" } },
+  { title: "Справка", route: { name: "help" } },
 ];
 
 const socials = [
@@ -18,14 +18,16 @@ const socials = [
 <template>
   <!-- eslint-disable style/max-len -->
   <footer class="footer">
-    <div class="logo">
-      <BaseIcon size="26" name="logo" class="icon" />
+    <RouterLink :to="{ name: 'home' }" aria-label="Вернуться на главную страницу">
+      <div class="logo">
+        <BaseIcon size="26" name="logo" class="icon" />
       <!-- <div class="title"> -->
-      <svg class="title" viewBox="0 0 1194.000000 229.000000">
+      <!-- <svg class="title" viewBox="0 0 1194.000000 229.000000">
         <use xlink:href="#title"></use>
-      </svg>
+      </svg> -->
       <!-- </div> -->
-    </div>
+      </div>
+    </RouterLink>
     <div class="links">
       <RouterLink v-for="link in links" :key="link.title" class="link" :to="link.route">
         {{ link.title }}
@@ -34,7 +36,7 @@ const socials = [
     <div class="socials">
       <a v-for="social in socials" :key="social.name" :href="social.url" target="_blank">
         <button :title="social.title">
-          <BaseIcon size="18" :name="social.name" fill11="none" />
+          <BaseIcon size="18" :name="social.name" />
         </button>
       </a>
     </div>
@@ -84,6 +86,9 @@ const socials = [
       margin: 5px 10px;
       -webkit-tap-highlight-color: var(--bbl-c-bg);
       font-size: 0.8rem;
+      /* .mobile & {
+        margin: 5px 5px;
+      } */
 
       &:hover {
         color: var(--bbl-c-text-1);

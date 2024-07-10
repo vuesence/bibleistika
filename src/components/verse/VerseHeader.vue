@@ -33,10 +33,10 @@ function go(direction: string) {
     <VerseSelectionDialog ref="dialog" />
 
     <BaseButton class="prev nav-button" aria-label="Предыдущая глава" @click="go('prev')">
-      <BaseIcon size="20" name="prev" class="icon" fill1="currentColor" />
+      <BaseIcon size="20" name="prev" class="icon" />
     </BaseButton>
     <BaseButton class="next nav-button" aria-label="Следующая глава" @click="go('next')">
-      <BaseIcon size="20" name="next" class="icon" fill1="currentColor" />
+      <BaseIcon size="20" name="next" class="icon" />
     </BaseButton>
   </div>
 </template>
