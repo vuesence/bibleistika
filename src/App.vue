@@ -28,12 +28,12 @@ onMounted(() => {
     <AppHeader />
     <AppLoaderBar />
     <main>
-      <!-- <router-view v-slot="{ Component }">
+      <router-view v-slot="{ Component }">
         <Transition mode="out-in">
           <component :is="Component" />
         </Transition>
-      </router-view> -->
-      <router-view />
+      </router-view>
+      <!-- <router-view /> -->
     </main>
     <AppFooter />
     <SettingsDialog ref="settingsDialog" />
@@ -58,15 +58,5 @@ onMounted(() => {
       padding: 1em 1em;
     }
   }
-}
-
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
 }
 </style>

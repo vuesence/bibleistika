@@ -60,7 +60,7 @@ function playAudio() {
       </BaseButton>
     </div>
 
-    <div class="dictionary-links">
+    <div v-if="props.sn.startsWith('H')" class="dictionary-links">
       <span>Словари:</span>
       <BaseButton class="link" @click="go('lemma-bdb-dict')">
         BDB

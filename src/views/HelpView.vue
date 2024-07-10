@@ -7,7 +7,7 @@ const sections = [
   { title: "Использование", name: "help-usage" },
   { title: "Пример", name: "help-example" },
 ];
-console.log(router.currentRoute.value);
+// console.log(router.currentRoute.value);
 </script>
 
 <template>
@@ -25,7 +25,12 @@ console.log(router.currentRoute.value);
         {{ section.title }}
       </BaseButton>
     </div>
-    <router-view />
+    <router-view v-slot="{ Component }">
+      <Transition mode="out-in">
+        <component :is="Component" />
+      </Transition>
+    </router-view>
+    <!-- <router-view /> -->
   </div>
 </template>
 

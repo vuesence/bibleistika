@@ -1,5 +1,5 @@
 import http from "./http/http";
-import { buildVerses } from "@/utils/verseUtils";
+// import { buildVerses } from "@/utils/verseUtils";
 
 // const apiUrl = "http://192.168.1.101/api";
 const apiUrl = "https://bibleistika.alwaysdata.net";
