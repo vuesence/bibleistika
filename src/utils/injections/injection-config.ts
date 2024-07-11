@@ -34,5 +34,12 @@ export const htmlInjectionConfig: IHtmlInjectionConfig = {
       injectTo: "head",
       buildModes: "prod",
     },
+    {
+      name: "Google Analytics",
+      path: "./src/utils/injections/ga.html",
+      type: "raw",
+      injectTo: "body",
+      buildModes: "prod",
+    },
   ],
 };
