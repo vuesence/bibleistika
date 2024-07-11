@@ -88,10 +88,10 @@ function click(event) {
     background-position: center;
     transition: background 0.9s;
     &:hover {
-      background: #fff radial-gradient(circle, transparent 1%, #e5e2f5 1%) center/15000%;
+      background: var(--bbl-c-bg) radial-gradient(circle, transparent 1%, var(--bbl-c-alt) 1%) center/15000%;
     }
     &:active {
-      background-color: #e5e2f5;
+      background-color: var(--bbl-c-alt);
       background-size: 100%;
       transition: background 0s;
     }
