@@ -51,7 +51,7 @@ function playAudio() {
 <template>
   <article v-if="sc" class="lemma-desc">
     <h2>{{ sc.lemma }}</h2>
-    <h4>{{ sc.sn }}</h4>
+    <h3>{{ sc.sn }}</h3>
     <p class="desc" v-html="buildDesc(sc.desc)" />
 
     <div class="show-occurrences-wrapper">
@@ -101,6 +101,14 @@ function playAudio() {
 <style scoped>
 .lemma-desc {
   /* margin-left: 1em; */
+  h2 {
+    margin-bottom: 0.5em;
+  }
+  h3 {
+    margin: 0.2em 0;
+    font-size: 1em;
+    color: var(--bbl-c-text-3);
+  }
 
   .show-occurrences-wrapper {
     display: flex;
