@@ -39,6 +39,14 @@ import { settings } from "@/composables/useAppSettings";
         <BaseSwitch v-model="settings.showTooltipInList" />
       </div>
     </div>
+    <div class="row">
+      <div class="title">
+        Показывать Масоретский текст справа налево (как в оригинале):
+      </div>
+      <div class="value">
+        <BaseSwitch v-model="settings.showMasoreticRTL" />
+      </div>
+    </div>
   </section>
 </template>
 

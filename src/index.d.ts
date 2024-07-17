@@ -30,4 +30,5 @@ interface Settings {
   showStrongsLemma: boolean
   highlightSearch: boolean
   showTooltipInList: boolean
+  showMasoreticRTL: boolean
 }
