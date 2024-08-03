@@ -13,6 +13,7 @@ export const settings = reactive<Settings>(
     showStrongsLemma: true,
     highlightSearch: true,
     showTooltipInList: true,
+    showMasoreticRTL: true,
   },
 );
 
