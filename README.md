@@ -1,22 +1,25 @@
-# Vue 3 + TypeScript + Vite
+# Bibleistika
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+[Русская версия](README.ru.md)
 
-## Recommended Setup
+[bibleistika.ru](https://bibleistika.ru)
 
-- [VS Code](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (previously Volar) and disable Vetur
+Bibleistika is a web application for biblical studies that empowers users to explore and analyze the Bible through interactive text navigation and in-depth linguistic tools. Built with Vue 3, TypeScript, and Vite, it combines modern web development with advanced biblical text analysis to support both scholars and enthusiasts.
 
-- Use [vue-tsc](https://github.com/vuejs/language-tools/tree/master/packages/tsc) for performing the same type checking from the command line, or for generating d.ts files for SFCs.
+## Overview
 
-✓ 99 modules transformed.
-dist/index.html                   4.15 kB │ gzip:  1.34 kB
-dist/assets/logo-BgSvH78J.png    70.51 kB
-dist/assets/index-Bj0YnDvc.css   17.23 kB │ gzip:  4.17 kB
-dist/assets/index-Dhv_VUDL.js   158.39 kB │ gzip: 78.67 kB
-✓ built in 961ms
+Bibleistika helps you:
+- Navigate through books, chapters, and verses of the Bible.
+- Explore the original languages with access to Hebrew and Greek texts.
+- Utilize Strong's Concordance to view detailed lexical and grammatical information.
+- Discover cross references and related verses that enrich contextual understanding.
+- Perform morphological searches on the Russian translation (including forms from the Septuagint) to capture the full spectrum of word usage.
 
-dist/index.html                   4.15 kB │ gzip:  1.33 kB
-dist/assets/logo-BgSvH78J.png    70.51 kB
-dist/assets/index-CmHYao_v.css   21.87 kB │ gzip:  4.87 kB
-dist/assets/index-CvYWUyGt.js   207.02 kB │ gzip: 93.55 kB
-✓ built in 1.03s
+## Features
+
+- **Interactive Bible Navigation:** Easily select and read biblical texts by choosing books, chapters, and verses.
+- **Original Language Analysis:** View the Bible in its ancient languages complemented with Strong's numbers.
+- **Strong's Concordance Integration:** Click on words to see definitions, grammatical details, and related entries.
+- **Cross References:** Find links to other verses where the same or similar words and themes appear.
+- **Morphological Search:** Search by word or phrase with results that include different inflected forms.
+- **Contextual Insights:** Analyze semantic nuances and variations across different translations.
